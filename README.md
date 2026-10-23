@@ -1,6 +1,6 @@
 # 巨量引擎开放平台 OpenAPI SDK for PHP
 
-由 [`ad_open_sdk_go`](https://github.com/oceanengine/ad_open_sdk_go)（API version 1.1.97）全自动转译生成的 PHP SDK。
+由官方 [`ad_open_sdk_go`](https://github.com/oceanengine/ad_open_sdk_go)（API version 1.1.97）全自动转译生成的 PHP SDK。
 
 - **API 覆盖率 100%**：1261 个 API Service / 1261 个 Request builder，与 Go SDK 一一对应
 - **10917 个模型类**：enum 常量类 + struct DTO（`jsonSerialize` / `fromArray`）
@@ -8,32 +8,86 @@
 - **可测试**：HTTP transport 可注入（`ApiClient::setTransport`），方便 fake 测试
 - **中间件链**：鉴权、请求头、日志均为可插拔中间件
 
+| 项 | 值 |
+| --- | --- |
+| 仓库地址 | `http://gitea.example.com:3000/htmambo/oceanengine_php_sdk` |
+| 主分支 | `main` |
+| Composer 包名 | `htmambo/oceanengine_php_sdk` |
+| 命名空间 | `Oceanengine\`（PSR-4 → `src/`） |
+| 当前同步上游 | Go SDK `v1.1.97`（commit `1907e5f`） |
+| 许可 | Apache-2.0（与上游 Go SDK 一致） |
+
+## 仓库结构
+
+本仓库根目录即 Composer 包根目录：
+
+```
+.
+├── composer.json          # 包定义（PSR-4: Oceanengine\ -> src/）
+├── Makefile               # 上游同步相关入口：make sync / check / generate / test ...
+├── CHANGELOG.md           # 按上游版本分节的同步记录
+├── LICENSE                # Apache-2.0（沿用上游 Go SDK）
+├── docs/
+│   └── UPSTREAM_SYNC.md   # 与上游同步的完整说明
+├── src/
+│   ├── Client.php         # 顶级 Client（1261 个 service getter）
+│   ├── Configuration.php  # host / scheme / 默认头 / 超时与白名单开关
+│   ├── ApiClient.php      # HTTP 传输层：中间件链、cURL、响应解码
+│   ├── GenericOpenAPIError.php
+│   ├── FormFileInfo.php
+│   ├── Version.php        # 自动生成：VERSION / UPSTREAM_COMMIT / SYNCED_AT
+│   ├── Middleware/        # Auth / Header / Log
+│   ├── Api/               # 1261 个 *ApiService + Request builder（生成）
+│   └── Models/            # 10917 个模型类（生成）
+├── tests/
+│   ├── smoke.php          # 端到端冒烟（fake transport，离线）
+│   └── _core_smoke.php    # 核心层与安全行为断言
+├── tools/go2php/          # Go → PHP 转译器与同步工具链
+└── .github/workflows/     # CI：定时检查上游并自动开 PR
+```
+
+> `src/Api/`、`src/Models/`、`src/Client.php` 由转译器生成，**请勿手工修改**，会在下次同步时被覆盖。
+
 ## 安装
 
-本仓库包含 `composer.json`（PSR-4：`Oceanengine\` → `src/`）。
-
-**方式一：作为 path 仓库引入**
+### 方式一：Composer VCS 仓库（推荐）
 
 在你的项目 `composer.json` 中：
 
 ```json
 {
     "repositories": [
-        { "type": "path", "url": "../oceanengine/ad_open_sdk_php" }
+        { "type": "vcs", "url": "http://gitea.example.com:3000/htmambo/oceanengine_php_sdk.git" }
     ],
     "require": {
-        "oceanengine/ad_open_sdk_php": "*"
+        "htmambo/oceanengine_php_sdk": "*"
     }
 }
 ```
 
-**方式二：直接拷贝 + 简易 autoloader**
+然后 `composer update htmambo/oceanengine_php_sdk`。
+
+### 方式二：本地 path 仓库
+
+```json
+{
+    "repositories": [
+        { "type": "path", "url": "../ad_open_sdk_php" }
+    ],
+    "require": {
+        "htmambo/oceanengine_php_sdk": "*"
+    }
+}
+```
+
+### 方式三：直接拷贝源码 + 简易 autoloader
 
 ```php
 spl_autoload_register(static function (string $class): void {
     $prefix = 'Oceanengine\\';
     if (strncmp($class, $prefix, strlen($prefix)) === 0) {
-        $file = __DIR__ . '/ad_open_sdk_php/src/' . str_replace('\\', '/', substr($class, strlen($prefix))) . '.php';
+        $file = __DIR__ . '/ad_open_sdk_php/src/'
+            . str_replace('\\', '/', substr($class, strlen($prefix))) . '.php';
         if (is_file($file)) {
             require $file;
         }
@@ -197,12 +251,33 @@ $client->fileImageAdV2Api()->post()
 
 本 PHP SDK 由上游 [`ad_open_sdk_go`](https://github.com/oceanengine/ad_open_sdk_go) 全量转译生成，
 上游是唯一事实来源；`src/Models/`、`src/Api/`、`src/Client.php` 请勿手工修改，会被下次生成覆盖。
-上游发布新版本后，用下面两条命令完成同步与校验：
+
+上游发布新版本后，用下面两条命令完成同步与校验（在本仓库根目录执行）：
 
 ```bash
 make sync    # 拉取上游 → 重新生成 → parity 校验 → php -l → 冒烟测试 → 写 CHANGELOG
 make check   # 只读校验：上游是否有更新 + parity + lint + test（不改工作区）
 ```
+
+等价的 Composer 脚本：
+
+```bash
+composer sync     # 同 make sync
+composer check    # 同 make check
+composer parity   # 仅 Go ↔ PHP 一致性校验
+composer lint     # 仅全量 php -l
+composer test     # 仅冒烟测试
+```
+
+**上游路径**：默认取同级目录 `../ad_open_sdk_go`，可用环境变量或参数覆盖：
+
+```bash
+OCEANENGINE_UPSTREAM=/path/to/ad_open_sdk_go make sync
+make sync UPSTREAM=/path/to/ad_open_sdk_go
+```
+
+**CI**：`.github/workflows/sync-upstream.yml` 每周定时 + 手动触发，checkout 上游后执行同步，
+有文件变更时自动开 PR（不会自动合并）。
 
 详细说明（目录布局、手工三步同步、CI 行为、版本与发布、常见问题排查）见
 [`docs/UPSTREAM_SYNC.md`](docs/UPSTREAM_SYNC.md)。
@@ -211,4 +286,5 @@ make check   # 只读校验：上游是否有更新 + parity + lint + test（不
 
 - 代码由 `tools/go2php/` 转译器从 Go SDK 生成，请勿手工修改 `src/Api/` 与 `src/Client.php`
 - Go SDK 的 `examples/` 未逐一生成；各接口用法可对照 Go 同名文件的注释（已转译进 PHP 类与方法 docblock）
-- 冒烟测试：`php ad_open_sdk_php/tests/smoke.php`（无框架、可离线运行）；核心层测试：`php ad_open_sdk_php/tests/_core_smoke.php`
+- 冒烟测试：`php tests/smoke.php`（无框架、可离线运行）；核心层测试：`php tests/_core_smoke.php`
+- 本项目是官方 Go SDK 的衍生作品，遵循与上游相同的 Apache-2.0 许可

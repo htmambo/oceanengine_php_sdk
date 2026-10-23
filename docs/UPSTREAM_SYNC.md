@@ -1,6 +1,6 @@
 # 与上游 Go SDK 同步指南
 
-本文档面向使用 `oceanengine/ad_open_sdk_php` 的开发者与维护者，说明 PHP SDK 如何跟随上游
+本文档面向使用 `htmambo/oceanengine_php_sdk` 的开发者与维护者，说明 PHP SDK 如何跟随上游
 [`oceanengine/ad_open_sdk_go`](https://github.com/oceanengine/ad_open_sdk_go) 迭代，以及同步失败时如何排查。
 
 > 本文中的命令以**当前实现**为准；若与 CLI 的 `--help` 输出不一致，以 `--help` 为准

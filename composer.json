@@ -1,31 +1,55 @@
 {
-    "name": "oceanengine/ad_open_sdk_php",
-    "description": "巨量引擎开放平台 OpenAPI SDK for PHP，零第三方依赖，支持中间件链与可注入 HTTP transport",
-    "license": "MIT",
+    "name": "htmambo/oceanengine_php_sdk",
+    "description": "巨量引擎开放平台 OpenAPI SDK for PHP，由官方 ad_open_sdk_go 全量转译生成；零第三方依赖，支持中间件链与可注入 HTTP transport",
     "type": "library",
-    "authors": [
-        {
-            "name": "oceanengine-php-sdk contributors"
-        }
-    ],
+    "license": "Apache-2.0",
     "keywords": [
         "oceanengine",
         "巨量引擎",
+        "marketing-api",
         "openapi",
-        "sdk"
+        "sdk",
+        "php"
     ],
+    "homepage": "http://gitea.example.com:3000/htmambo/oceanengine_php_sdk",
+    "authors": [
+        {
+            "name": "htmambo"
+        }
+    ],
+    "support": {
+        "source": "http://gitea.example.com:3000/htmambo/oceanengine_php_sdk",
+        "issues": "http://gitea.example.com:3000/htmambo/oceanengine_php_sdk/issues",
+        "docs": "http://gitea.example.com:3000/htmambo/oceanengine_php_sdk/blob/main/docs/UPSTREAM_SYNC.md"
+    },
     "require": {
         "php": ">=8.0",
         "ext-curl": "*",
         "ext-json": "*"
     },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Oceanengine\\": "src/"
         }
     },
+    "config": {
+        "sort-packages": true
+    },
     "scripts": {
-        "test": "php tests/smoke.php && php tests/_core_smoke.php"
+        "test": "php tests/smoke.php && php tests/_core_smoke.php",
+        "lint": "python3 -c \"import sys; sys.path.insert(0, 'tools/go2php'); import sync; print('php -l OK (%d files)' % sync.run_lint('.'))\"",
+        "parity": "python3 tools/go2php/parity.py",
+        "sync": "python3 tools/go2php/sync.py",
+        "check": "python3 tools/go2php/sync.py --check"
+    },
+    "scripts-descriptions": {
+        "test": "运行两个冒烟测试（离线，不需要网络与 token）",
+        "lint": "对 src/ 与 tests/ 全量做 PHP 语法检查",
+        "parity": "校验 Go 上游与 PHP 产物的一致性（模型/枚举/接口/版本/引用）",
+        "sync": "拉取上游 Go SDK → 重新生成 → parity → lint → 测试 → 写 CHANGELOG",
+        "check": "只读校验：上游是否有待同步更新 + parity + lint + 测试"
     },
     "extra": {
         "upstream": {

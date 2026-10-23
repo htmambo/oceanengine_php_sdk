@@ -1,6 +1,6 @@
 # Changelog
 
-本文件记录 `oceanengine/ad_open_sdk_php` 的变更。PHP SDK 由
+本文件记录 `htmambo/oceanengine_php_sdk` 的变更。PHP SDK 由
 [`oceanengine/ad_open_sdk_go`](https://github.com/oceanengine/ad_open_sdk_go) 转译生成，
 上游版本是唯一事实来源；同步流程（`make sync` / `python3 tools/go2php/sync.py`）
 会自动按上游版本在本文件中追加条目。
@@ -16,6 +16,7 @@
   （覆盖情况见 README 的「API 覆盖率 100%」说明）。
 - 零第三方依赖的 HTTP 客户端（`ext-curl` / `ext-json`）、可插拔中间件链、可注入 transport。
 - 上游同步机制与 CI 自动检查（见 `docs/UPSTREAM_SYNC.md`）。
+- 随包提供 `LICENSE`（Apache-2.0，与上游 Go SDK 一致）。
 
 ### 修复
 
@@ -32,3 +33,9 @@
 - 同步工具链修复（经外部审核）：CHANGELOG 版本小节改为精确匹配（`v1.2` 不再误匹配 `v1.2.3`）、
   脏工作区检查纳入未跟踪文件并改用 `git status -z` 解析（重命名/带引号路径不再漏判）、
   拉取前二次复核上游改动、子进程增加超时。
+
+### 变更
+
+- 仓库根目录即 Composer 包根目录，包名与仓库路径对齐为 `htmambo/oceanengine_php_sdk`；
+  许可由 MIT 更正为与上游 Go SDK 一致的 Apache-2.0；`composer.json` 增加 `homepage` / `support` /
+  `scripts`（`test` / `lint` / `parity` / `sync` / `check`）与 `scripts-descriptions`。
