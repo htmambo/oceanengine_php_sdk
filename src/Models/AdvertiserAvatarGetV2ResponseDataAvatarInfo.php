@@ -1,0 +1,198 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+class AdvertiserAvatarGetV2ResponseDataAvatarInfo implements \JsonSerializable
+{
+    /**
+     * @var string
+     */
+    protected ?string $auditWebUri = null;
+
+    /**
+     * @var string
+     */
+    protected ?string $auditWebUrl = null;
+
+    /**
+     * @var int
+     */
+    protected ?int $height = null;
+
+    /**
+     * @var string
+     */
+    protected ?string $webUri = null;
+
+    /**
+     * @var string
+     */
+    protected ?string $webUrl = null;
+
+    /**
+     * @var int
+     */
+    protected ?int $width = null;
+
+    /**
+     * @return string
+     */
+    public function getAuditWebUri(): ?string
+    {
+        return $this->auditWebUri;
+    }
+
+    /**
+     * @param string $auditWebUri
+     * @return self
+     */
+    public function setAuditWebUri(?string $auditWebUri): self
+    {
+        $this->auditWebUri = $auditWebUri;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAuditWebUrl(): ?string
+    {
+        return $this->auditWebUrl;
+    }
+
+    /**
+     * @param string $auditWebUrl
+     * @return self
+     */
+    public function setAuditWebUrl(?string $auditWebUrl): self
+    {
+        $this->auditWebUrl = $auditWebUrl;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getHeight(): ?int
+    {
+        return $this->height;
+    }
+
+    /**
+     * @param int $height
+     * @return self
+     */
+    public function setHeight(?int $height): self
+    {
+        $this->height = $height;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWebUri(): ?string
+    {
+        return $this->webUri;
+    }
+
+    /**
+     * @param string $webUri
+     * @return self
+     */
+    public function setWebUri(?string $webUri): self
+    {
+        $this->webUri = $webUri;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWebUrl(): ?string
+    {
+        return $this->webUrl;
+    }
+
+    /**
+     * @param string $webUrl
+     * @return self
+     */
+    public function setWebUrl(?string $webUrl): self
+    {
+        $this->webUrl = $webUrl;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWidth(): ?int
+    {
+        return $this->width;
+    }
+
+    /**
+     * @param int $width
+     * @return self
+     */
+    public function setWidth(?int $width): self
+    {
+        $this->width = $width;
+        return $this;
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize(): array
+    {
+        $result = [];
+        if ($this->auditWebUri !== null) {
+            $result['audit_web_uri'] = $this->auditWebUri;
+        }
+        if ($this->auditWebUrl !== null) {
+            $result['audit_web_url'] = $this->auditWebUrl;
+        }
+        if ($this->height !== null) {
+            $result['height'] = $this->height;
+        }
+        if ($this->webUri !== null) {
+            $result['web_uri'] = $this->webUri;
+        }
+        if ($this->webUrl !== null) {
+            $result['web_url'] = $this->webUrl;
+        }
+        if ($this->width !== null) {
+            $result['width'] = $this->width;
+        }
+        return $result;
+    }
+
+    public static function fromArray(array $data): self
+    {
+        $obj = new self();
+        if (($v = $data['audit_web_uri'] ?? null) !== null) {
+            $obj->auditWebUri = (string) $v;
+        }
+        if (($v = $data['audit_web_url'] ?? null) !== null) {
+            $obj->auditWebUrl = (string) $v;
+        }
+        if (($v = $data['height'] ?? null) !== null) {
+            $obj->height = (int) $v;
+        }
+        if (($v = $data['web_uri'] ?? null) !== null) {
+            $obj->webUri = (string) $v;
+        }
+        if (($v = $data['web_url'] ?? null) !== null) {
+            $obj->webUrl = (string) $v;
+        }
+        if (($v = $data['width'] ?? null) !== null) {
+            $obj->width = (int) $v;
+        }
+        return $obj;
+    }
+}

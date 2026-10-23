@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+final class QianchuanToolsEstimateAudienceV10AudienceAc
+{
+    public const Enum_2_G_QianchuanToolsEstimateAudienceV10AudienceAc = '2G';
+    public const Enum_3_G_QianchuanToolsEstimateAudienceV10AudienceAc = '3G';
+    public const Enum_4_G_QianchuanToolsEstimateAudienceV10AudienceAc = '4G';
+    public const Enum_5_G_QianchuanToolsEstimateAudienceV10AudienceAc = '5G';
+    public const WIFI_QianchuanToolsEstimateAudienceV10AudienceAc = 'WIFI';
+
+    public const ALLOWED_VALUES = [
+        self::Enum_2_G_QianchuanToolsEstimateAudienceV10AudienceAc,
+        self::Enum_3_G_QianchuanToolsEstimateAudienceV10AudienceAc,
+        self::Enum_4_G_QianchuanToolsEstimateAudienceV10AudienceAc,
+        self::Enum_5_G_QianchuanToolsEstimateAudienceV10AudienceAc,
+        self::WIFI_QianchuanToolsEstimateAudienceV10AudienceAc,
+    ];
+
+    public static function isValid(string $value): bool
+    {
+        return in_array($value, self::ALLOWED_VALUES, true);
+    }
+
+    public static function fromValue(string $value): string
+    {
+        if (!self::isValid($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s for enum QianchuanToolsEstimateAudienceV10AudienceAc', $value));
+        }
+        return (string) $value;
+    }
+}

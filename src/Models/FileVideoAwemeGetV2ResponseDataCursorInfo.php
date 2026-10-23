@@ -1,0 +1,88 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+class FileVideoAwemeGetV2ResponseDataCursorInfo implements \JsonSerializable
+{
+    /**
+     * 下一次游标查询的游标值
+     * @var string
+     */
+    protected ?string $cursor = null;
+
+    /**
+     * 游标查询场景下，是否还有更多数据
+     * @var bool
+     */
+    protected ?bool $hasMore = null;
+
+    /**
+     * 下一次游标查询的游标值
+     * @return string
+     */
+    public function getCursor(): ?string
+    {
+        return $this->cursor;
+    }
+
+    /**
+     * 下一次游标查询的游标值
+     * @param string $cursor
+     * @return self
+     */
+    public function setCursor(?string $cursor): self
+    {
+        $this->cursor = $cursor;
+        return $this;
+    }
+
+    /**
+     * 游标查询场景下，是否还有更多数据
+     * @return bool
+     */
+    public function getHasMore(): ?bool
+    {
+        return $this->hasMore;
+    }
+
+    /**
+     * 游标查询场景下，是否还有更多数据
+     * @param bool $hasMore
+     * @return self
+     */
+    public function setHasMore(?bool $hasMore): self
+    {
+        $this->hasMore = $hasMore;
+        return $this;
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize(): array
+    {
+        $result = [];
+        if ($this->cursor !== null) {
+            $result['cursor'] = $this->cursor;
+        }
+        if ($this->hasMore !== null) {
+            $result['has_more'] = $this->hasMore;
+        }
+        return $result;
+    }
+
+    public static function fromArray(array $data): self
+    {
+        $obj = new self();
+        if (($v = $data['cursor'] ?? null) !== null) {
+            $obj->cursor = (string) $v;
+        }
+        if (($v = $data['has_more'] ?? null) !== null) {
+            $obj->hasMore = (bool) $v;
+        }
+        return $obj;
+    }
+}

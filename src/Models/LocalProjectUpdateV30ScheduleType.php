@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+final class LocalProjectUpdateV30ScheduleType
+{
+    public const DAILY_DELIVERY_DURATION_LocalProjectUpdateV30ScheduleType = 'DAILY_DELIVERY_DURATION';
+    public const DELIVERY_7_DAY_LocalProjectUpdateV30ScheduleType = 'DELIVERY_7DAY';
+    public const FIXED_TIME_LocalProjectUpdateV30ScheduleType = 'FIXED_TIME';
+    public const FROM_NOW_ON_LocalProjectUpdateV30ScheduleType = 'FROM_NOW_ON';
+    public const START_TO_END_LocalProjectUpdateV30ScheduleType = 'START_TO_END';
+
+    public const ALLOWED_VALUES = [
+        self::DAILY_DELIVERY_DURATION_LocalProjectUpdateV30ScheduleType,
+        self::DELIVERY_7_DAY_LocalProjectUpdateV30ScheduleType,
+        self::FIXED_TIME_LocalProjectUpdateV30ScheduleType,
+        self::FROM_NOW_ON_LocalProjectUpdateV30ScheduleType,
+        self::START_TO_END_LocalProjectUpdateV30ScheduleType,
+    ];
+
+    public static function isValid(string $value): bool
+    {
+        return in_array($value, self::ALLOWED_VALUES, true);
+    }
+
+    public static function fromValue(string $value): string
+    {
+        if (!self::isValid($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s for enum LocalProjectUpdateV30ScheduleType', $value));
+        }
+        return (string) $value;
+    }
+}

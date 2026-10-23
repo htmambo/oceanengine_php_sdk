@@ -1,0 +1,38 @@
+{
+    "name": "oceanengine/ad_open_sdk_php",
+    "description": "巨量引擎开放平台 OpenAPI SDK for PHP，零第三方依赖，支持中间件链与可注入 HTTP transport",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "oceanengine-php-sdk contributors"
+        }
+    ],
+    "keywords": [
+        "oceanengine",
+        "巨量引擎",
+        "openapi",
+        "sdk"
+    ],
+    "require": {
+        "php": ">=8.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Oceanengine\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "php tests/smoke.php && php tests/_core_smoke.php"
+    },
+    "extra": {
+        "upstream": {
+            "repo": "https://github.com/oceanengine/ad_open_sdk_go",
+            "version": "1.1.97",
+            "commit": "1907e5f46b1b138062ff017a2325c38787ed6bca",
+            "synced_at": "2026-10-23T09:40:38+08:00"
+        }
+    }
+}

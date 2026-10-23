@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * 本文件由 go2php 生成，源: api_oc_project_tools_keyword_create_v30.go
+ */
+
+declare(strict_types=1);
+
+namespace Oceanengine\Api;
+
+class OcProjectToolsKeywordCreateV30ApiService
+{
+    private \Oceanengine\ApiClient $apiClient;
+
+    public function __construct(\Oceanengine\ApiClient $apiClient)
+    {
+        $this->apiClient = $apiClient;
+    }
+
+    public function getApiClient(): \Oceanengine\ApiClient
+    {
+        return $this->apiClient;
+    }
+
+    /**
+     * 创建关键词调控任务
+     */
+    public function post(): ApiOpenApiV30OcProjectToolsKeywordCreatePostRequest
+    {
+        return new ApiOpenApiV30OcProjectToolsKeywordCreatePostRequest($this);
+    }
+}

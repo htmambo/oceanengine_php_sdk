@@ -1,0 +1,152 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+class SecurityScoreDisposalInfoGetV30ResponseDataPageInfo implements \JsonSerializable
+{
+    /**
+     * 第几页
+     * @var int
+     */
+    protected ?int $page = null;
+
+    /**
+     * 分页大小
+     * @var int
+     */
+    protected ?int $pageSize = null;
+
+    /**
+     * 总条数
+     * @var int
+     */
+    protected ?int $total = null;
+
+    /**
+     * 总页数
+     * @var int
+     */
+    protected ?int $totalPage = null;
+
+    /**
+     * 第几页
+     * @return int
+     */
+    public function getPage(): ?int
+    {
+        return $this->page;
+    }
+
+    /**
+     * 第几页
+     * @param int $page
+     * @return self
+     */
+    public function setPage(?int $page): self
+    {
+        $this->page = $page;
+        return $this;
+    }
+
+    /**
+     * 分页大小
+     * @return int
+     */
+    public function getPageSize(): ?int
+    {
+        return $this->pageSize;
+    }
+
+    /**
+     * 分页大小
+     * @param int $pageSize
+     * @return self
+     */
+    public function setPageSize(?int $pageSize): self
+    {
+        $this->pageSize = $pageSize;
+        return $this;
+    }
+
+    /**
+     * 总条数
+     * @return int
+     */
+    public function getTotal(): ?int
+    {
+        return $this->total;
+    }
+
+    /**
+     * 总条数
+     * @param int $total
+     * @return self
+     */
+    public function setTotal(?int $total): self
+    {
+        $this->total = $total;
+        return $this;
+    }
+
+    /**
+     * 总页数
+     * @return int
+     */
+    public function getTotalPage(): ?int
+    {
+        return $this->totalPage;
+    }
+
+    /**
+     * 总页数
+     * @param int $totalPage
+     * @return self
+     */
+    public function setTotalPage(?int $totalPage): self
+    {
+        $this->totalPage = $totalPage;
+        return $this;
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize(): array
+    {
+        $result = [];
+        if ($this->page !== null) {
+            $result['page'] = $this->page;
+        }
+        if ($this->pageSize !== null) {
+            $result['page_size'] = $this->pageSize;
+        }
+        if ($this->total !== null) {
+            $result['total'] = $this->total;
+        }
+        if ($this->totalPage !== null) {
+            $result['total_page'] = $this->totalPage;
+        }
+        return $result;
+    }
+
+    public static function fromArray(array $data): self
+    {
+        $obj = new self();
+        if (($v = $data['page'] ?? null) !== null) {
+            $obj->page = (int) $v;
+        }
+        if (($v = $data['page_size'] ?? null) !== null) {
+            $obj->pageSize = (int) $v;
+        }
+        if (($v = $data['total'] ?? null) !== null) {
+            $obj->total = (int) $v;
+        }
+        if (($v = $data['total_page'] ?? null) !== null) {
+            $obj->totalPage = (int) $v;
+        }
+        return $obj;
+    }
+}

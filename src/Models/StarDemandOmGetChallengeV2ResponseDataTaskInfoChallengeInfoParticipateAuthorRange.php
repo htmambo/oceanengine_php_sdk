@@ -1,0 +1,314 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+class StarDemandOmGetChallengeV2ResponseDataTaskInfoChallengeInfoParticipateAuthorRange implements \JsonSerializable
+{
+    /**
+     * @var int[]
+     */
+    protected ?array $authorUids = null;
+
+    /**
+     * @var \Oceanengine\Models\StarDemandOmGetChallengeV2ResponseDataTaskInfoChallengeInfoParticipateAuthorRangeAuthorWatcherTag
+     */
+    protected ?\Oceanengine\Models\StarDemandOmGetChallengeV2ResponseDataTaskInfoChallengeInfoParticipateAuthorRangeAuthorWatcherTag $authorWatcherTag = null;
+
+    /**
+     * @var int[]
+     */
+    protected ?array $cancelAuthorUids = null;
+
+    /**
+     * @var string[]
+     */
+    protected ?array $cancelUniqueIds = null;
+
+    /**
+     * @var int[]
+     */
+    protected ?array $contentTags = null;
+
+    /**
+     * @var string[]
+     */
+    protected ?array $gender = null;
+
+    /**
+     * @var int
+     */
+    protected ?int $maxFollower = null;
+
+    /**
+     * @var int
+     */
+    protected ?int $minFollower = null;
+
+    /**
+     * @var string[]
+     */
+    protected ?array $provinces = null;
+
+    /**
+     * @var string[]
+     */
+    protected ?array $uniqueIds = null;
+
+    /**
+     * @return int[]
+     */
+    public function getAuthorUids(): ?array
+    {
+        return $this->authorUids;
+    }
+
+    /**
+     * @param int[] $authorUids
+     * @return self
+     */
+    public function setAuthorUids(?array $authorUids): self
+    {
+        $this->authorUids = $authorUids;
+        return $this;
+    }
+
+    /**
+     * @return \Oceanengine\Models\StarDemandOmGetChallengeV2ResponseDataTaskInfoChallengeInfoParticipateAuthorRangeAuthorWatcherTag
+     */
+    public function getAuthorWatcherTag(): ?\Oceanengine\Models\StarDemandOmGetChallengeV2ResponseDataTaskInfoChallengeInfoParticipateAuthorRangeAuthorWatcherTag
+    {
+        return $this->authorWatcherTag;
+    }
+
+    /**
+     * @param \Oceanengine\Models\StarDemandOmGetChallengeV2ResponseDataTaskInfoChallengeInfoParticipateAuthorRangeAuthorWatcherTag $authorWatcherTag
+     * @return self
+     */
+    public function setAuthorWatcherTag(?\Oceanengine\Models\StarDemandOmGetChallengeV2ResponseDataTaskInfoChallengeInfoParticipateAuthorRangeAuthorWatcherTag $authorWatcherTag): self
+    {
+        $this->authorWatcherTag = $authorWatcherTag;
+        return $this;
+    }
+
+    /**
+     * @return int[]
+     */
+    public function getCancelAuthorUids(): ?array
+    {
+        return $this->cancelAuthorUids;
+    }
+
+    /**
+     * @param int[] $cancelAuthorUids
+     * @return self
+     */
+    public function setCancelAuthorUids(?array $cancelAuthorUids): self
+    {
+        $this->cancelAuthorUids = $cancelAuthorUids;
+        return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getCancelUniqueIds(): ?array
+    {
+        return $this->cancelUniqueIds;
+    }
+
+    /**
+     * @param string[] $cancelUniqueIds
+     * @return self
+     */
+    public function setCancelUniqueIds(?array $cancelUniqueIds): self
+    {
+        $this->cancelUniqueIds = $cancelUniqueIds;
+        return $this;
+    }
+
+    /**
+     * @return int[]
+     */
+    public function getContentTags(): ?array
+    {
+        return $this->contentTags;
+    }
+
+    /**
+     * @param int[] $contentTags
+     * @return self
+     */
+    public function setContentTags(?array $contentTags): self
+    {
+        $this->contentTags = $contentTags;
+        return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getGender(): ?array
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param string[] $gender
+     * @return self
+     */
+    public function setGender(?array $gender): self
+    {
+        $this->gender = $gender;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMaxFollower(): ?int
+    {
+        return $this->maxFollower;
+    }
+
+    /**
+     * @param int $maxFollower
+     * @return self
+     */
+    public function setMaxFollower(?int $maxFollower): self
+    {
+        $this->maxFollower = $maxFollower;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMinFollower(): ?int
+    {
+        return $this->minFollower;
+    }
+
+    /**
+     * @param int $minFollower
+     * @return self
+     */
+    public function setMinFollower(?int $minFollower): self
+    {
+        $this->minFollower = $minFollower;
+        return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getProvinces(): ?array
+    {
+        return $this->provinces;
+    }
+
+    /**
+     * @param string[] $provinces
+     * @return self
+     */
+    public function setProvinces(?array $provinces): self
+    {
+        $this->provinces = $provinces;
+        return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getUniqueIds(): ?array
+    {
+        return $this->uniqueIds;
+    }
+
+    /**
+     * @param string[] $uniqueIds
+     * @return self
+     */
+    public function setUniqueIds(?array $uniqueIds): self
+    {
+        $this->uniqueIds = $uniqueIds;
+        return $this;
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize(): array
+    {
+        $result = [];
+        if ($this->authorUids !== null) {
+            $result['author_uids'] = $this->authorUids;
+        }
+        if ($this->authorWatcherTag !== null) {
+            $result['author_watcher_tag'] = $this->authorWatcherTag;
+        }
+        if ($this->cancelAuthorUids !== null) {
+            $result['cancel_author_uids'] = $this->cancelAuthorUids;
+        }
+        if ($this->cancelUniqueIds !== null) {
+            $result['cancel_unique_ids'] = $this->cancelUniqueIds;
+        }
+        if ($this->contentTags !== null) {
+            $result['content_tags'] = $this->contentTags;
+        }
+        if ($this->gender !== null) {
+            $result['gender'] = $this->gender;
+        }
+        if ($this->maxFollower !== null) {
+            $result['max_follower'] = $this->maxFollower;
+        }
+        if ($this->minFollower !== null) {
+            $result['min_follower'] = $this->minFollower;
+        }
+        if ($this->provinces !== null) {
+            $result['provinces'] = $this->provinces;
+        }
+        if ($this->uniqueIds !== null) {
+            $result['unique_ids'] = $this->uniqueIds;
+        }
+        return $result;
+    }
+
+    public static function fromArray(array $data): self
+    {
+        $obj = new self();
+        if (($v = $data['author_uids'] ?? null) !== null && is_array($v)) {
+            $obj->authorUids = $v;
+        }
+        if (($v = $data['author_watcher_tag'] ?? null) !== null && is_array($v)) {
+            $obj->authorWatcherTag = \Oceanengine\Models\StarDemandOmGetChallengeV2ResponseDataTaskInfoChallengeInfoParticipateAuthorRangeAuthorWatcherTag::fromArray($v);
+        }
+        if (($v = $data['cancel_author_uids'] ?? null) !== null && is_array($v)) {
+            $obj->cancelAuthorUids = $v;
+        }
+        if (($v = $data['cancel_unique_ids'] ?? null) !== null && is_array($v)) {
+            $obj->cancelUniqueIds = $v;
+        }
+        if (($v = $data['content_tags'] ?? null) !== null && is_array($v)) {
+            $obj->contentTags = $v;
+        }
+        if (($v = $data['gender'] ?? null) !== null && is_array($v)) {
+            $obj->gender = $v;
+        }
+        if (($v = $data['max_follower'] ?? null) !== null) {
+            $obj->maxFollower = (int) $v;
+        }
+        if (($v = $data['min_follower'] ?? null) !== null) {
+            $obj->minFollower = (int) $v;
+        }
+        if (($v = $data['provinces'] ?? null) !== null && is_array($v)) {
+            $obj->provinces = $v;
+        }
+        if (($v = $data['unique_ids'] ?? null) !== null && is_array($v)) {
+            $obj->uniqueIds = $v;
+        }
+        return $obj;
+    }
+}

@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+final class BrandMaterialListV30DataMaterialsCreativeIsAigc
+{
+    public const Enum_0_BrandMaterialListV30DataMaterialsCreativeIsAigc = '0';
+    public const Enum_1_BrandMaterialListV30DataMaterialsCreativeIsAigc = '1';
+
+    public const ALLOWED_VALUES = [
+        self::Enum_0_BrandMaterialListV30DataMaterialsCreativeIsAigc,
+        self::Enum_1_BrandMaterialListV30DataMaterialsCreativeIsAigc,
+    ];
+
+    public static function isValid(string $value): bool
+    {
+        return in_array($value, self::ALLOWED_VALUES, true);
+    }
+
+    public static function fromValue(string $value): string
+    {
+        if (!self::isValid($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s for enum BrandMaterialListV30DataMaterialsCreativeIsAigc', $value));
+        }
+        return (string) $value;
+    }
+}

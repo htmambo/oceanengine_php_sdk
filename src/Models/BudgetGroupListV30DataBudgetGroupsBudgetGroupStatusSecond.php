@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+final class BudgetGroupListV30DataBudgetGroupsBudgetGroupStatusSecond
+{
+    public const ACCOUNT_EXCEEDED_BudgetGroupListV30DataBudgetGroupsBudgetGroupStatusSecond = 'ACCOUNT_EXCEEDED';
+    public const GROUP_EXCEEDED_BudgetGroupListV30DataBudgetGroupsBudgetGroupStatusSecond = 'GROUP_EXCEEDED';
+
+    public const ALLOWED_VALUES = [
+        self::ACCOUNT_EXCEEDED_BudgetGroupListV30DataBudgetGroupsBudgetGroupStatusSecond,
+        self::GROUP_EXCEEDED_BudgetGroupListV30DataBudgetGroupsBudgetGroupStatusSecond,
+    ];
+
+    public static function isValid(string $value): bool
+    {
+        return in_array($value, self::ALLOWED_VALUES, true);
+    }
+
+    public static function fromValue(string $value): string
+    {
+        if (!self::isValid($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s for enum BudgetGroupListV30DataBudgetGroupsBudgetGroupStatusSecond', $value));
+        }
+        return (string) $value;
+    }
+}

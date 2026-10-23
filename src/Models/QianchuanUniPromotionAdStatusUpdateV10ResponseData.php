@@ -1,0 +1,53 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+class QianchuanUniPromotionAdStatusUpdateV10ResponseData implements \JsonSerializable
+{
+    /**
+     * @var \Oceanengine\Models\QianchuanUniPromotionAdStatusUpdateV10ResponseDataResultsInner[]
+     */
+    protected ?array $results = null;
+
+    /**
+     * @return \Oceanengine\Models\QianchuanUniPromotionAdStatusUpdateV10ResponseDataResultsInner[]
+     */
+    public function getResults(): ?array
+    {
+        return $this->results;
+    }
+
+    /**
+     * @param \Oceanengine\Models\QianchuanUniPromotionAdStatusUpdateV10ResponseDataResultsInner[] $results
+     * @return self
+     */
+    public function setResults(?array $results): self
+    {
+        $this->results = $results;
+        return $this;
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize(): array
+    {
+        $result = [];
+        if ($this->results !== null) {
+            $result['results'] = $this->results;
+        }
+        return $result;
+    }
+
+    public static function fromArray(array $data): self
+    {
+        $obj = new self();
+        if (($v = $data['results'] ?? null) !== null && is_array($v)) {
+            $obj->results = array_map(fn ($vv) => \Oceanengine\Models\QianchuanUniPromotionAdStatusUpdateV10ResponseDataResultsInner::fromArray($vv), $v);
+        }
+        return $obj;
+    }
+}

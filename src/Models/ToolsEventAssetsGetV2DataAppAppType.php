@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+final class ToolsEventAssetsGetV2DataAppAppType
+{
+    public const ANDROID_ToolsEventAssetsGetV2DataAppAppType = 'ANDROID';
+    public const IOS_ToolsEventAssetsGetV2DataAppAppType = 'IOS';
+
+    public const ALLOWED_VALUES = [
+        self::ANDROID_ToolsEventAssetsGetV2DataAppAppType,
+        self::IOS_ToolsEventAssetsGetV2DataAppAppType,
+    ];
+
+    public static function isValid(string $value): bool
+    {
+        return in_array($value, self::ALLOWED_VALUES, true);
+    }
+
+    public static function fromValue(string $value): string
+    {
+        if (!self::isValid($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s for enum ToolsEventAssetsGetV2DataAppAppType', $value));
+        }
+        return (string) $value;
+    }
+}

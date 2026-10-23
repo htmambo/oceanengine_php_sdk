@@ -1,0 +1,140 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+class QianchuanMaterialGetV10ResponseDataAdMaterialInfosInnerMaterialInfoVideoMaterialCoverImage implements \JsonSerializable
+{
+    /**
+     * @var int
+     */
+    protected ?int $height = null;
+
+    /**
+     * @var string
+     */
+    protected ?string $id = null;
+
+    /**
+     * @var string
+     */
+    protected ?string $webUrl = null;
+
+    /**
+     * @var int
+     */
+    protected ?int $width = null;
+
+    /**
+     * @return int
+     */
+    public function getHeight(): ?int
+    {
+        return $this->height;
+    }
+
+    /**
+     * @param int $height
+     * @return self
+     */
+    public function setHeight(?int $height): self
+    {
+        $this->height = $height;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     * @return self
+     */
+    public function setId(?string $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWebUrl(): ?string
+    {
+        return $this->webUrl;
+    }
+
+    /**
+     * @param string $webUrl
+     * @return self
+     */
+    public function setWebUrl(?string $webUrl): self
+    {
+        $this->webUrl = $webUrl;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWidth(): ?int
+    {
+        return $this->width;
+    }
+
+    /**
+     * @param int $width
+     * @return self
+     */
+    public function setWidth(?int $width): self
+    {
+        $this->width = $width;
+        return $this;
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize(): array
+    {
+        $result = [];
+        if ($this->height !== null) {
+            $result['height'] = $this->height;
+        }
+        if ($this->id !== null) {
+            $result['id'] = $this->id;
+        }
+        if ($this->webUrl !== null) {
+            $result['web_url'] = $this->webUrl;
+        }
+        if ($this->width !== null) {
+            $result['width'] = $this->width;
+        }
+        return $result;
+    }
+
+    public static function fromArray(array $data): self
+    {
+        $obj = new self();
+        if (($v = $data['height'] ?? null) !== null) {
+            $obj->height = (int) $v;
+        }
+        if (($v = $data['id'] ?? null) !== null) {
+            $obj->id = (string) $v;
+        }
+        if (($v = $data['web_url'] ?? null) !== null) {
+            $obj->webUrl = (string) $v;
+        }
+        if (($v = $data['width'] ?? null) !== null) {
+            $obj->width = (int) $v;
+        }
+        return $obj;
+    }
+}

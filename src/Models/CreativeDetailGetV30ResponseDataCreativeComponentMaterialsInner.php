@@ -1,0 +1,56 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+class CreativeDetailGetV30ResponseDataCreativeComponentMaterialsInner implements \JsonSerializable
+{
+    /**
+     * 组件id
+     * @var int
+     */
+    protected ?int $componentId = null;
+
+    /**
+     * 组件id
+     * @return int
+     */
+    public function getComponentId(): ?int
+    {
+        return $this->componentId;
+    }
+
+    /**
+     * 组件id
+     * @param int $componentId
+     * @return self
+     */
+    public function setComponentId(?int $componentId): self
+    {
+        $this->componentId = $componentId;
+        return $this;
+    }
+
+    /**
+     * @return array<string,mixed>
+     */
+    #[\ReturnTypeWillChange]
+    public function jsonSerialize(): array
+    {
+        $result = [];
+        if ($this->componentId !== null) {
+            $result['component_id'] = $this->componentId;
+        }
+        return $result;
+    }
+
+    public static function fromArray(array $data): self
+    {
+        $obj = new self();
+        if (($v = $data['component_id'] ?? null) !== null) {
+            $obj->componentId = (int) $v;
+        }
+        return $obj;
+    }
+}

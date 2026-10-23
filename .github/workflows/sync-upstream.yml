@@ -1,0 +1,210 @@
+name: Sync Upstream Go SDK
+
+# 每周一次自动检查上游 ad_open_sdk_go 是否更新；也支持手动触发并指定上游 ref。
+# 详细说明见 docs/UPSTREAM_SYNC.md。
+on:
+  schedule:
+    # 每周一 03:17 UTC（避开整点，减少 GitHub Actions 排队高峰）
+    - cron: '17 3 * * 1'
+  workflow_dispatch:
+    inputs:
+      upstream_ref:
+        description: '上游 ad_open_sdk_go 的 ref（tag / 分支 / commit），留空则使用默认分支 master'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+  # 仅在上游结构变化导致同步失败时，用于自动开一个 issue 反馈
+  issues: write
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Regenerate PHP SDK from upstream
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PHP SDK
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve upstream ref
+        id: upstream
+        env:
+          DISPATCH_REF: ${{ github.event.inputs.upstream_ref }}
+        run: |
+          if [ -n "${DISPATCH_REF}" ]; then
+            echo "ref=${DISPATCH_REF}" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=master" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout upstream Go SDK
+        uses: actions/checkout@v4
+        with:
+          repository: oceanengine/ad_open_sdk_go
+          ref: ${{ steps.upstream.outputs.ref }}
+          path: _upstream/ad_open_sdk_go
+          # 需要完整历史与 tag，才能识别上游版本号（config/configuration.go 的 const Version）
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: curl, json
+          coverage: none
+
+      - name: Install Composer dependencies
+        run: |
+          composer install --no-interaction --prefer-dist
+          composer dump-autoload --optimize
+
+      - name: Read upstream version
+        id: version
+        run: |
+          upstream_file="_upstream/ad_open_sdk_go/config/configuration.go"
+          version="$(grep -oE 'const Version[[:space:]]*=[[:space:]]*"[^"]+"' "$upstream_file" | grep -oE '[0-9]+(\.[0-9]+)*' || true)"
+          if [ -z "$version" ]; then
+            echo "未能从 $upstream_file 解析上游版本号" >&2
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "上游版本：$version"
+
+      - name: Read local version before sync
+        id: local
+        run: |
+          version="unknown"
+          if [ -f src/Version.php ]; then
+            version="$(grep -oE "VERSION[[:space:]]*=[[:space:]]*'[^']+'" src/Version.php | grep -oE "[0-9]+(\.[0-9]+)*" || true)"
+          fi
+          if [ -z "$version" ]; then
+            version="unknown"
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "本地版本：$version"
+
+      # 该步骤负责：重新生成（models/api/client）→ parity 一致性校验 → 全量 php -l → 冒烟测试。
+      # 转译器不认识上游新类型时，失败会记录在 tools/go2php/*_failures.log 并以非 0 退出码结束。
+      - name: Sync from upstream (generate + parity + lint + test)
+        id: sync
+        continue-on-error: true
+        run: |
+          # --no-fetch：上游已由上面的 checkout 步骤准备好，不再让脚本执行 git pull
+          # pipefail 保证 python 退出码非 0 时本步骤判定为失败；同时留档完整输出
+          set -o pipefail
+          python3 tools/go2php/sync.py --upstream _upstream/ad_open_sdk_go --no-fetch 2>&1 | tee sync_output.log
+
+      - name: Collect diagnostics
+        id: diagnostics
+        if: steps.sync.outcome == 'failure'
+        run: |
+          {
+            echo "上游结构变化导致同步失败。"
+            echo ""
+            echo "- 上游 ref：${{ steps.upstream.outputs.ref }}"
+            echo "- 上游版本：${{ steps.version.outputs.version }}"
+            echo "- 本地版本：${{ steps.local.outputs.version }}"
+            echo ""
+            echo "失败日志："
+            echo ""
+            echo '```text'
+            if [ -f sync_output.log ]; then
+              cat sync_output.log
+            fi
+            for f in tools/go2php/*_failures.log; do
+              [ -e "$f" ] || continue
+              echo "== $f =="
+              cat "$f"
+            done
+            echo '```'
+            echo ""
+            echo "请扩展转译器（tools/go2php/models.py 的类型映射表等）后重跑同步。"
+          } > sync_failure.md
+          cat sync_failure.md
+
+      - name: Upload failure logs
+        if: steps.sync.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: sync-failure-logs
+          path: |
+            sync_failure.md
+            sync_output.log
+            tools/go2php/*_failures.log
+          if-no-files-found: ignore
+
+      - name: Report failure as issue
+        if: steps.sync.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "同步上游 ad_open_sdk_go v${{ steps.version.outputs.version }} 失败" \
+            --body-file sync_failure.md \
+            || echo "创建 issue 失败（可能已存在同名 issue），详见 workflow 日志。"
+
+      - name: Fail the workflow
+        if: steps.sync.outcome == 'failure'
+        run: |
+          echo "同步失败：上游 ad_open_sdk_go v${{ steps.version.outputs.version }} 无法被当前转译器处理。"
+          exit 1
+
+      - name: Build change summary
+        id: summary
+        run: |
+          # 先暂存生成产物，让未跟踪的新文件也出现在 diff 统计里
+          git add -A -- src composer.json CHANGELOG.md || true
+          {
+            echo 'body<<BODY_EOF'
+            echo "## 上游版本：${{ steps.version.outputs.version }}（同步前本地版本：${{ steps.local.outputs.version }}）"
+            echo ""
+            echo "### 变更统计"
+            echo ""
+            echo '```text'
+            git diff --cached --shortstat
+            git diff --cached --name-status | awk '{print $1}' | sort | uniq -c
+            echo '```'
+            echo ""
+            echo "### 生成文件统计"
+            echo ""
+            echo "- src/Models：$(ls src/Models | wc -l | tr -d ' ') 个类"
+            echo "- src/Api：$(ls src/Api | wc -l | tr -d ' ') 个类"
+            echo ""
+            echo "### 校验结果"
+            echo ""
+            echo "- parity：PASS（sync.py 在生成后已执行 Go ↔ PHP 一致性校验）"
+            echo "- 语法检查：PASS（全量 php -l 0 错误）"
+            echo "- 冒烟测试：PASS（tests/smoke.php、tests/_core_smoke.php）"
+            echo ""
+            echo "由 \`tools/go2php/sync.py --upstream _upstream/ad_open_sdk_go --no-fetch\` 自动生成，请勿手工编辑 \`src/Models\`、\`src/Api\`、\`src/Client.php\`。"
+            echo 'BODY_EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          path: .
+          branch: chore/sync-upstream-v${{ steps.version.outputs.version }}
+          delete-branch: true
+          commit-message: 'chore(sync): 同步上游 ad_open_sdk_go v${{ steps.version.outputs.version }}'
+          title: 'chore(sync): 同步上游 ad_open_sdk_go v${{ steps.version.outputs.version }}'
+          body: ${{ steps.summary.outputs.body }}
+          # 只提交生成产物与元数据；上游 checkout 目录由 .gitignore 排除
+          add-paths: |
+            src/
+            composer.json
+            CHANGELOG.md

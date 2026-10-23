@@ -1,0 +1,764 @@
+<?php
+
+/**
+ * 本文件由 go2php 生成，源: api_tools_bid_suggest_v2.go
+ */
+
+declare(strict_types=1);
+
+namespace Oceanengine\Api;
+
+/**
+ * API Description
+ */
+class ApiOpenApi2ToolsBidSuggestGetRequest
+{
+    private \Oceanengine\ApiClient $apiClient;
+
+    private ?array $ac = null;
+    private ?array $actionCategories = null;
+    private ?\Oceanengine\Models\ToolsBidSuggestV2ActionDays $actionDays = null;
+    private ?array $actionScene = null;
+    private ?array $actionWords = null;
+    private ?array $activateType = null;
+    private ?int $adId = null;
+    private ?array $adTag = null;
+    private ?int $advertiserId = null;
+    private ?array $age = null;
+    private ?string $androidOsv = null;
+    private ?string $appBehaviorTarget = null;
+    private ?array $appCategory = null;
+    private ?array $appIds = null;
+    private ?array $articleCategory = null;
+    private ?int $audiencePackageId = null;
+    private ?array $autoExtendTargets = null;
+    private ?array $awemeFanAccounts = null;
+    private ?array $awemeFanBehaviors = null;
+    private ?array $awemeFanCategories = null;
+    private ?string $awemeFanTimeScope = null;
+    private ?array $awemeFansNumbers = null;
+    private ?string $bidMode = null;
+    private ?int $budget = null;
+    private ?string $budgetMode = null;
+    private ?array $businessIds = null;
+    private ?int $campaignId = null;
+    private ?array $career = null;
+    private ?array $carrier = null;
+    private ?array $city = null;
+    private ?int $convertId = null;
+    private ?string $convertedTimeDuration = null;
+    private ?array $deviceBrand = null;
+    private ?array $deviceType = null;
+    private ?string $district = null;
+    private ?\Oceanengine\Models\ToolsBidSuggestV2DpaLocalAudience $dpaLocalAudience = null;
+    private ?string $dpaRtaRecommendType = null;
+    private ?string $dpaRtaSwitch = null;
+    private ?array $excludeCustomActions = null;
+    private ?array $excludeFlowPackage = null;
+    private ?\Oceanengine\Models\ToolsBidSuggestV2FilterAwemeAbnormalActive $filterAwemeAbnormalActive = null;
+    private ?int $filterAwemeFansCount = null;
+    private ?\Oceanengine\Models\ToolsBidSuggestV2FilterOwnAwemeFans $filterOwnAwemeFans = null;
+    private ?string $flowControlMode = null;
+    private ?array $flowPackage = null;
+    private ?string $gender = null;
+    private ?array $geolocation = null;
+    private ?string $hideIfConverted = null;
+    private ?\Oceanengine\Models\ToolsBidSuggestV2HideIfExists $hideIfExists = null;
+    private ?array $includeCustomActions = null;
+    private ?string $interestActionMode = null;
+    private ?array $interestCategories = null;
+    private ?array $interestTags = null;
+    private ?array $interestWords = null;
+    private ?string $iosOsv = null;
+    private ?array $launchPrice = null;
+    private ?string $locationType = null;
+    private ?array $platform = null;
+    private ?string $pricing = null;
+    private ?string $regionVersion = null;
+    private ?array $retargetingTags = null;
+    private ?array $retargetingTagsExclude = null;
+    private ?array $retargetingTagsInclude = null;
+    private ?string $retargetingType = null;
+    private ?string $scheduleType = null;
+    private ?string $superiorPopularityType = null;
+    private ?array $userType = null;
+
+    /** @var string|null Access-Token */
+    private ?string $accessToken = null;
+
+    private bool $logEnabled = false;
+
+    public function __construct(ToolsBidSuggestV2ApiService $service)
+    {
+        $this->apiClient = $service->getApiClient();
+    }
+
+    public function ac(array $ac): self
+    {
+        $this->ac = $ac;
+        return $this;
+    }
+
+    public function actionCategories(array $actionCategories): self
+    {
+        $this->actionCategories = $actionCategories;
+        return $this;
+    }
+
+    public function actionDays(\Oceanengine\Models\ToolsBidSuggestV2ActionDays $actionDays): self
+    {
+        $this->actionDays = $actionDays;
+        return $this;
+    }
+
+    public function actionScene(array $actionScene): self
+    {
+        $this->actionScene = $actionScene;
+        return $this;
+    }
+
+    public function actionWords(array $actionWords): self
+    {
+        $this->actionWords = $actionWords;
+        return $this;
+    }
+
+    public function activateType(array $activateType): self
+    {
+        $this->activateType = $activateType;
+        return $this;
+    }
+
+    public function adId(int $adId): self
+    {
+        $this->adId = $adId;
+        return $this;
+    }
+
+    public function adTag(array $adTag): self
+    {
+        $this->adTag = $adTag;
+        return $this;
+    }
+
+    public function advertiserId(int $advertiserId): self
+    {
+        $this->advertiserId = $advertiserId;
+        return $this;
+    }
+
+    public function age(array $age): self
+    {
+        $this->age = $age;
+        return $this;
+    }
+
+    public function androidOsv(string $androidOsv): self
+    {
+        $this->androidOsv = $androidOsv;
+        return $this;
+    }
+
+    public function appBehaviorTarget(string $appBehaviorTarget): self
+    {
+        $this->appBehaviorTarget = $appBehaviorTarget;
+        return $this;
+    }
+
+    public function appCategory(array $appCategory): self
+    {
+        $this->appCategory = $appCategory;
+        return $this;
+    }
+
+    public function appIds(array $appIds): self
+    {
+        $this->appIds = $appIds;
+        return $this;
+    }
+
+    public function articleCategory(array $articleCategory): self
+    {
+        $this->articleCategory = $articleCategory;
+        return $this;
+    }
+
+    public function audiencePackageId(int $audiencePackageId): self
+    {
+        $this->audiencePackageId = $audiencePackageId;
+        return $this;
+    }
+
+    public function autoExtendTargets(array $autoExtendTargets): self
+    {
+        $this->autoExtendTargets = $autoExtendTargets;
+        return $this;
+    }
+
+    public function awemeFanAccounts(array $awemeFanAccounts): self
+    {
+        $this->awemeFanAccounts = $awemeFanAccounts;
+        return $this;
+    }
+
+    public function awemeFanBehaviors(array $awemeFanBehaviors): self
+    {
+        $this->awemeFanBehaviors = $awemeFanBehaviors;
+        return $this;
+    }
+
+    public function awemeFanCategories(array $awemeFanCategories): self
+    {
+        $this->awemeFanCategories = $awemeFanCategories;
+        return $this;
+    }
+
+    public function awemeFanTimeScope(string $awemeFanTimeScope): self
+    {
+        $this->awemeFanTimeScope = $awemeFanTimeScope;
+        return $this;
+    }
+
+    public function awemeFansNumbers(array $awemeFansNumbers): self
+    {
+        $this->awemeFansNumbers = $awemeFansNumbers;
+        return $this;
+    }
+
+    public function bidMode(string $bidMode): self
+    {
+        $this->bidMode = $bidMode;
+        return $this;
+    }
+
+    public function budget(int $budget): self
+    {
+        $this->budget = $budget;
+        return $this;
+    }
+
+    public function budgetMode(string $budgetMode): self
+    {
+        $this->budgetMode = $budgetMode;
+        return $this;
+    }
+
+    public function businessIds(array $businessIds): self
+    {
+        $this->businessIds = $businessIds;
+        return $this;
+    }
+
+    public function campaignId(int $campaignId): self
+    {
+        $this->campaignId = $campaignId;
+        return $this;
+    }
+
+    public function career(array $career): self
+    {
+        $this->career = $career;
+        return $this;
+    }
+
+    public function carrier(array $carrier): self
+    {
+        $this->carrier = $carrier;
+        return $this;
+    }
+
+    public function city(array $city): self
+    {
+        $this->city = $city;
+        return $this;
+    }
+
+    public function convertId(int $convertId): self
+    {
+        $this->convertId = $convertId;
+        return $this;
+    }
+
+    public function convertedTimeDuration(string $convertedTimeDuration): self
+    {
+        $this->convertedTimeDuration = $convertedTimeDuration;
+        return $this;
+    }
+
+    public function deviceBrand(array $deviceBrand): self
+    {
+        $this->deviceBrand = $deviceBrand;
+        return $this;
+    }
+
+    public function deviceType(array $deviceType): self
+    {
+        $this->deviceType = $deviceType;
+        return $this;
+    }
+
+    public function district(string $district): self
+    {
+        $this->district = $district;
+        return $this;
+    }
+
+    public function dpaLocalAudience(\Oceanengine\Models\ToolsBidSuggestV2DpaLocalAudience $dpaLocalAudience): self
+    {
+        $this->dpaLocalAudience = $dpaLocalAudience;
+        return $this;
+    }
+
+    public function dpaRtaRecommendType(string $dpaRtaRecommendType): self
+    {
+        $this->dpaRtaRecommendType = $dpaRtaRecommendType;
+        return $this;
+    }
+
+    public function dpaRtaSwitch(string $dpaRtaSwitch): self
+    {
+        $this->dpaRtaSwitch = $dpaRtaSwitch;
+        return $this;
+    }
+
+    public function excludeCustomActions(array $excludeCustomActions): self
+    {
+        $this->excludeCustomActions = $excludeCustomActions;
+        return $this;
+    }
+
+    public function excludeFlowPackage(array $excludeFlowPackage): self
+    {
+        $this->excludeFlowPackage = $excludeFlowPackage;
+        return $this;
+    }
+
+    public function filterAwemeAbnormalActive(\Oceanengine\Models\ToolsBidSuggestV2FilterAwemeAbnormalActive $filterAwemeAbnormalActive): self
+    {
+        $this->filterAwemeAbnormalActive = $filterAwemeAbnormalActive;
+        return $this;
+    }
+
+    public function filterAwemeFansCount(int $filterAwemeFansCount): self
+    {
+        $this->filterAwemeFansCount = $filterAwemeFansCount;
+        return $this;
+    }
+
+    public function filterOwnAwemeFans(\Oceanengine\Models\ToolsBidSuggestV2FilterOwnAwemeFans $filterOwnAwemeFans): self
+    {
+        $this->filterOwnAwemeFans = $filterOwnAwemeFans;
+        return $this;
+    }
+
+    public function flowControlMode(string $flowControlMode): self
+    {
+        $this->flowControlMode = $flowControlMode;
+        return $this;
+    }
+
+    public function flowPackage(array $flowPackage): self
+    {
+        $this->flowPackage = $flowPackage;
+        return $this;
+    }
+
+    public function gender(string $gender): self
+    {
+        $this->gender = $gender;
+        return $this;
+    }
+
+    public function geolocation(array $geolocation): self
+    {
+        $this->geolocation = $geolocation;
+        return $this;
+    }
+
+    public function hideIfConverted(string $hideIfConverted): self
+    {
+        $this->hideIfConverted = $hideIfConverted;
+        return $this;
+    }
+
+    public function hideIfExists(\Oceanengine\Models\ToolsBidSuggestV2HideIfExists $hideIfExists): self
+    {
+        $this->hideIfExists = $hideIfExists;
+        return $this;
+    }
+
+    public function includeCustomActions(array $includeCustomActions): self
+    {
+        $this->includeCustomActions = $includeCustomActions;
+        return $this;
+    }
+
+    public function interestActionMode(string $interestActionMode): self
+    {
+        $this->interestActionMode = $interestActionMode;
+        return $this;
+    }
+
+    public function interestCategories(array $interestCategories): self
+    {
+        $this->interestCategories = $interestCategories;
+        return $this;
+    }
+
+    public function interestTags(array $interestTags): self
+    {
+        $this->interestTags = $interestTags;
+        return $this;
+    }
+
+    public function interestWords(array $interestWords): self
+    {
+        $this->interestWords = $interestWords;
+        return $this;
+    }
+
+    public function iosOsv(string $iosOsv): self
+    {
+        $this->iosOsv = $iosOsv;
+        return $this;
+    }
+
+    public function launchPrice(array $launchPrice): self
+    {
+        $this->launchPrice = $launchPrice;
+        return $this;
+    }
+
+    public function locationType(string $locationType): self
+    {
+        $this->locationType = $locationType;
+        return $this;
+    }
+
+    public function platform(array $platform): self
+    {
+        $this->platform = $platform;
+        return $this;
+    }
+
+    public function pricing(string $pricing): self
+    {
+        $this->pricing = $pricing;
+        return $this;
+    }
+
+    public function regionVersion(string $regionVersion): self
+    {
+        $this->regionVersion = $regionVersion;
+        return $this;
+    }
+
+    public function retargetingTags(array $retargetingTags): self
+    {
+        $this->retargetingTags = $retargetingTags;
+        return $this;
+    }
+
+    public function retargetingTagsExclude(array $retargetingTagsExclude): self
+    {
+        $this->retargetingTagsExclude = $retargetingTagsExclude;
+        return $this;
+    }
+
+    public function retargetingTagsInclude(array $retargetingTagsInclude): self
+    {
+        $this->retargetingTagsInclude = $retargetingTagsInclude;
+        return $this;
+    }
+
+    public function retargetingType(string $retargetingType): self
+    {
+        $this->retargetingType = $retargetingType;
+        return $this;
+    }
+
+    public function scheduleType(string $scheduleType): self
+    {
+        $this->scheduleType = $scheduleType;
+        return $this;
+    }
+
+    public function superiorPopularityType(string $superiorPopularityType): self
+    {
+        $this->superiorPopularityType = $superiorPopularityType;
+        return $this;
+    }
+
+    public function userType(array $userType): self
+    {
+        $this->userType = $userType;
+        return $this;
+    }
+
+    public function accessToken(string $accessToken): self
+    {
+        $this->accessToken = $accessToken;
+        return $this;
+    }
+
+    public function withLog(bool $enable): self
+    {
+        $this->logEnabled = $enable;
+        return $this;
+    }
+
+    /**
+     * @throws \InvalidArgumentException
+     * API Description
+     */
+    public function execute(): \Oceanengine\Models\ToolsBidSuggestV2Response
+    {
+        $queryParams = [];
+        $formParams = [];
+        $files = [];
+        $headers = [];
+        if ($this->ac !== null) {
+            $queryParams['ac'] = $this->ac;
+        }
+        if ($this->actionCategories !== null) {
+            $queryParams['action_categories'] = $this->actionCategories;
+        }
+        if ($this->actionDays !== null) {
+            $__encoded0 = json_encode($this->actionDays);
+            if ($__encoded0 === false) {
+                throw new \RuntimeException('Failed to encode parameter: actionDays');
+            }
+            $queryParams['action_days'] = $__encoded0;
+        }
+        if ($this->actionScene !== null) {
+            $queryParams['action_scene'] = $this->actionScene;
+        }
+        if ($this->actionWords !== null) {
+            $queryParams['action_words'] = $this->actionWords;
+        }
+        if ($this->activateType !== null) {
+            $queryParams['activate_type'] = $this->activateType;
+        }
+        if ($this->adId !== null) {
+            $queryParams['ad_id'] = $this->adId;
+        }
+        if ($this->adTag !== null) {
+            $queryParams['ad_tag'] = $this->adTag;
+        }
+        if ($this->advertiserId !== null) {
+            $queryParams['advertiser_id'] = $this->advertiserId;
+        }
+        if ($this->age !== null) {
+            $queryParams['age'] = $this->age;
+        }
+        if ($this->androidOsv !== null) {
+            $queryParams['android_osv'] = $this->androidOsv;
+        }
+        if ($this->appBehaviorTarget !== null) {
+            $queryParams['app_behavior_target'] = $this->appBehaviorTarget;
+        }
+        if ($this->appCategory !== null) {
+            $queryParams['app_category'] = $this->appCategory;
+        }
+        if ($this->appIds !== null) {
+            $queryParams['app_ids'] = $this->appIds;
+        }
+        if ($this->articleCategory !== null) {
+            $queryParams['article_category'] = $this->articleCategory;
+        }
+        if ($this->audiencePackageId !== null) {
+            $queryParams['audience_package_id'] = $this->audiencePackageId;
+        }
+        if ($this->autoExtendTargets !== null) {
+            $queryParams['auto_extend_targets'] = $this->autoExtendTargets;
+        }
+        if ($this->awemeFanAccounts !== null) {
+            $queryParams['aweme_fan_accounts'] = $this->awemeFanAccounts;
+        }
+        if ($this->awemeFanBehaviors !== null) {
+            $queryParams['aweme_fan_behaviors'] = $this->awemeFanBehaviors;
+        }
+        if ($this->awemeFanCategories !== null) {
+            $queryParams['aweme_fan_categories'] = $this->awemeFanCategories;
+        }
+        if ($this->awemeFanTimeScope !== null) {
+            $queryParams['aweme_fan_time_scope'] = $this->awemeFanTimeScope;
+        }
+        if ($this->awemeFansNumbers !== null) {
+            $queryParams['aweme_fans_numbers'] = $this->awemeFansNumbers;
+        }
+        if ($this->bidMode !== null) {
+            $queryParams['bid_mode'] = $this->bidMode;
+        }
+        if ($this->budget !== null) {
+            $queryParams['budget'] = $this->budget;
+        }
+        if ($this->budgetMode !== null) {
+            $queryParams['budget_mode'] = $this->budgetMode;
+        }
+        if ($this->businessIds !== null) {
+            $queryParams['business_ids'] = $this->businessIds;
+        }
+        if ($this->campaignId !== null) {
+            $queryParams['campaign_id'] = $this->campaignId;
+        }
+        if ($this->career !== null) {
+            $queryParams['career'] = $this->career;
+        }
+        if ($this->carrier !== null) {
+            $queryParams['carrier'] = $this->carrier;
+        }
+        if ($this->city !== null) {
+            $queryParams['city'] = $this->city;
+        }
+        if ($this->convertId !== null) {
+            $queryParams['convert_id'] = $this->convertId;
+        }
+        if ($this->convertedTimeDuration !== null) {
+            $queryParams['converted_time_duration'] = $this->convertedTimeDuration;
+        }
+        if ($this->deviceBrand !== null) {
+            $queryParams['device_brand'] = $this->deviceBrand;
+        }
+        if ($this->deviceType !== null) {
+            $queryParams['device_type'] = $this->deviceType;
+        }
+        if ($this->district !== null) {
+            $queryParams['district'] = $this->district;
+        }
+        if ($this->dpaLocalAudience !== null) {
+            $__encoded1 = json_encode($this->dpaLocalAudience);
+            if ($__encoded1 === false) {
+                throw new \RuntimeException('Failed to encode parameter: dpaLocalAudience');
+            }
+            $queryParams['dpa_local_audience'] = $__encoded1;
+        }
+        if ($this->dpaRtaRecommendType !== null) {
+            $queryParams['dpa_rta_recommend_type'] = $this->dpaRtaRecommendType;
+        }
+        if ($this->dpaRtaSwitch !== null) {
+            $queryParams['dpa_rta_switch'] = $this->dpaRtaSwitch;
+        }
+        if ($this->excludeCustomActions !== null) {
+            $__encoded2 = json_encode($this->excludeCustomActions);
+            if ($__encoded2 === false) {
+                throw new \RuntimeException('Failed to encode parameter: excludeCustomActions');
+            }
+            $queryParams['exclude_custom_actions'] = $__encoded2;
+        }
+        if ($this->excludeFlowPackage !== null) {
+            $queryParams['exclude_flow_package'] = $this->excludeFlowPackage;
+        }
+        if ($this->filterAwemeAbnormalActive !== null) {
+            $__encoded3 = json_encode($this->filterAwemeAbnormalActive);
+            if ($__encoded3 === false) {
+                throw new \RuntimeException('Failed to encode parameter: filterAwemeAbnormalActive');
+            }
+            $queryParams['filter_aweme_abnormal_active'] = $__encoded3;
+        }
+        if ($this->filterAwemeFansCount !== null) {
+            $queryParams['filter_aweme_fans_count'] = $this->filterAwemeFansCount;
+        }
+        if ($this->filterOwnAwemeFans !== null) {
+            $__encoded4 = json_encode($this->filterOwnAwemeFans);
+            if ($__encoded4 === false) {
+                throw new \RuntimeException('Failed to encode parameter: filterOwnAwemeFans');
+            }
+            $queryParams['filter_own_aweme_fans'] = $__encoded4;
+        }
+        if ($this->flowControlMode !== null) {
+            $queryParams['flow_control_mode'] = $this->flowControlMode;
+        }
+        if ($this->flowPackage !== null) {
+            $queryParams['flow_package'] = $this->flowPackage;
+        }
+        if ($this->gender !== null) {
+            $queryParams['gender'] = $this->gender;
+        }
+        if ($this->geolocation !== null) {
+            $__encoded5 = json_encode($this->geolocation);
+            if ($__encoded5 === false) {
+                throw new \RuntimeException('Failed to encode parameter: geolocation');
+            }
+            $queryParams['geolocation'] = $__encoded5;
+        }
+        if ($this->hideIfConverted !== null) {
+            $queryParams['hide_if_converted'] = $this->hideIfConverted;
+        }
+        if ($this->hideIfExists !== null) {
+            $__encoded6 = json_encode($this->hideIfExists);
+            if ($__encoded6 === false) {
+                throw new \RuntimeException('Failed to encode parameter: hideIfExists');
+            }
+            $queryParams['hide_if_exists'] = $__encoded6;
+        }
+        if ($this->includeCustomActions !== null) {
+            $__encoded7 = json_encode($this->includeCustomActions);
+            if ($__encoded7 === false) {
+                throw new \RuntimeException('Failed to encode parameter: includeCustomActions');
+            }
+            $queryParams['include_custom_actions'] = $__encoded7;
+        }
+        if ($this->interestActionMode !== null) {
+            $queryParams['interest_action_mode'] = $this->interestActionMode;
+        }
+        if ($this->interestCategories !== null) {
+            $queryParams['interest_categories'] = $this->interestCategories;
+        }
+        if ($this->interestTags !== null) {
+            $queryParams['interest_tags'] = $this->interestTags;
+        }
+        if ($this->interestWords !== null) {
+            $queryParams['interest_words'] = $this->interestWords;
+        }
+        if ($this->iosOsv !== null) {
+            $queryParams['ios_osv'] = $this->iosOsv;
+        }
+        if ($this->launchPrice !== null) {
+            $queryParams['launch_price'] = $this->launchPrice;
+        }
+        if ($this->locationType !== null) {
+            $queryParams['location_type'] = $this->locationType;
+        }
+        if ($this->platform !== null) {
+            $queryParams['platform'] = $this->platform;
+        }
+        if ($this->pricing !== null) {
+            $queryParams['pricing'] = $this->pricing;
+        }
+        if ($this->regionVersion !== null) {
+            $queryParams['region_version'] = $this->regionVersion;
+        }
+        if ($this->retargetingTags !== null) {
+            $queryParams['retargeting_tags'] = $this->retargetingTags;
+        }
+        if ($this->retargetingTagsExclude !== null) {
+            $queryParams['retargeting_tags_exclude'] = $this->retargetingTagsExclude;
+        }
+        if ($this->retargetingTagsInclude !== null) {
+            $queryParams['retargeting_tags_include'] = $this->retargetingTagsInclude;
+        }
+        if ($this->retargetingType !== null) {
+            $queryParams['retargeting_type'] = $this->retargetingType;
+        }
+        if ($this->scheduleType !== null) {
+            $queryParams['schedule_type'] = $this->scheduleType;
+        }
+        if ($this->superiorPopularityType !== null) {
+            $queryParams['superior_popularity_type'] = $this->superiorPopularityType;
+        }
+        if ($this->userType !== null) {
+            $queryParams['user_type'] = $this->userType;
+        }
+        $body = null;
+
+        $queryString = $this->apiClient->buildQuery($queryParams);
+        $url = '/open_api/2/tools/bid/suggest/' . ($queryString === '' ? '' : '?' . $queryString);
+        $requestContext = $this->apiClient->prepareRequest('GET', $url, $headers, $body, $files);
+        $requestContext['accessToken'] = $this->accessToken;
+        $requestContext['enableLog'] = $this->logEnabled;
+        $result = $this->apiClient->call($requestContext, \Oceanengine\Models\ToolsBidSuggestV2Response::class);
+
+        return $result['model'];
+    }
+}

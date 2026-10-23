@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * 本文件由 go2php 生成，源: api_qianchuan_overall_live_update_v10.go
+ */
+
+declare(strict_types=1);
+
+namespace Oceanengine\Api;
+
+class QianchuanOverallLiveUpdateV10ApiService
+{
+    private \Oceanengine\ApiClient $apiClient;
+
+    public function __construct(\Oceanengine\ApiClient $apiClient)
+    {
+        $this->apiClient = $apiClient;
+    }
+
+    public function getApiClient(): \Oceanengine\ApiClient
+    {
+        return $this->apiClient;
+    }
+
+    /**
+     * 编辑乘方商品投放计划
+     */
+    public function post(): ApiOpenApiV10QianchuanOverallLiveUpdatePostRequest
+    {
+        return new ApiOpenApiV10QianchuanOverallLiveUpdatePostRequest($this);
+    }
+}

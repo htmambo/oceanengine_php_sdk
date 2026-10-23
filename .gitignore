@@ -1,0 +1,11 @@
+/vendor/
+composer.lock
+# CI 中 checkout 的上游 Go SDK（.github/workflows/sync-upstream.yml）
+/_upstream/
+# 转译器的失败日志（每次生成时重写，属于运行产物）
+tools/go2php/*_failures.log
+# Python 字节码缓存
+__pycache__/
+# CI 同步过程产生的临时日志
+/sync_output.log
+/sync_failure.md

@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+final class InvoiceApplyOrderListV30DataApplyOrderListInvoiceDirection
+{
+    public const BLUE_InvoiceApplyOrderListV30DataApplyOrderListInvoiceDirection = 'BLUE';
+    public const RED_InvoiceApplyOrderListV30DataApplyOrderListInvoiceDirection = 'RED';
+
+    public const ALLOWED_VALUES = [
+        self::BLUE_InvoiceApplyOrderListV30DataApplyOrderListInvoiceDirection,
+        self::RED_InvoiceApplyOrderListV30DataApplyOrderListInvoiceDirection,
+    ];
+
+    public static function isValid(string $value): bool
+    {
+        return in_array($value, self::ALLOWED_VALUES, true);
+    }
+
+    public static function fromValue(string $value): string
+    {
+        if (!self::isValid($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s for enum InvoiceApplyOrderListV30DataApplyOrderListInvoiceDirection', $value));
+        }
+        return (string) $value;
+    }
+}

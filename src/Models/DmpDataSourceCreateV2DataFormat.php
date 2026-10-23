@@ -1,0 +1,27 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Oceanengine\Models;
+
+final class DmpDataSourceCreateV2DataFormat
+{
+    public const Enum_0_DmpDataSourceCreateV2DataFormat = 0;
+
+    public const ALLOWED_VALUES = [
+        self::Enum_0_DmpDataSourceCreateV2DataFormat,
+    ];
+
+    public static function isValid(int|string $value): bool
+    {
+        return in_array((string) $value, array_map('strval', static::ALLOWED_VALUES), true);
+    }
+
+    public static function fromValue(int|string $value): string
+    {
+        if (!self::isValid($value)) {
+            throw new \InvalidArgumentException(sprintf('Invalid value %s for enum DmpDataSourceCreateV2DataFormat', $value));
+        }
+        return (string) $value;
+    }
+}
