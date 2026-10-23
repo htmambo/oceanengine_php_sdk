@@ -1,5 +1,7 @@
 /vendor/
 composer.lock
+# 联调凭证（复制 .env.example 为 .env 后填写，切勿提交）
+.env
 # CI 中 checkout 的上游 Go SDK（.github/workflows/sync-upstream.yml）
 /_upstream/
 # 转译器的失败日志（每次生成时重写，属于运行产物）

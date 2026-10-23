@@ -8,6 +8,7 @@
 #   make parity      仅跑 Go ↔ PHP 一致性校验
 #   make lint        仅跑全量 php -l 语法检查
 #   make test        仅跑两个冒烟测试
+#   make integration 仅跑真实接口联调测试（需要 .env 凭证与外网访问）
 #
 # 上游 Go SDK 路径可用 UPSTREAM 覆盖：
 #   make sync UPSTREAM=/path/to/ad_open_sdk_go
@@ -17,7 +18,7 @@ PYTHON   ?= python3
 PHP      ?= php
 TOOLS    := tools/go2php
 
-.PHONY: help sync check generate test parity lint clean-cache
+.PHONY: help sync check generate test integration parity lint clean-cache
 
 help:
 	@echo "巨量引擎 PHP SDK —— 可用目标："
@@ -27,6 +28,7 @@ help:
 	@echo "  make parity      仅跑 Go ↔ PHP 一致性校验（parity.py）"
 	@echo "  make lint        仅跑全量 php -l 语法检查"
 	@echo "  make test        仅跑冒烟测试（smoke.php / _core_smoke.php）"
+	@echo "  make integration 仅跑真实接口联调测试（需要 .env 凭证与外网访问）"
 	@echo "  make clean-cache 清理 Python 字节码缓存"
 	@echo ""
 	@echo "  当前 UPSTREAM = $(UPSTREAM)"
@@ -51,6 +53,9 @@ lint:
 test:
 	$(PHP) tests/smoke.php
 	$(PHP) tests/_core_smoke.php
+
+integration:
+	$(PHP) tests/integration.php
 
 clean-cache:
 	@rm -rf $(TOOLS)/__pycache__

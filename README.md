@@ -41,12 +41,16 @@
 │   └── Models/            # 10917 个模型类（生成）
 ├── tests/
 │   ├── smoke.php          # 端到端冒烟（fake transport，离线）
-│   └── _core_smoke.php    # 核心层与安全行为断言
+│   ├── _core_smoke.php    # 核心层与安全行为断言
+│   ├── integration.php    # 真实接口联调（需 .env 凭证与外网，只读场景链）
+│   └── _mock_server.php   # 联调用的本地假服务端（php -S）
 ├── tools/go2php/          # Go → PHP 转译器与同步工具链
 └── .github/workflows/     # CI：定时检查上游并自动开 PR
 ```
 
 > `src/Api/`、`src/Models/`、`src/Client.php` 由转译器生成，**请勿手工修改**，会在下次同步时被覆盖。
+>
+> `.env`（联调凭证）已被 `.gitignore` 忽略，请勿提交；模板见 [.env.example](.env.example)。
 
 ## 安装
 
@@ -247,6 +251,136 @@ $client->fileImageAdV2Api()->post()
 - 每个 Service 首次获取后在 Client 内缓存复用
 - 通用请求：`$client->commonApi()->get('/open_api/.../')` / `->post($path)` / `->postMultipart($path)`，配合 `requestQuery()` / `requestBody()` / `requestForm()` / `requestFile()`
 
+## 真实接口联调
+
+`tests/integration.php` 用真实 HTTP 请求跑一条**只读**场景链，验证 SDK 与开放平台的实际联调效果。
+脚本绝不调用任何写接口（取 token / 查账户 / 查计划 / 查报表 / 查余额）。
+
+### 1. 配置凭证
+
+在仓库根目录创建 `.env`（模板见 [.env.example](.env.example)）：
+
+```bash
+cp .env.example .env
+```
+
+然后填写真实值：
+
+```dotenv
+APP_ID=1234567890
+SECRET=你的应用秘钥
+```
+
+支持的配置项（`.env` 与进程环境变量都可以，**进程环境变量优先**，便于 CI 注入）：
+
+- `APP_ID`：必填，应用 ID，必须是数字
+- `SECRET`：必填，应用秘钥（兼容历史拼写 `SECERT`）
+- `AUTH_CODE`：选填，广告主授权回调带回的 `auth_code`，用于换取**广告主级** access token；不填则跳过该场景
+- `ADVERTISER_ID`：选填，指定广告主；优先于授权列表与 `auth_code` 响应里的 `advertiser_ids`
+- `ACCOUNT_IDS`：选填，逗号分隔的账户 ID；不填则跳过「账户余额」场景
+- `START_DATE` / `END_DATE`：选填，报表区间（`YYYY-MM-DD`）；`END_DATE` 默认昨天，`START_DATE` 默认 `END_DATE` 前 6 天
+- `API_HOST` / `API_SCHEME`：选填，默认 `api.oceanengine.com` / `https`
+- `TIMEOUT`：选填，单请求超时秒数，默认 60
+- `STRICT`：选填，设为 `1` 时缺少凭证直接以退出码 2 结束（CI 严格模式）
+- `OCEANENGINE_ENV_FILE`：选填，指向其它 `.env` 文件（默认仓库根目录 `.env`）
+
+进阶覆盖项（不写就用默认值）：`ACCOUNT_TYPE`（账户类型，默认 `AD`）、`REPORT_FIELDS`（报表指标，逗号分隔，默认 `cost,click,convert`）。
+
+### 2. 两种 access token 的区别
+
+开放平台有两类凭证，脚本会把它们分开对待：
+
+- **app 级 access_token**：`POST /open_api/oauth2/app_access_token/`，用 `APP_ID` + `SECRET` 换取，
+  代表「应用」身份，用于应用级接口（如查应用下的授权账户）。
+- **广告主级 access_token**：`POST /open_api/oauth2/access_token/`，用 `APP_ID` + `SECRET` + `auth_code` 换取，
+  代表「广告主」身份，**业务接口（广告主信息 / 计划 / 报表 / 余额）应当使用这个 token**。
+
+`auth_code` 的来源：广告主在开放平台完成授权后，授权回调 URL 会带回 `auth_code` 参数，把它填进 `.env` 的
+`AUTH_CODE` 即可。开发者快速入门见
+[开放平台文档](https://open.oceanengine.com/labels/7/docs/1696710498372623)。
+
+脚本的取值优先级：
+
+- 业务接口的 token：广告主级 token（拿到时）→ app 级 token
+- `advertiser_id`：`.env` 的 `ADVERTISER_ID` → 广告主级 token 响应里的 `advertiser_ids[0]` → 授权列表首个
+
+### 3. 执行
+
+```bash
+php tests/integration.php        # 或 composer test:integration / make integration
+```
+
+输出形如：
+
+```text
+[INFO] 被测地址：https://api.oceanengine.com（超时 60s，报表区间 2026-10-16 ~ 2026-10-22）
+[PASS] 取 app access token — token=abc123***，有效期 86400s（186ms）
+[PASS] 广告主级 access_token（auth_code 换取） — access_token=xyz789***，有效期 86400s，广告主数 1（210ms）
+[PASS] 授权广告主列表 — 授权账户数 3，使用 advertiser_id=1234567890（92ms）
+...
+[RESULT] 通过 7，跳过 0，失败 0
+```
+
+### 4. 场景清单
+
+1. **取 app access token** — `POST /open_api/oauth2/app_access_token/`，取 `access_token` 与有效期
+2. **广告主级 access_token（auth_code 换取）** — `POST /open_api/oauth2/access_token/`，取广告主级 token、
+   `advertiser_ids` 与有效期（未配置 `AUTH_CODE` 时跳过）
+3. **授权广告主列表** — `GET /open_api/oauth2/advertiser/get/`，取授权账户 ID（token 走 query 参数，与 Go SDK 一致）
+4. **广告主信息** — `GET /open_api/2/advertiser/info/`
+5. **广告（计划）列表** — `GET /open_api/v3.0/promotion/list/`
+6. **投放数据（广告报表）** — `GET /open_api/2/report/ad/get/`
+7. **账户余额** — `GET /open_api/v3.0/account/fund/get/`（未配置 `ACCOUNT_IDS` 时跳过）
+
+行为约定：
+
+- 每个场景都断言响应 `code === 0`，非 0 判 FAIL 并打印 `message` 与 `request_id`
+- 业务场景（4~7）拿不到 token 或 `advertiser_id` 时标记 SKIP，不算失败；摘要会区分
+  「无 access token」与「no authorized advertisers（该应用未授权任何广告主…）」
+- 遇到 HTTP 429 限流会自动等待 2 秒后重试**一次**，仍失败才判 FAIL
+- 缺凭证（且未开启 `STRICT`）时全部场景 SKIP，并以退出码 0 结束，方便在无凭证的机器上安全运行
+- **CI 中建议开启 `STRICT=1`**：否则「凭证没配好」会退化为全 SKIP + 退出码 0，让流水线在零覆盖的情况下显示为通过（`STRICT=1` 时缺凭证直接以退出码 2 失败）
+
+### 5. 退出码
+
+- `0`：全部通过（或因缺凭证而全部跳过）
+- `1`：存在 FAIL 场景
+- `2`：配置错误（`APP_ID` 非数字、日期区间非法、`STRICT` 模式下缺凭证等）
+
+### 6. 本地 mock 联调（不消耗配额）
+
+仓库自带假服务端，返回结构与真实接口一致的 JSON：
+
+```bash
+php -S 127.0.0.1:8799 tests/_mock_server.php
+# 另一个终端
+API_HOST=127.0.0.1:8799 API_SCHEME=http APP_ID=1234567890 SECRET=dummy-secret \
+  AUTH_CODE=mock-code ACCOUNT_IDS=123456789 php tests/integration.php
+```
+
+假服务端支持故障注入，用于验证脚本的失败路径：`MOCK_FAIL=report`（返回业务错误码）、
+`MOCK_429=report`（首次返回 HTTP 429）。
+
+### 7. 常见错误
+
+- **401 / 鉴权失败**：`APP_ID` 与 `SECRET` 不匹配，或应用未开通对应 API 权限；确认后重跑
+- **「授权账户数 0」**：该应用在开放平台**没有授权任何广告主**，因此拿不到 `advertiser_id`，业务场景会被跳过。
+  解决办法二选一：① 在开放平台完成广告主授权，把回调里的 `auth_code` 填进 `.env` 的 `AUTH_CODE`
+  （业务接口改用广告主级 token）；② 已知广告主 ID 时，直接在 `.env` 配置 `ADVERTISER_ID`
+- **权限不足（code != 0，message 含「无权限」等）**：当前凭证没有该广告主的权限；确认 `AUTH_CODE`
+  对应的广告主，或改用已授权的 `ADVERTISER_ID`
+- **429 限流**：脚本已内置「等待 2 秒重试一次」；仍失败说明配额已用尽，稍后再跑
+- **日期区间错误**：`START_DATE` 必须不晚于 `END_DATE`，且格式为 `YYYY-MM-DD`；不配置时默认取
+  最近 7 天（截止昨天）
+- **账户余额场景 SKIP**：未配置 `ACCOUNT_IDS`，补上即可
+
+### 8. 凭证安全
+
+- `.env` 已在 `.gitignore` 中，**不会被提交**；请只提交 `.env.example`
+- 脚本不会打印 `SECRET`、`AUTH_CODE`，也不会打印完整的 access token / refresh token：
+  输出中的 token 一律脱敏为「前 6 位 + `***`」
+- 排查问题时可直接把联调输出贴到工单 / issue 里
+
 ## 与上游同步
 
 本 PHP SDK 由上游 [`ad_open_sdk_go`](https://github.com/oceanengine/ad_open_sdk_go) 全量转译生成，
@@ -267,6 +401,7 @@ composer check    # 同 make check
 composer parity   # 仅 Go ↔ PHP 一致性校验
 composer lint     # 仅全量 php -l
 composer test     # 仅冒烟测试
+composer test:integration  # 仅真实接口联调（需 .env 凭证与外网）
 ```
 
 **上游路径**：默认取同级目录 `../ad_open_sdk_go`，可用环境变量或参数覆盖：
@@ -287,4 +422,5 @@ make sync UPSTREAM=/path/to/ad_open_sdk_go
 - 代码由 `tools/go2php/` 转译器从 Go SDK 生成，请勿手工修改 `src/Api/` 与 `src/Client.php`
 - Go SDK 的 `examples/` 未逐一生成；各接口用法可对照 Go 同名文件的注释（已转译进 PHP 类与方法 docblock）
 - 冒烟测试：`php tests/smoke.php`（无框架、可离线运行）；核心层测试：`php tests/_core_smoke.php`
+- 真实接口联调：`php tests/integration.php`（需 `.env` 凭证与外网，详见「真实接口联调」）
 - 本项目是官方 Go SDK 的衍生作品，遵循与上游相同的 Apache-2.0 许可
