@@ -11,6 +11,9 @@
 ## [未发布]
 
 ### 迁移
+- **包名更名**：`htmambo/oceanengine_php_sdk` → `htmambo/oceanengine_php_sdk`（与 GitHub 命名空间一致，
+  为发布 Packagist 做准备）。`Oceanengine\` 命名空间与 API 完全不变，仅需修改消费方 `require` 的包名。
+
 
 - **仓库整体从内网 Gitea 迁移到 GitHub**：主仓库现为 `https://github.com/htmambo/oceanengine_php_sdk`（**公开仓**），
   原 Gitea 仅作旧镜像。公开后**安装不需要任何 token**（已实测：全新 HOME、无 credential helper 下
