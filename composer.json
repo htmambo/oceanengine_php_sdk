@@ -11,16 +11,16 @@
         "sdk",
         "php"
     ],
-    "homepage": "http://gitea.example.com:3000/htmambo/oceanengine_php_sdk",
+    "homepage": "https://github.com/htmambo/oceanengine_php_sdk",
     "authors": [
         {
             "name": "htmambo"
         }
     ],
     "support": {
-        "source": "http://gitea.example.com:3000/htmambo/oceanengine_php_sdk",
-        "issues": "http://gitea.example.com:3000/htmambo/oceanengine_php_sdk/issues",
-        "docs": "http://gitea.example.com:3000/htmambo/oceanengine_php_sdk/blob/main/docs/UPSTREAM_SYNC.md"
+        "source": "https://github.com/htmambo/oceanengine_php_sdk",
+        "issues": "https://github.com/htmambo/oceanengine_php_sdk/issues",
+        "docs": "https://github.com/htmambo/oceanengine_php_sdk/blob/main/docs/UPSTREAM_SYNC.md"
     },
     "require": {
         "php": ">=8.0",

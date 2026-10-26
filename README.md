@@ -10,12 +10,13 @@
 
 | 项 | 值 |
 | --- | --- |
-| 仓库地址 | `http://gitea.example.com:3000/htmambo/oceanengine_php_sdk` |
+| 仓库地址 | `https://github.com/htmambo/oceanengine_php_sdk`（GitHub，主仓库；内网 Gitea 为旧镜像） |
 | 主分支 | `main` |
 | Composer 包名 | `htmambo/oceanengine_php_sdk` |
 | 命名空间 | `Oceanengine\`（PSR-4 → `src/`） |
 | 当前同步上游 | Go SDK `v1.1.97`（commit `1907e5f`） |
 | 许可 | Apache-2.0（与上游 Go SDK 一致） |
+| 迁移 | 2026-10 已整体从内网 Gitea 迁移到 GitHub（`htmambo/oceanengine_php_sdk`，私有）；Gitea 仅作旧镜像 |
 
 ## 仓库结构
 
@@ -33,16 +34,21 @@
 ├── src/
 │   ├── Client.php         # 顶级 Client（1261 个 service getter）
 │   ├── Configuration.php  # host / scheme / 默认头 / 超时与白名单开关
-│   ├── ApiClient.php      # HTTP 传输层：中间件链、cURL、响应解码
+│   ├── ApiClient.php      # HTTP 传输层：中间件链、cURL、响应解码、重试循环
+│   ├── RetryPolicy.php    # 不可变重试策略（退避 / 抖动 / Retry-After / 幂等保护）
+│   ├── RateLimiter.php    # 令牌桶 QPS 限速
 │   ├── GenericOpenAPIError.php
 │   ├── FormFileInfo.php
 │   ├── Version.php        # 自动生成：VERSION / UPSTREAM_COMMIT / SYNCED_AT
-│   ├── Middleware/        # Auth / Header / Log
+│   ├── Middleware/        # Auth / Header / Log / Token（token 注入与失效刷新重放）
+│   ├── Token/             # token 生命周期：Provider / Store / Lock / 缓存与轮换
 │   ├── Api/               # 1261 个 *ApiService + Request builder（生成）
 │   └── Models/            # 10917 个模型类（生成）
 ├── tests/
 │   ├── smoke.php          # 端到端冒烟（fake transport，离线）
 │   ├── _core_smoke.php    # 核心层与安全行为断言
+│   ├── _retry_smoke.php   # 重试 / 429 / 限速的离线断言
+│   ├── _token_smoke.php   # token 生命周期与并发刷新的离线断言
 │   ├── integration.php    # 真实接口联调（需 .env 凭证与外网，只读场景链）
 │   └── _mock_server.php   # 联调用的本地假服务端（php -S）
 ├── tools/go2php/          # Go → PHP 转译器与同步工具链
@@ -56,208 +62,64 @@
 
 ## 安装
 
-> **本仓库根目录即 Composer 包根目录**：`composer.json` 就在仓库根目录，PSR-4 映射 `Oceanengine\` → `src/`。克隆下来直接就能用，不需要任何构建 / 代码生成步骤。
-
-内网 Gitea（`http://gitea.example.com:3000`）只提供 http，Composer 默认拒绝 insecure transport，所以**凡是走网络的装法都必须先放开 http**。下面给出 4 条可用路径（A–D），每条都标注了本机实测的耗时与体积。
-
-### 先决条件（走网络的路径都要满足）
-
-**1）放开 http**
-
-```bash
-composer config --global secure-http false
-```
-
-或在消费方 `composer.json` 里写：
-
-```json
-{ "config": { "secure-http": false } }
-```
-
-**2）版本约束写 `dev-main`**
-
-本仓库目前**没有任何 git tag**，Composer 从 Gitea 只能解析出 `dev-main` 这一个版本。写 `"*"` 会直接失败：
-
-```
-  Problem 1
-    - Root composer.json requires htmambo/oceanengine_php_sdk *, found htmambo/oceanengine_php_sdk[dev-main] but it does not match your minimum-stability.
-```
-
-正确写法二选一：
-
-```json
-{ "require": { "htmambo/oceanengine_php_sdk": "dev-main" } }
-```
-
-```json
-{ "require": { "htmambo/oceanengine_php_sdk": "*" }, "minimum-stability": "dev" }
-```
-
-> 如果给仓库打一个 tag（如 `v1.0.0`），就可以直接写稳定版本约束，不再需要 `dev-main`。
-
----
+本仓库根目录即 Composer 包根目录（`composer.json` 就在仓库根）。
+主仓库在 **GitHub**（`https://github.com/htmambo/oceanengine_php_sdk`，私有），
+Composer 的包名为 `htmambo/oceanengine_php_sdk`（与仓库路径一致）。
 
 ### A. path + symlink（本地开发首选）
 
-SDK 已经 clone 在本机、且你要边写边测时用这条。**秒级、零拷贝**。
+在消费方项目的 `composer.json` 中：
 
 ```json
 {
     "repositories": [
-        {
-            "type": "path",
-            "url": "/Volumes/Workarea/usr/htdocs/oceanengine/ad_open_sdk_php",
-            "options": { "symlink": true }
-        }
+        { "type": "path", "url": "../ad_open_sdk_php", "options": { "symlink": true } }
     ],
-    "require": {
-        "htmambo/oceanengine_php_sdk": "*"
-    },
-    "minimum-stability": "dev"
+    "require": { "htmambo/oceanengine_php_sdk": "*" }
 }
 ```
+
+**实测：约 1s，消费方 `vendor/` 仅 76 KB**（软链接，零拷贝）。
+相对地，强制 `symlink:false` 的镜像拷贝要 21.6s / 68.5MB（13,468 个 PHP 文件被整体复制）。
+注意：Composer 2.8 的 path 通道默认就启用了 symlink，要测拷贝代价必须显式 `symlink:false`。
+注意 symlink 下 `vendor/` 与 `.env` 也经软链接可达，别在 SDK 目录里放会被意外打包的东西。
+
+### B. GitHub VCS（推荐）
+
+**公开仓**只需：
+
+```json
+{
+    "repositories": [
+        { "type": "vcs", "url": "https://github.com/htmambo/oceanengine_php_sdk.git" }
+    ],
+    "require": { "htmambo/oceanengine_php_sdk": "dev-main" }
+}
+```
+
+**私有仓**（当前即是）还需要 git 凭据。最省事的是用 GitHub CLI 配置好 credential helper：
 
 ```bash
-composer update htmambo/oceanengine_php_sdk
+gh auth login
+gh auth setup-git     # 让 git 走 gh 的 token，composer 的 git clone 随之可用
 ```
 
-**实测：1.1s，消费方 `vendor/` 合计 88 KB**（SDK 本身 0 拷贝，`vendor/htmambo/oceanengine_php_sdk` 是一个软链接）。
+实测（私有仓 + `gh auth setup-git`）：`composer install` 成功，**31s / 69MB / 13,468 个文件**，
+`class_exists('Oceanengine\Client')` = `true`。首次冷启动包含压缩包下载，后续走 Composer 缓存。
 
-symlink 模式下的注意事项：
+> 不想用 gh 也可以手动配 `git config --global credential.helper store` 后推一次，
+> 或在消费方 `auth.json` 里配置 GitHub token（`repo` 权限）。
 
-- **`vendor/` 是共享的**：软链接指向 SDK 仓库本体，所以 SDK 仓库里的 `vendor/`（第三方依赖）会和消费方看到的是同一份。在 SDK 仓库里执行 `composer install` 会直接影响消费方。
-- **`.env` 也是共享的**：软链接指向 SDK 仓库根目录，所以 `vendor/htmambo/oceanengine_php_sdk/.env`（联调凭证）、`.git`、`tests/`、`tools/` 全都可达（实测均可达）。SDK 仓库已经在 `.gitignore` 里忽略了 `.env`，但**不要把 `vendor/` 提交进仓库**，否则凭证会泄露。
-- SDK 仓库里改代码，消费方立刻生效，无需重新 `composer update`。
-- 软链接要求消费方与 SDK 仓库在**同一台机器**上；CI / 跨机场景请用 C 或 D。
+### C. package + dist（**必须用 zip，不要用 tar.gz**）
 
-> **反向对照**：不写 `options.symlink`（或显式 `"symlink": false`）时，Composer 2 会走 **Mirroring** 把仓库复制一份 —— **实测 19.6s、68.5MB**（`.gitattributes` 落地之前是 11.0s / 73MB，`tests/`、`tools/`、`docs/`、`.github/` 会被一并复制）。
->
-> 好消息是 Composer 复制时会用 `.gitignore` + `.gitattributes` 的 `export-ignore` 过滤，所以 `.env`、`vendor/`、`.git` **以及** `tests/`、`tools/`、`docs/`、`.github/` **都不会**被复制进 `vendor/`；复制进去的只有 `src/` 和包元数据。
->
-> 代价是 68.5MB 的拷贝和接近 20s 的等待 —— 这就是引入方反馈的「29.6s / 69MB」的来源量级（差异来自磁盘与页缓存冷热）。
-
----
-
-### B. Composer Registry（Gitea 包仓库）
-
-适合「没有源码、只装包」的正式消费方，语义最接近 packagist。
-
-**前提：仓库必须先在 Gitea 发布为 Composer 包**（Gitea → Packages → New Package → Composer，或仓库页的 Publish Package）。
-
-```json
-{
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "http://gitea.example.com:3000/api/packages/htmambo/composer"
-        }
-    ],
-    "require": {
-        "htmambo/oceanengine_php_sdk": "*"
-    },
-    "config": {
-        "secure-http": false
-    }
-}
-```
-
-**认证**（Registry 设为私有时才需要）：
+私有仓直接引用 GitHub 的归档 zip（结构是「单根目录 + composer.json + src/」，正好符合
+Composer 对 dist 的要求，且 GitHub 已按 `.gitattributes` 的 `export-ignore` 裁掉
+`tests/`、`tools/`、`docs/`、`.github/`）：
 
 ```bash
-composer config --global http-basic.gitea.example.com:3000 <your-user> <your-token>
+# 私有仓需要给 Composer 一个能读 api.github.com 的 token（repo 权限）
+composer config --global github-oauth.github.com <your-github-token>
 ```
-
-该命令会写入 `auth.json`（已实测确认写入位置正确）：
-
-```json
-{
-    "http-basic": {
-        "gitea.example.com:3000": {
-            "username": "<your-user>",
-            "password": "<your-token>"
-        }
-    }
-}
-```
-
-**实测结果**：
-
-- Registry 端点 `GET /api/packages/htmambo/composer/packages.json` → **HTTP 200**，且**读取元数据不需要 token**（`list.json` 也返回 200）。
-- 但本包**尚未发布**：`GET /api/packages/htmambo/composer/p2/htmambo/oceanengine_php_sdk.json` → **HTTP 404 `{"errors":[{"status":404,"message":"package does not exist"}]}`**，`list.json` → `{"packageNames":[]}`。
-- 因此现在执行 `composer install` 的结果是：
-
-  ```
-  Problem 1
-    - Root composer.json requires htmambo/oceanengine_php_sdk, it could not be found in any version, there may be a typo in the package name.
-  ```
-
-- 结论：**通道本身可用，卡在「包还没发布」**。在 Gitea 上把本仓库发布为 Composer 包后即可直接使用，无需改消费方配置。
-
----
-
-### C. VCS 直取（CI / 跨机首选）
-
-不需要 Gitea 的包仓库权限，只要能 `git clone` 就行。
-
-```json
-{
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "http://gitea.example.com:3000/htmambo/oceanengine_php_sdk.git"
-        }
-    ],
-    "require": {
-        "htmambo/oceanengine_php_sdk": "dev-main"
-    },
-    "config": {
-        "secure-http": false
-    }
-}
-```
-
-**实测：冷启动 30.0s，`vendor/` 75MB**（13,470 个文件全部到位，长文件名的模型类也可正常 autoload）。
-
-注意：
-
-- URL **必须带 `.git` 后缀**。原因见下面的报错速查表。
-- 走的是 git clone，`.git` 不进包（Composer 用 mirror clone 再 checkout），所以没有 A 方案那种「复制 `.env`」的副作用。
-- 本仓库的 Gitea 仓库**当前是公开可读的**：实测在空 `HOME`（无 credential helper、无缓存）下 `git ls-remote` 直接成功，**不需要 token**。若你们的 Gitea 改成私有，请先配置 git 凭据（`git config --global credential.helper store` + 推一次即可写入，或用 SSH key）。
-
-#### 常见报错与修法
-
-| 报错原文 | 原因 | 修法 |
-| --- | --- | --- |
-| `No driver found to handle VCS repository http://gitea.example.com:3000/htmambo/oceanengine_php_sdk` | **URL 缺 `.git` 后缀**，且 Composer 的兜底深探测（`git ls-remote`）也失败了 | URL 补上 `.git`；或改用 A / B / D |
-| `Your configuration does not allow connections to http://gitea.example.com:3000/...` | Composer 拒绝 insecure transport | 加 `"config": {"secure-http": false}`，或 `composer config --global secure-http false` |
-| `found htmambo/oceanengine_php_sdk[dev-main] but it does not match your minimum-stability` | 本仓库没有 tag，只有 `dev-main` | 约束写 `"dev-main"`，或加 `"minimum-stability": "dev"` |
-| `svn info` 一直挂住不动（最后 process timeout） | URL 缺 `.git` → GitDriver 浅层识别失败，Composer 回退去试 svn 驱动 | 同第一行：补 `.git` |
-
-**「No driver found」到底是怎么来的**（Composer 2.8.12 源码依据）：
-
-- `Composer\Repository\VcsRepository::getDriver()` 先做**浅层**匹配，再做**深层**探测。
-- `Composer\Repository\Vcs\GitDriver::supports()` 的浅层判定正则是 `#(^git://|\.git/?$|git(?:olite)?@|//git\.|//github.com/)#i` —— **URL 必须以 `.git` 结尾**才认得出是 git 仓库。
-- 浅层没匹配上时，Composer 会退回去依次试 hg / svn / fossil（svn 排在最后，因为「认出 svn 服务器」几乎不可能），**最后才**用 `git ls-remote --heads -- <url>` 做深层探测。
-- 只要 `git ls-remote` 这一步失败（git 不在 PATH、需要交互式输入凭据、host 不可达），所有驱动都不匹配，Composer 就在 `VcsRepository.php:192` 抛出上面那句 `No driver found to handle VCS repository <url>`。
-
-本机实测复现：
-
-- URL 带 `.git` → 浅层就命中，**不会**走上面的探测逻辑。
-- URL 不带 `.git` + 本机有 git → 走深层探测，`git ls-remote` 命中，**也能装成功**（实测 18.3s / 74.7MB）。但这条路径依赖深探测，比带 `.git` 脆弱，不要依赖它。
-- URL 不带 `.git` + 深探测失败 + 本机有 svn → 回退 svn 驱动，卡在 `svn info`，实测 **121.4s 超时**。
-- URL 不带 `.git` + 本机 git/svn 都不可用 → 复现出 `No driver found to handle VCS repository http://gitea.example.com:3000/htmambo/oceanengine_php_sdk`（`VcsRepository.php:192`）。
-
-> 一句话：**URL 带上 `.git`**，让 Composer 走浅层识别，就完全不用碰上面这套探测逻辑。
-
----
-
-### D. 固定版本 / 源码包
-
-需要把「某个版本号」钉死、或者没有 git 客户端权限时用。
-
-#### D1. package + source（git）：钉版本号的推荐做法
-
-比 `dist` tarball 可靠得多（见下方警告），把「版本号 → git commit」的映射写死在消费方 `composer.json` 里：
 
 ```json
 {
@@ -266,95 +128,45 @@ composer config --global http-basic.gitea.example.com:3000 <your-user> <your-tok
             "type": "package",
             "package": {
                 "name": "htmambo/oceanengine_php_sdk",
-                "version": "1.0.0",
-                "type": "library",
-                "source": {
-                    "type": "git",
-                    "url": "http://gitea.example.com:3000/htmambo/oceanengine_php_sdk.git",
-                    "reference": "649f8ff31a33876e2f381566e34d99683bbe2953"
-                },
-                "autoload": { "psr-4": { "Oceanengine\\": "src/" } },
-                "require": { "php": ">=8.0", "ext-curl": "*", "ext-json": "*" }
-            }
-        }
-    ],
-    "require": { "htmambo/oceanengine_php_sdk": "1.0.0" },
-    "config": { "secure-http": false }
-}
-```
-
-**实测：4.0s，75MB，13,470 个文件全部到位，`class_exists('Oceanengine\Client')` 与长文件名模型类均为 `true`。**
-
-#### D2. package + dist：**用 zip，不要用 tar.gz**
-
-```json
-{
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "htmambo/oceanengine_php_sdk",
-                "version": "1.0.0",
+                "version": "dev-main",
                 "type": "library",
                 "dist": {
-                    "type": "tar",
-                    "url": "http://gitea.example.com:3000/where/you/host/oceanengine_php_sdk.tar.gz",
-                    "reference": "649f8ff31a33876e2f381566e34d99683bbe2953"
+                    "type": "zip",
+                    "url": "https://api.github.com/repos/htmambo/oceanengine_php_sdk/zipball"
                 },
-                "autoload": { "psr-4": { "Oceanengine\\": "src/" } },
+                "autoload": { "psr-4": { "Oceanengine\": "src/" } },
                 "require": { "php": ">=8.0", "ext-curl": "*", "ext-json": "*" }
             }
         }
     ],
-    "require": { "htmambo/oceanengine_php_sdk": "1.0.0" },
-    "config": { "secure-http": false }
+    "require": { "htmambo/oceanengine_php_sdk": "dev-main" }
 }
 ```
 
-用 `dist` 前必须知道两件事（均为本机实测）：
+**实测：30s / 13MB / 13,468 个文件，`Oceanengine\Client` 与最长名模型类均可 autoload。**
 
-1. **zip 与 tar.gz 的解包行为不同，必须用 zip**。
-   - **zip（`ZipDownloader`）**：实测完整无损 —— 13,462 个文件全部安装到位（归档 13,462 → `vendor/` 13,462），
-     最长的 165 字节文件名类 `class_exists()` 为 `true`，包体积 11MB。
-     **唯一硬性要求：压缩包里必须有一个根目录**，该目录下直接放 `composer.json` 与 `src/`。
-     Composer 会剥掉这层根目录再落到 `vendor/<包名>/`；若压缩包没有根目录（条目直接是 `src/Models/...`），
-     会被剥掉 `src/` 这一层，装出来的结构错位、PSR-4 失效。
-   - **tar.gz（`TarDownloader`，基于 `PharData`）**：实测**静默丢弃 242 个模型类** ——
-     `src/Models/` 里有 242 个文件**文件名长度 ≥ 101 字节**（最长 165 字节），解包时全部丢失，
-     实测装出来只有 13,217 / 13,459 个 php 文件，缺失的正是这些长名类，它们的 `class_exists()` 全为 `false`。
-     **Gitea release 默认发的就是 tar.gz，直接拿来当 dist 会得到一个"少 242 个类"的坏包。**
-2. Gitea 的 `/archive/<ref>.tar.gz` **不应用 `.gitattributes` 的 `export-ignore`**，实测仍包含 `tests/`、`tools/`、`docs/`、`.github/`。
+为什么必须是 zip 而不是 tar.gz：
 
-**结论与配方**：要发 dist，就发 **zip**，且保证"单根目录 + composer.json + src/"的结构。
-本仓库已加 `.gitattributes`（`export-ignore` 排除 `tests/`、`tools/`、`docs/`、`.github/` 等），
-打包时把工作区按同一结构整理后压成 zip 即可：
+- **zip（`ZipDownloader`）**：实测 13,462/13,462 文件零丢失。压缩包需为「单根目录 + composer.json + src/」；
+  若条目直接是 `src/Models/...`（没有根目录），Composer 会剥掉 `src/` 导致结构错位。
+- **tar.gz（`TarDownloader`，基于 `PharData`）**：实测**静默丢弃 242 个模型类** ——
+  `src/Models/` 中 242 个文件的**文件名长度 ≥ 101 字节**（最长 165 字节），解包时全部丢失，
+  只剩 13,217 / 13,459 个 php 文件，这些长名类 `class_exists()` 全为 `false`。
+  GitHub 同时提供 tar.gz 与 zip 两种归档，**务必选 zip**。
+
+### D. 兜底：clone 源码 + 自写 autoloader
 
 ```bash
-# 在 SDK 仓库根执行：先按 export-ignore 裁剪，再压成"单根目录"的 zip
-rm -rf /tmp/pkg && mkdir -p /tmp/pkg/oceanengine_php_sdk
-git ls-files -z | tar --null -T - -cf - | tar -xf - -C /tmp/pkg/oceanengine_php_sdk
-cd /tmp/pkg && zip -qr oceanengine_php_sdk.zip oceanengine_php_sdk
-# 校验：文件数应与源一致，且最长名类可 autoload
-unzip -l oceanengine_php_sdk.zip | tail -1
-```
-
-不想自己打包就直接用 **D1（git source）** 或 **A（path + symlink）**——两者都不经过解包，文件天然完整。
-
-#### D3. 兜底：clone 源码 + 自写 autoloader
-
-完全没有 Composer、或环境受限时的最后手段：
-
-```bash
-git clone http://gitea.example.com:3000/htmambo/oceanengine_php_sdk.git
-cd oceanengine_php_sdk && git checkout 649f8ff31a33876e2f381566e34d99683bbe2953
+git clone https://github.com/htmambo/oceanengine_php_sdk.git
+cd oceanengine_php_sdk
 ```
 
 ```php
 spl_autoload_register(static function (string $class): void {
-    $prefix = 'Oceanengine\\';
+    $prefix = 'Oceanengine\';
     if (strncmp($class, $prefix, strlen($prefix)) === 0) {
         $file = __DIR__ . '/oceanengine_php_sdk/src/'
-            . str_replace('\\', '/', substr($class, strlen($prefix))) . '.php';
+            . str_replace('\', '/', substr($class, strlen($prefix))) . '.php';
         if (is_file($file)) {
             require $file;
         }
@@ -362,35 +174,35 @@ spl_autoload_register(static function (string $class): void {
 });
 ```
 
----
+### 常见报错速查
+
+- `No driver found to handle VCS repository <url>`：**URL 缺 `.git` 后缀**（或 Composer 的兜底探测失败）。
+  补上 `.git`，或改用 A / C / D。
+- `Your configuration does not allow connections to http://...`：Composer 拒绝 insecure http。
+  GitHub 是 https，不会出现；这是内网 Gitea 的特有问题（加 `"config": {"secure-http": false}`）。
+- 私有仓 `404` / `Repository not found`：没有权限或 token 无效。
+  vcs 用 `gh auth setup-git`；dist 用 `composer config --global github-oauth.github.com <token>`。
+- `dev-main` 之外解析不到其它版本：本仓库还没有 git tag。
+  需要钉版本时打 tag（如 `v1.0.0`）后 `git push origin v1.0.0`。
 
 ### 各通道实测数据汇总
 
-环境：macOS、Composer 2.8.12、PHP 8.4.13、Gitea `http://gitea.example.com:3000`。
+环境：macOS、Composer 2.8.12、PHP 8.4.13、GitHub 私有仓。
 
 | 通道 | 结果 | 耗时 | 体积 | 备注 |
 | --- | --- | --- | --- | --- |
-| A. path + symlink | 成功 | 1.1s | 消费方 vendor 88 KB | SDK 0 拷贝；`.env`、`vendor/` 经软链接可达 |
-| A'. path（无 symlink / 镜像） | 成功 | 19.6s | 68.5MB | 只复制 `src/` + 包元数据；`.env`、`vendor/`、`.git` 不复制 |
-| B. Gitea Composer Registry | 端点可用，**包未发布**故安装失败 | 2.2s | — | 端点 HTTP 200，读元数据免 token |
-| C. vcs + `.git` + `secure-http=false` | 成功 | 17.1s（首次冷启动 30.0s） | 74.7MB | 13,470 文件全到位 |
-| C'. vcs + `.git`，未放开 http | 失败 | 1.0s | — | `Your configuration does not allow connections to http://...` |
-| C''. vcs 无 `.git` | 看环境 | 18.3s / 0.4s / 121.4s | — | 有 git → 深层探测命中，也能装成功；无 git/svn → `No driver found...`；探测失败且 svn 在 PATH → `svn info` 挂死 |
-| D1. package + source(git) | 成功 | 4.0s | 75MB | 版本号固定；文件全到位 |
-| D2. package + dist(**zip**) | 成功，文件零丢失 | ~7s | 11MB | 压缩包须为「单根目录 + composer.json + src/」 |
-| D2'. package + dist(**tar.gz**) | 可装但**丢 242 个长名模型类** | 3.0s | 68MB | PharData 解包限制，**不要用** |
-| E. `git archive` 打包 | 成功 | 2.2s | 3.55MB | 应用 `.gitattributes` 后不含 `tests/` `tools/` `docs/` `.github/` |
+| A. path + symlink | 成功 | 1.1s | 76 KB | 零拷贝（软链），13,578 个源文件直接可用 |
+| A'. path（镜像拷贝，`symlink:false`） | 成功 | 21.6s | 68.5 MB | 13,468 个 PHP 文件被整体复制 |
+| B. GitHub VCS（私有 + gh 凭据） | 成功 | 31s | 69 MB | 13,468 文件全到位 |
+| C. dist zip（api.github.com zipball） | 成功 | 30s | 13 MB | 13,468 文件，长名类可 autoload |
+| C'. dist tar.gz | 可装但**丢 242 个长名模型类** | — | — | PharData 解包限制，**不要用** |
 
-> 表中 A / A' 两行是 `tools/install_check.sh --path-only` 的实测输出；C / C'' 两行是同一脚本全量模式的实测输出。体积一栏是消费方项目目录（含 `vendor/`）的 `du -sk` 值，软链接不计入。
-
-想自己复跑这整套诊断：
+想自己复跑通道诊断：
 
 ```bash
 bash tools/install_check.sh            # 全量通道（含网络）
 bash tools/install_check.sh --path-only # 只测本地 path 通道（离线可用）
 ```
-
-脚本只做只读操作，临时目录用 `mktemp -d` 并在结束时清理，不会打印任何凭据。
 
 ## 快速开始
 
