@@ -8,6 +8,30 @@
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，
 版本号与上游 Go SDK 保持一致。
 
+## [未发布]
+
+### 新增
+
+- **重试与限速下沉到 SDK 内核**（应对批量投放的限流与瞬时故障）：
+  `src/RetryPolicy.php`（不可变策略：次数、退避、抖动、Retry-After、可重试状态码与方法）、
+  `src/RateLimiter.php`（令牌桶 QPS 限速）、`ApiClient` 集成（`setRetryPolicy` / `setRateLimiter`）、
+  `Configuration` 新增 `retryPolicy` / `rateLimiter` / `timeoutSeconds`。
+  **"结果不明"的失败（传输层错误、502/503/504）不会重放非幂等请求**，防止重放已成功的广告创建。
+- **token 生命周期收进 SDK**：`src/Token/`（`TokenProviderInterface` / `TokenStoreInterface` /
+  `InMemoryTokenStore` / `StaticTokenProvider` / `CachingTokenProvider` / `OAuthTokenProvider`）、
+  `src/Middleware/TokenMiddleware.php`（注入 `Access-Token`、识别失效码 40103、刷新后重放一次）。
+  含并发保护：`TokenLockInterface` 单飞刷新、`TokenLockTimeoutException`（拿不到锁宁可不刷新）、
+  `TokenPersistenceException`（落库失败可补偿）。
+- **安装通道**：新增 `.gitattributes`（发行包裁剪）与 `tools/install_check.sh`（各通道实测诊断），
+  README「安装」章节按内网 http Gitea 的真实约束重写为四条可用路径（path+symlink / Registry /
+  VCS 直取 / dist）。
+  实测结论：**dist 必须用 zip**（tar.gz 经 PharData 解包会丢 242 个长名模型类），
+  zip 实测 13,462/13,462 文件零丢失；path+symlink 为 1.4s / 88KB。
+
+### 变更
+
+- `composer.json` 的 `test` 脚本纳入新增的 `tests/_retry_smoke.php` 与 `tests/_token_smoke.php`。
+
 ## [1.1.97] - 初始版本
 
 ### 新增

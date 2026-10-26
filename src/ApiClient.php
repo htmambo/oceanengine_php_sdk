@@ -7,6 +7,10 @@ namespace Oceanengine;
 /**
  * Core HTTP layer: builds request contexts, runs the middleware chain,
  * executes the (injectable) transport and decodes responses.
+ *
+ * Optionally retries transient failures (see RetryPolicy) and throttles the
+ * request rate client-side (see RateLimiter), so that batch callers do not
+ * have to build their own transport protection.
  */
 class ApiClient
 {
@@ -18,6 +22,12 @@ class ApiClient
 
     /** @var callable Transport: fn(array $requestContext): array */
     private $transport;
+
+    /** @var RetryPolicy|null 显式设置的重试策略，null 时回落到 Configuration */
+    private ?RetryPolicy $retryPolicy = null;
+
+    /** @var RateLimiter|null 显式设置的限速器，null 时回落到 Configuration */
+    private ?RateLimiter $rateLimiter = null;
 
     /**
      * @param Configuration $configuration
@@ -70,6 +80,47 @@ class ApiClient
     }
 
     /**
+     * Installs a retry policy. Takes precedence over Configuration::$retryPolicy.
+     *
+     * @param RetryPolicy $policy
+     * @return self
+     */
+    public function setRetryPolicy(RetryPolicy $policy): self
+    {
+        $this->retryPolicy = $policy;
+        return $this;
+    }
+
+    /**
+     * @return RetryPolicy|null
+     */
+    public function getRetryPolicy(): ?RetryPolicy
+    {
+        return $this->retryPolicy;
+    }
+
+    /**
+     * Installs a client-side rate limiter. Takes precedence over
+     * Configuration::$rateLimiter.
+     *
+     * @param RateLimiter $limiter
+     * @return self
+     */
+    public function setRateLimiter(RateLimiter $limiter): self
+    {
+        $this->rateLimiter = $limiter;
+        return $this;
+    }
+
+    /**
+     * @return RateLimiter|null
+     */
+    public function getRateLimiter(): ?RateLimiter
+    {
+        return $this->rateLimiter;
+    }
+
+    /**
      * Builds a request context array. Relative URLs (starting with "/") are
      * prefixed with Configuration::getBasePath() so that ApiClient works
      * standalone, without the Client::init middleware chain.
@@ -114,6 +165,10 @@ class ApiClient
      * Executes the request context through the middleware chain and transport,
      * then decodes the response.
      *
+     * Transient failures (429/502/503/504 and transport errors) are retried
+     * according to the effective RetryPolicy; the error semantics of the last
+     * attempt are preserved unchanged.
+     *
      * @param array $requestContext
      * @param class-string|null $responseModelClass Class with a static fromArray(array): mixed method
      * @return array{statusCode: int, headers: array, model: mixed}
@@ -121,18 +176,7 @@ class ApiClient
      */
     public function call(array $requestContext, ?string $responseModelClass = null): array
     {
-        $transport = $this->transport;
-
-        // Build the onion: middlewares wrap the transport in registration order,
-        // so the first registered middleware is the outermost layer.
-        $next = static function (array $ctx) use ($transport): array {
-            return $transport($ctx);
-        };
-        foreach (array_reverse($this->middlewares) as $middleware) {
-            $next = $middleware($next);
-        }
-
-        $response = $next($requestContext);
+        $response = $this->dispatchWithRetry($requestContext);
         $statusCode = (int)($response['statusCode'] ?? 0);
         $headers = (array)($response['headers'] ?? []);
         $body = (string)($response['body'] ?? '');
@@ -184,6 +228,154 @@ class ApiClient
             'headers' => $headers,
             'model' => $model,
         ];
+    }
+
+    /**
+     * Runs the request, retrying transient failures according to the policy.
+     *
+     * Every attempt re-enters the middleware chain with the untouched request
+     * context, so the body and files are replayed as-is (multipart CURLFile
+     * handles are rebuilt by the transport on each attempt).
+     *
+     * @param array $requestContext
+     * @return array{statusCode: int, headers: array, body: string}
+     * @throws GenericOpenAPIError when the transport fails and cannot be retried
+     */
+    private function dispatchWithRetry(array $requestContext): array
+    {
+        $policy = $this->retryPolicy ?? $this->configuration->retryPolicy ?? RetryPolicy::default();
+        $limiter = $this->rateLimiter ?? $this->configuration->rateLimiter;
+        $maxAttempts = max(1, $policy->getMaxAttempts());
+        $method = strtoupper((string)($requestContext['method'] ?? 'GET'));
+        // A single request may opt into retries even for non-idempotent
+        // methods, e.g. a POST whose payload is safe to replay.
+        $forceRetry = (bool)($requestContext['retryable'] ?? false);
+
+        // Build the onion: middlewares wrap the transport in registration order,
+        // so the first registered middleware is the outermost layer.
+        $transport = $this->transport;
+        $next = static function (array $ctx) use ($transport): array {
+            return $transport($ctx);
+        };
+        foreach (array_reverse($this->middlewares) as $middleware) {
+            $next = $middleware($next);
+        }
+
+        $attempt = 0;
+        while (true) {
+            $attempt++;
+            if ($limiter !== null) {
+                $limiter->acquire();
+            }
+
+            try {
+                $response = $next($requestContext);
+            } catch (GenericOpenAPIError $e) {
+                // A transport error (statusCode 0) is transient by nature:
+                // a reset connection or a timeout deserves another attempt.
+                // 传输层错误的结果不明（服务端可能已处理），只对幂等方法重放；
+                // forceRetry 在此不生效，避免重放已成功的 POST 导致重复投放
+                if ($e->getStatusCode() === 0
+                    && $attempt < $maxAttempts
+                    && $policy->shouldRetryTransportError($method)
+                ) {
+                    $this->waitBeforeRetry($policy, $attempt, null, $method, $requestContext, 0);
+                    continue;
+                }
+                throw $e;
+            }
+
+            $statusCode = (int)($response['statusCode'] ?? 0);
+            if ($statusCode >= 200 && $statusCode <= 299) {
+                return $response;
+            }
+            $retryAfter = self::parseRetryAfterSeconds((array)($response['headers'] ?? []));
+            if ($attempt < $maxAttempts
+                && $policy->shouldRetry($method, $statusCode, $forceRetry)
+                && ($retryAfter === null || $policy->isRetryAfterAcceptable($retryAfter))
+            ) {
+                $this->waitBeforeRetry($policy, $attempt, $retryAfter, $method, $requestContext, $statusCode);
+                continue;
+            }
+            return $response;
+        }
+    }
+
+    /**
+     * Notifies the optional retry callback and sleeps before the next attempt.
+     *
+     * @param RetryPolicy $policy
+     * @param int $attempt The attempt that just failed (1-based)
+     * @param int|null $retryAfterSeconds
+     * @param string $method
+     * @param array $requestContext
+     * @param int $statusCode
+     * @return void
+     */
+    private function waitBeforeRetry(
+        RetryPolicy $policy,
+        int $attempt,
+        ?int $retryAfterSeconds,
+        string $method,
+        array $requestContext,
+        int $statusCode
+    ): void {
+        $delayMs = $policy->computeDelayMs($attempt, $retryAfterSeconds);
+        $onRetry = $policy->getOnRetry();
+        if ($onRetry !== null) {
+            $onRetry($attempt, $delayMs, [
+                'method' => $method,
+                'url' => (string)($requestContext['url'] ?? ''),
+                'statusCode' => $statusCode,
+            ]);
+        }
+        if ($delayMs > 0) {
+            self::sleepMs($delayMs);
+        }
+    }
+
+    /**
+     * Reads the Retry-After header, which may be a delay in seconds or an
+     * HTTP date.
+     *
+     * @param array<string, string> $headers
+     * @return int|null
+     */
+    private static function parseRetryAfterSeconds(array $headers): ?int
+    {
+        $value = self::headerValue($headers, 'Retry-After');
+        if ($value === null) {
+            return null;
+        }
+        $value = trim($value);
+        if ($value === '') {
+            return null;
+        }
+        if (preg_match('/^\d+$/', $value) === 1) {
+            return (int)$value;
+        }
+        $timestamp = strtotime($value);
+        if ($timestamp === false) {
+            return null;
+        }
+        $delta = $timestamp - time();
+        return $delta > 0 ? $delta : 0;
+    }
+
+    /**
+     * Sleeps in slices so that signals are handled promptly.
+     *
+     * @param int $milliseconds
+     * @return void
+     */
+    private static function sleepMs(int $milliseconds): void
+    {
+        $remaining = $milliseconds * 1000;
+        while ($remaining > 0) {
+            $slice = $remaining > 500000 ? 500000 : $remaining;
+            usleep($slice);
+            $remaining -= $slice;
+        }
     }
 
     /**
@@ -329,8 +521,9 @@ class ApiClient
         // Redirects are handled by curlTransport(), not by cURL.
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, false);
         curl_setopt($ch, CURLOPT_MAXREDIRS, 0);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 60);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+        $timeout = max(1, $this->configuration->timeoutSeconds);
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, min(10, $timeout));
         // Never accept an unverified TLS peer, whatever the platform default is.
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);

@@ -1,0 +1,30 @@
+# 发行包瘦身：`git archive` / Composer dist 打包时排除非运行时文件。
+# 保留：/src/ /README.md /LICENSE /composer.json（运行必需）。
+# 效果（实测，见 tools/install_check.sh）：tarball 由 13480 个文件 / 3.4MB 降至 13361 个文件 / 3.4MB。
+
+# 测试与联调脚本（非运行时）
+/tests/            export-ignore
+
+# Go → PHP 转译器与同步工具链（非运行时）
+/tools/            export-ignore
+
+# 内部协作文档（非运行时）
+/docs/             export-ignore
+
+# CI 配置（非运行时）
+/.github/          export-ignore
+
+# 构建/运维入口（非运行时）
+/Makefile          export-ignore
+
+# 开发期文件（非运行时）
+/.gitignore        export-ignore
+
+# 锁文件：由消费方各自解析，不随发行包分发
+/composer.lock     export-ignore
+
+# 第三方依赖目录：消费方 composer install 自行安装
+/vendor/           export-ignore
+
+# 联调凭证：绝不入包
+/.env              export-ignore

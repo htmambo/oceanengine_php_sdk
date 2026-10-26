@@ -38,7 +38,7 @@
         "sort-packages": true
     },
     "scripts": {
-        "test": "php tests/smoke.php && php tests/_core_smoke.php",
+        "test": "php tests/smoke.php && php tests/_core_smoke.php && php tests/_retry_smoke.php && php tests/_token_smoke.php",
         "test:integration": "php tests/integration.php",
         "lint": "python3 -c \"import sys; sys.path.insert(0, 'tools/go2php'); import sync; print('php -l OK (%d files)' % sync.run_lint('.'))\"",
         "parity": "python3 tools/go2php/parity.py",
@@ -46,7 +46,7 @@
         "check": "python3 tools/go2php/sync.py --check"
     },
     "scripts-descriptions": {
-        "test": "运行两个冒烟测试（离线，不需要网络与 token）",
+        "test": "运行全部离线测试（冒烟 / 核心层 / 重试限速 / token 生命周期，无需网络与凭证）",
         "test:integration": "真实接口联调测试（需要 .env 凭证与外网访问）",
         "lint": "对 src/ 与 tests/ 全量做 PHP 语法检查",
         "parity": "校验 Go 上游与 PHP 产物的一致性（模型/枚举/接口/版本/引用）",

@@ -39,6 +39,15 @@ class Configuration
     /** @var int Maximum number of HTTP redirects to follow */
     public int $maxRedirects;
 
+    /** @var int Request timeout in seconds */
+    public int $timeoutSeconds;
+
+    /** @var RetryPolicy|null 重试策略，null 表示使用 RetryPolicy::default() */
+    public ?RetryPolicy $retryPolicy;
+
+    /** @var RateLimiter|null 客户端级限速器，null 表示不限速 */
+    public ?RateLimiter $rateLimiter;
+
     /**
      * @param string $host
      * @param string $scheme
@@ -54,6 +63,9 @@ class Configuration
         $this->useLogMw = true;
         $this->allowCrossHostRequests = false;
         $this->maxRedirects = 5;
+        $this->timeoutSeconds = 60;
+        $this->retryPolicy = null;
+        $this->rateLimiter = null;
     }
 
     /**
