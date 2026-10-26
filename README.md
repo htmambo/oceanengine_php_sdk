@@ -16,7 +16,7 @@
 | 命名空间 | `Oceanengine\`（PSR-4 → `src/`） |
 | 当前同步上游 | Go SDK `v1.1.97`（commit `1907e5f`） |
 | 许可 | Apache-2.0（与上游 Go SDK 一致） |
-| 迁移 | 2026-10 已整体从内网 Gitea 迁移到 GitHub（`htmambo/oceanengine_php_sdk`，私有）；Gitea 仅作旧镜像 |
+| 迁移 | 2026-10 已整体从内网 Gitea 迁移到 GitHub（`htmambo/oceanengine_php_sdk`，**公开仓**）；Gitea 仅作旧镜像 |
 
 ## 仓库结构
 
@@ -63,7 +63,7 @@
 ## 安装
 
 本仓库根目录即 Composer 包根目录（`composer.json` 就在仓库根）。
-主仓库在 **GitHub**（`https://github.com/htmambo/oceanengine_php_sdk`，私有），
+主仓库在 **GitHub**（`https://github.com/htmambo/oceanengine_php_sdk`，**公开仓，安装不需要 token**），
 Composer 的包名为 `htmambo/oceanengine_php_sdk`（与仓库路径一致）。
 
 ### A. path + symlink（本地开发首选）
@@ -97,14 +97,15 @@ Composer 的包名为 `htmambo/oceanengine_php_sdk`（与仓库路径一致）�
 }
 ```
 
-**私有仓**（当前即是）还需要 git 凭据。最省事的是用 GitHub CLI 配置好 credential helper：
+**公开仓无需任何凭据**（已实测：在全新 `HOME`、无 credential helper 的环境下 `composer install` 直接成功）。
+若日后改为私有仓，再配 git 凭据即可，最省事的是用 GitHub CLI 配置 credential helper：
 
 ```bash
 gh auth login
 gh auth setup-git     # 让 git 走 gh 的 token，composer 的 git clone 随之可用
 ```
 
-实测（私有仓 + `gh auth setup-git`）：`composer install` 成功，**31s / 69MB / 13,468 个文件**，
+实测（公开仓免凭据 + 私有仓 `gh auth setup-git`）：`composer install` 均成功，**31s / 69MB / 13,468 个文件**，
 `class_exists('Oceanengine\Client')` = `true`。首次冷启动包含压缩包下载，后续走 Composer 缓存。
 
 > 不想用 gh 也可以手动配 `git config --global credential.helper store` 后推一次，
@@ -117,7 +118,7 @@ Composer 对 dist 的要求，且 GitHub 已按 `.gitattributes` 的 `export-ign
 `tests/`、`tools/`、`docs/`、`.github/`）：
 
 ```bash
-# 私有仓需要给 Composer 一个能读 api.github.com 的 token（repo 权限）
+# 公开仓无需 token；若仓库为私有，则给 Composer 一个能读 api.github.com 的 token（repo 权限）
 composer config --global github-oauth.github.com <your-github-token>
 ```
 
@@ -187,13 +188,13 @@ spl_autoload_register(static function (string $class): void {
 
 ### 各通道实测数据汇总
 
-环境：macOS、Composer 2.8.12、PHP 8.4.13、GitHub 私有仓。
+环境：macOS、Composer 2.8.12、PHP 8.4.13、GitHub 公开仓（另附私有仓凭据场景实测）。
 
 | 通道 | 结果 | 耗时 | 体积 | 备注 |
 | --- | --- | --- | --- | --- |
 | A. path + symlink | 成功 | 1.1s | 76 KB | 零拷贝（软链），13,578 个源文件直接可用 |
 | A'. path（镜像拷贝，`symlink:false`） | 成功 | 21.6s | 68.5 MB | 13,468 个 PHP 文件被整体复制 |
-| B. GitHub VCS（私有 + gh 凭据） | 成功 | 31s | 69 MB | 13,468 文件全到位 |
+| B. GitHub VCS（公开仓免凭据 / 私有 + gh 凭据） | 成功 | 31s | 69 MB | 13,468 文件全到位 |
 | C. dist zip（api.github.com zipball） | 成功 | 30s | 13 MB | 13,468 文件，长名类可 autoload |
 | C'. dist tar.gz | 可装但**丢 242 个长名模型类** | — | — | PharData 解包限制，**不要用** |
 

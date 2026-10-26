@@ -12,8 +12,9 @@
 
 ### 迁移
 
-- **仓库整体从内网 Gitea 迁移到 GitHub**：主仓库现为 `https://github.com/htmambo/oceanengine_php_sdk`（私有），
-  原 Gitea 仅作旧镜像。`composer.json` 的 `homepage` / `support` 与 README 安装章节已同步为 GitHub 地址。
+- **仓库整体从内网 Gitea 迁移到 GitHub**：主仓库现为 `https://github.com/htmambo/oceanengine_php_sdk`（**公开仓**），
+  原 Gitea 仅作旧镜像。公开后**安装不需要任何 token**（已实测：全新 HOME、无 credential helper 下
+  `composer install` 直接成功，13,468 文件、autoload 正常）。`composer.json` 的 `homepage` / `support` 与 README 安装章节已同步为 GitHub 地址。
 - 实测两条 GitHub 通道均可用：VCS（私有仓 + `gh auth setup-git`）31s / 69MB；
   dist zip（`api.github.com/.../zipball` + `github-oauth` token）30s / 13MB，13,468 文件零丢失。
 - **dist 仍只能用 zip**（tar.gz 会丢 242 个长名模型类）；GitHub 归档已按 `.gitattributes` 裁剪，
