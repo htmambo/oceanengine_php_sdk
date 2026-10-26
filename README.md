@@ -74,7 +74,7 @@ composer require htmambo/oceanengine_php_sdk:^1.0
 本仓库根目录即 Composer 包根目录（`composer.json` 就在仓库根）。
 主仓库在 **GitHub**（`https://github.com/htmambo/oceanengine_php_sdk`，**公开仓，安装不需要 token**），
 Composer 的包名为 `htmambo/oceanengine_php_sdk`（与仓库路径一致）。
-> **更名说明**：早期内部 Gitea 时期包名为 `htmambo/oceanengine_php_sdk`，迁移到 GitHub 后统一为 `htmambo/oceanengine_php_sdk`。老项目只需把 `require` 里的包名替换即可，代码里的 `Oceanengine\` 命名空间不变。
+> **更名说明**：早期内部 Gitea 时期使用的是内部命名空间的包名，迁移到 GitHub 后统一为 `htmambo/oceanengine_php_sdk`。老项目只需把 `require` 里的包名替换即可，代码里的 `Oceanengine\` 命名空间不变。
 
 ### A. path + symlink（本地开发首选）
 

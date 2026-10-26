@@ -16,7 +16,7 @@
 
 
 ### 迁移
-- **包名更名**：`htmambo/oceanengine_php_sdk` → `htmambo/oceanengine_php_sdk`（与 GitHub 命名空间一致，
+- **包名更名**：内部 Gitea 时期的包名 → `htmambo/oceanengine_php_sdk`（与 GitHub 命名空间一致，
   为发布 Packagist 做准备）。`Oceanengine\` 命名空间与 API 完全不变，仅需修改消费方 `require` 的包名。
 
 
