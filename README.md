@@ -62,6 +62,15 @@
 
 ## 安装
 
+**最简方式（Packagist 收录后）**：
+
+```bash
+composer require htmambo/oceanengine_php_sdk:^1.0
+```
+
+无需任何 repository 配置，也无需 token。收录步骤见 [`docs/PACKAGIST_PUBLISH.md`](docs/PACKAGIST_PUBLISH.md)。
+在收录之前，用下面任一方式安装。
+
 本仓库根目录即 Composer 包根目录（`composer.json` 就在仓库根）。
 主仓库在 **GitHub**（`https://github.com/htmambo/oceanengine_php_sdk`，**公开仓，安装不需要 token**），
 Composer 的包名为 `htmambo/oceanengine_php_sdk`（与仓库路径一致）。

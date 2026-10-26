@@ -10,6 +10,11 @@
 
 ## [未发布]
 
+- **发布准备**：包名更名为 `htmambo/oceanengine_php_sdk`（与 GitHub 命名空间一致）；
+  已打 `v1.0.0` 标签并验证 `composer require htmambo/oceanengine_php_sdk:^1.0` 可正常安装；
+  新增 `docs/PACKAGIST_PUBLISH.md`（收录提交、webhook 自动更新、发版节奏）。
+
+
 ### 迁移
 - **包名更名**：`htmambo/oceanengine_php_sdk` → `htmambo/oceanengine_php_sdk`（与 GitHub 命名空间一致，
   为发布 Packagist 做准备）。`Oceanengine\` 命名空间与 API 完全不变，仅需修改消费方 `require` 的包名。
