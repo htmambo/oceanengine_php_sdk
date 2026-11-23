@@ -6,20 +6,20 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataAudienceDistrict
 {
-    public const COUNTY_AdGetV2DataAudienceDistrict = 'COUNTY';
+    public const REGION_AdGetV2DataAudienceDistrict = 'REGION';
     public const BUSINESS_DISTRICT_AdGetV2DataAudienceDistrict = 'BUSINESS_DISTRICT';
     public const OVERSEA_AdGetV2DataAudienceDistrict = 'OVERSEA';
-    public const CITY_AdGetV2DataAudienceDistrict = 'CITY';
-    public const REGION_AdGetV2DataAudienceDistrict = 'REGION';
     public const NONE_AdGetV2DataAudienceDistrict = 'NONE';
+    public const COUNTY_AdGetV2DataAudienceDistrict = 'COUNTY';
+    public const CITY_AdGetV2DataAudienceDistrict = 'CITY';
 
     public const ALLOWED_VALUES = [
-        self::COUNTY_AdGetV2DataAudienceDistrict,
+        self::REGION_AdGetV2DataAudienceDistrict,
         self::BUSINESS_DISTRICT_AdGetV2DataAudienceDistrict,
         self::OVERSEA_AdGetV2DataAudienceDistrict,
-        self::CITY_AdGetV2DataAudienceDistrict,
-        self::REGION_AdGetV2DataAudienceDistrict,
         self::NONE_AdGetV2DataAudienceDistrict,
+        self::COUNTY_AdGetV2DataAudienceDistrict,
+        self::CITY_AdGetV2DataAudienceDistrict,
     ];
 
     public static function isValid(string $value): bool

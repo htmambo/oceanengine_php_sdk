@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class AudiencePackageCreateV2Gender
 {
+    public const NONE_AudiencePackageCreateV2Gender = 'NONE';
     public const GENDER_FEMALE_AudiencePackageCreateV2Gender = 'GENDER_FEMALE';
     public const GENDER_MALE_AudiencePackageCreateV2Gender = 'GENDER_MALE';
     public const GENDER_UNLIMITED_AudiencePackageCreateV2Gender = 'GENDER_UNLIMITED';
-    public const NONE_AudiencePackageCreateV2Gender = 'NONE';
 
     public const ALLOWED_VALUES = [
+        self::NONE_AudiencePackageCreateV2Gender,
         self::GENDER_FEMALE_AudiencePackageCreateV2Gender,
         self::GENDER_MALE_AudiencePackageCreateV2Gender,
         self::GENDER_UNLIMITED_AudiencePackageCreateV2Gender,
-        self::NONE_AudiencePackageCreateV2Gender,
     ];
 
     public static function isValid(string $value): bool

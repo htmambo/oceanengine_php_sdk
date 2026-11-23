@@ -6,17 +6,17 @@ namespace Oceanengine\Models;
 
 final class ToolsAppIosListV2FilteringStatus
 {
-    public const ALL_ToolsAppIosListV2FilteringStatus = 'ALL';
-    public const AUDIT_ACCEPTED_ToolsAppIosListV2FilteringStatus = 'AUDIT_ACCEPTED';
-    public const AUDIT_DOING_ToolsAppIosListV2FilteringStatus = 'AUDIT_DOING';
     public const AUDIT_REJECTED_ToolsAppIosListV2FilteringStatus = 'AUDIT_REJECTED';
+    public const AUDIT_ACCEPTED_ToolsAppIosListV2FilteringStatus = 'AUDIT_ACCEPTED';
+    public const ALL_ToolsAppIosListV2FilteringStatus = 'ALL';
+    public const AUDIT_DOING_ToolsAppIosListV2FilteringStatus = 'AUDIT_DOING';
     public const ENABLE_ToolsAppIosListV2FilteringStatus = 'ENABLE';
 
     public const ALLOWED_VALUES = [
-        self::ALL_ToolsAppIosListV2FilteringStatus,
-        self::AUDIT_ACCEPTED_ToolsAppIosListV2FilteringStatus,
-        self::AUDIT_DOING_ToolsAppIosListV2FilteringStatus,
         self::AUDIT_REJECTED_ToolsAppIosListV2FilteringStatus,
+        self::AUDIT_ACCEPTED_ToolsAppIosListV2FilteringStatus,
+        self::ALL_ToolsAppIosListV2FilteringStatus,
+        self::AUDIT_DOING_ToolsAppIosListV2FilteringStatus,
         self::ENABLE_ToolsAppIosListV2FilteringStatus,
     ];
 

@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataSceneInventory
 {
-    public const VIDEO_SCENE_AdGetV2DataSceneInventory = 'VIDEO_SCENE';
-    public const NOT_SELECT_AdGetV2DataSceneInventory = 'NOT_SELECT';
     public const TAIL_SCENE_AdGetV2DataSceneInventory = 'TAIL_SCENE';
     public const FEED_SCENE_AdGetV2DataSceneInventory = 'FEED_SCENE';
+    public const NOT_SELECT_AdGetV2DataSceneInventory = 'NOT_SELECT';
+    public const VIDEO_SCENE_AdGetV2DataSceneInventory = 'VIDEO_SCENE';
 
     public const ALLOWED_VALUES = [
-        self::VIDEO_SCENE_AdGetV2DataSceneInventory,
-        self::NOT_SELECT_AdGetV2DataSceneInventory,
         self::TAIL_SCENE_AdGetV2DataSceneInventory,
         self::FEED_SCENE_AdGetV2DataSceneInventory,
+        self::NOT_SELECT_AdGetV2DataSceneInventory,
+        self::VIDEO_SCENE_AdGetV2DataSceneInventory,
     ];
 
     public static function isValid(string $value): bool

@@ -6,15 +6,15 @@ namespace Oceanengine\Models;
 
 final class CreativeProceduralCreativeUpdateV2AdDataDynamicCreativeSwitch
 {
-    public const DYNAMIC_CREATIVE_ON_CreativeProceduralCreativeUpdateV2AdDataDynamicCreativeSwitch = 'DYNAMIC_CREATIVE_ON';
     public const DYNAMIC_CREATIVE_ABSTRACT_CreativeProceduralCreativeUpdateV2AdDataDynamicCreativeSwitch = 'DYNAMIC_CREATIVE_ABSTRACT';
     public const DYNAMIC_CREATIVE_TITLE_CreativeProceduralCreativeUpdateV2AdDataDynamicCreativeSwitch = 'DYNAMIC_CREATIVE_TITLE';
+    public const DYNAMIC_CREATIVE_ON_CreativeProceduralCreativeUpdateV2AdDataDynamicCreativeSwitch = 'DYNAMIC_CREATIVE_ON';
     public const DYNAMIC_CREATIVE_SUBLINK_CreativeProceduralCreativeUpdateV2AdDataDynamicCreativeSwitch = 'DYNAMIC_CREATIVE_SUBLINK';
 
     public const ALLOWED_VALUES = [
-        self::DYNAMIC_CREATIVE_ON_CreativeProceduralCreativeUpdateV2AdDataDynamicCreativeSwitch,
         self::DYNAMIC_CREATIVE_ABSTRACT_CreativeProceduralCreativeUpdateV2AdDataDynamicCreativeSwitch,
         self::DYNAMIC_CREATIVE_TITLE_CreativeProceduralCreativeUpdateV2AdDataDynamicCreativeSwitch,
+        self::DYNAMIC_CREATIVE_ON_CreativeProceduralCreativeUpdateV2AdDataDynamicCreativeSwitch,
         self::DYNAMIC_CREATIVE_SUBLINK_CreativeProceduralCreativeUpdateV2AdDataDynamicCreativeSwitch,
     ];
 

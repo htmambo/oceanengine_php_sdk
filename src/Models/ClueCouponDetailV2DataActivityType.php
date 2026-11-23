@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ClueCouponDetailV2DataActivityType
 {
-    public const DIRECT_NEED_PHONE_ClueCouponDetailV2DataActivityType = 'DIRECT_NEED_PHONE';
     public const DIRECT_NOT_NEED_PHONE_ClueCouponDetailV2DataActivityType = 'DIRECT_NOT_NEED_PHONE';
+    public const DIRECT_NEED_PHONE_ClueCouponDetailV2DataActivityType = 'DIRECT_NEED_PHONE';
 
     public const ALLOWED_VALUES = [
-        self::DIRECT_NEED_PHONE_ClueCouponDetailV2DataActivityType,
         self::DIRECT_NOT_NEED_PHONE_ClueCouponDetailV2DataActivityType,
+        self::DIRECT_NEED_PHONE_ClueCouponDetailV2DataActivityType,
     ];
 
     public static function isValid(string $value): bool

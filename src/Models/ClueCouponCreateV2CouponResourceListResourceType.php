@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class ClueCouponCreateV2CouponResourceListResourceType
 {
+    public const GAME_ClueCouponCreateV2CouponResourceListResourceType = 'GAME';
     public const PHYSICAL_ClueCouponCreateV2CouponResourceListResourceType = 'PHYSICAL';
     public const FULL_ClueCouponCreateV2CouponResourceListResourceType = 'FULL';
-    public const GAME_ClueCouponCreateV2CouponResourceListResourceType = 'GAME';
     public const COMMON_ClueCouponCreateV2CouponResourceListResourceType = 'COMMON';
     public const DISCOUNT_ClueCouponCreateV2CouponResourceListResourceType = 'DISCOUNT';
 
     public const ALLOWED_VALUES = [
+        self::GAME_ClueCouponCreateV2CouponResourceListResourceType,
         self::PHYSICAL_ClueCouponCreateV2CouponResourceListResourceType,
         self::FULL_ClueCouponCreateV2CouponResourceListResourceType,
-        self::GAME_ClueCouponCreateV2CouponResourceListResourceType,
         self::COMMON_ClueCouponCreateV2CouponResourceListResourceType,
         self::DISCOUNT_ClueCouponCreateV2CouponResourceListResourceType,
     ];

@@ -232,6 +232,11 @@ class Client
         return $this->getService('AdvertiserDeliveryQualificationSubmitV30Api', \Oceanengine\Api\AdvertiserDeliveryQualificationSubmitV30ApiService::class);
     }
 
+    public function advertiserDisableCheckGetV2Api(): \Oceanengine\Api\AdvertiserDisableCheckGetV2ApiService
+    {
+        return $this->getService('AdvertiserDisableCheckGetV2Api', \Oceanengine\Api\AdvertiserDisableCheckGetV2ApiService::class);
+    }
+
     public function advertiserFundDailyStatV2Api(): \Oceanengine\Api\AdvertiserFundDailyStatV2ApiService
     {
         return $this->getService('AdvertiserFundDailyStatV2Api', \Oceanengine\Api\AdvertiserFundDailyStatV2ApiService::class);
@@ -682,6 +687,16 @@ class Client
         return $this->getService('BrandMaAccountListV30Api', \Oceanengine\Api\BrandMaAccountListV30ApiService::class);
     }
 
+    public function brandMaHalfSelfAdInfoGetV30Api(): \Oceanengine\Api\BrandMaHalfSelfAdInfoGetV30ApiService
+    {
+        return $this->getService('BrandMaHalfSelfAdInfoGetV30Api', \Oceanengine\Api\BrandMaHalfSelfAdInfoGetV30ApiService::class);
+    }
+
+    public function brandMaHalfSelfCreativeInfoGetV30Api(): \Oceanengine\Api\BrandMaHalfSelfCreativeInfoGetV30ApiService
+    {
+        return $this->getService('BrandMaHalfSelfCreativeInfoGetV30Api', \Oceanengine\Api\BrandMaHalfSelfCreativeInfoGetV30ApiService::class);
+    }
+
     public function brandMaMaterialListV30Api(): \Oceanengine\Api\BrandMaMaterialListV30ApiService
     {
         return $this->getService('BrandMaMaterialListV30Api', \Oceanengine\Api\BrandMaMaterialListV30ApiService::class);
@@ -982,6 +997,11 @@ class Client
         return $this->getService('CgTransferWalletTransferListV30Api', \Oceanengine\Api\CgTransferWalletTransferListV30ApiService::class);
     }
 
+    public function chargeContractListV30Api(): \Oceanengine\Api\ChargeContractListV30ApiService
+    {
+        return $this->getService('ChargeContractListV30Api', \Oceanengine\Api\ChargeContractListV30ApiService::class);
+    }
+
     public function chargeInfoOrderNoGetV30Api(): \Oceanengine\Api\ChargeInfoOrderNoGetV30ApiService
     {
         return $this->getService('ChargeInfoOrderNoGetV30Api', \Oceanengine\Api\ChargeInfoOrderNoGetV30ApiService::class);
@@ -995,6 +1015,11 @@ class Client
     public function chargeListV30Api(): \Oceanengine\Api\ChargeListV30ApiService
     {
         return $this->getService('ChargeListV30Api', \Oceanengine\Api\ChargeListV30ApiService::class);
+    }
+
+    public function chargeOrderInfoGetV30Api(): \Oceanengine\Api\ChargeOrderInfoGetV30ApiService
+    {
+        return $this->getService('ChargeOrderInfoGetV30Api', \Oceanengine\Api\ChargeOrderInfoGetV30ApiService::class);
     }
 
     public function chargeResultV30Api(): \Oceanengine\Api\ChargeResultV30ApiService
@@ -2662,6 +2687,11 @@ class Client
         return $this->getService('ProjectColdStartDecisionGetV10Api', \Oceanengine\Api\ProjectColdStartDecisionGetV10ApiService::class);
     }
 
+    public function projectCostIssueDiagnosisGetV10Api(): \Oceanengine\Api\ProjectCostIssueDiagnosisGetV10ApiService
+    {
+        return $this->getService('ProjectCostIssueDiagnosisGetV10Api', \Oceanengine\Api\ProjectCostIssueDiagnosisGetV10ApiService::class);
+    }
+
     public function projectCostProtectStatusGetV30Api(): \Oceanengine\Api\ProjectCostProtectStatusGetV30ApiService
     {
         return $this->getService('ProjectCostProtectStatusGetV30Api', \Oceanengine\Api\ProjectCostProtectStatusGetV30ApiService::class);
@@ -2720,6 +2750,11 @@ class Client
     public function projectUpdateV30Api(): \Oceanengine\Api\ProjectUpdateV30ApiService
     {
         return $this->getService('ProjectUpdateV30Api', \Oceanengine\Api\ProjectUpdateV30ApiService::class);
+    }
+
+    public function projectVolumeDropDiagnosisGetV10Api(): \Oceanengine\Api\ProjectVolumeDropDiagnosisGetV10ApiService
+    {
+        return $this->getService('ProjectVolumeDropDiagnosisGetV10Api', \Oceanengine\Api\ProjectVolumeDropDiagnosisGetV10ApiService::class);
     }
 
     public function projectWeekScheduleUpdateV30Api(): \Oceanengine\Api\ProjectWeekScheduleUpdateV30ApiService
@@ -4855,6 +4890,11 @@ class Client
     public function stdProjectUpdateV30Api(): \Oceanengine\Api\StdProjectUpdateV30ApiService
     {
         return $this->getService('StdProjectUpdateV30Api', \Oceanengine\Api\StdProjectUpdateV30ApiService::class);
+    }
+
+    public function subjectBankInfoGetV30Api(): \Oceanengine\Api\SubjectBankInfoGetV30ApiService
+    {
+        return $this->getService('SubjectBankInfoGetV30Api', \Oceanengine\Api\SubjectBankInfoGetV30ApiService::class);
     }
 
     public function subscribeAccountsAddV30Api(): \Oceanengine\Api\SubscribeAccountsAddV30ApiService

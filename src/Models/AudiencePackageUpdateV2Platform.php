@@ -7,18 +7,18 @@ namespace Oceanengine\Models;
 final class AudiencePackageUpdateV2Platform
 {
     public const PC_AudiencePackageUpdateV2Platform = 'PC';
+    public const IOS_AudiencePackageUpdateV2Platform = 'IOS';
     public const ANDROID_AudiencePackageUpdateV2Platform = 'ANDROID';
     public const HARMONY_AudiencePackageUpdateV2Platform = 'HARMONY';
     public const IPAD_AudiencePackageUpdateV2Platform = 'IPAD';
-    public const IOS_AudiencePackageUpdateV2Platform = 'IOS';
     public const WAP_AudiencePackageUpdateV2Platform = 'WAP';
 
     public const ALLOWED_VALUES = [
         self::PC_AudiencePackageUpdateV2Platform,
+        self::IOS_AudiencePackageUpdateV2Platform,
         self::ANDROID_AudiencePackageUpdateV2Platform,
         self::HARMONY_AudiencePackageUpdateV2Platform,
         self::IPAD_AudiencePackageUpdateV2Platform,
-        self::IOS_AudiencePackageUpdateV2Platform,
         self::WAP_AudiencePackageUpdateV2Platform,
     ];
 

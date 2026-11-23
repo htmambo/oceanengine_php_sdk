@@ -32,6 +32,7 @@ final class EventManagerDeepBidTypeGetV30DataDeepBidType
     public const SMARTBID_EventManagerDeepBidTypeGetV30DataDeepBidType = 'SMARTBID';
     public const SOCIAL_ROI_EventManagerDeepBidTypeGetV30DataDeepBidType = 'SOCIAL_ROI';
     public const THIRTY_ROI_COEFFICIENT_EventManagerDeepBidTypeGetV30DataDeepBidType = 'THIRTY_ROI_COEFFICIENT';
+    public const INSURANCE_PAY_ROI_EventManagerDeepBidTypeGetV30DataDeepBidType = 'INSURANCE_PAY_ROI';
 
     public const ALLOWED_VALUES = [
         self::ALI_FL_EventManagerDeepBidTypeGetV30DataDeepBidType,
@@ -60,6 +61,7 @@ final class EventManagerDeepBidTypeGetV30DataDeepBidType
         self::SMARTBID_EventManagerDeepBidTypeGetV30DataDeepBidType,
         self::SOCIAL_ROI_EventManagerDeepBidTypeGetV30DataDeepBidType,
         self::THIRTY_ROI_COEFFICIENT_EventManagerDeepBidTypeGetV30DataDeepBidType,
+        self::INSURANCE_PAY_ROI_EventManagerDeepBidTypeGetV30DataDeepBidType,
     ];
 
     public static function isValid(string $value): bool

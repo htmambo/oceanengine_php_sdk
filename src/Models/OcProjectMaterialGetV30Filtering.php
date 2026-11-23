@@ -7,6 +7,12 @@ namespace Oceanengine\Models;
 class OcProjectMaterialGetV30Filtering implements \JsonSerializable
 {
     /**
+     * 素材ID精确过滤（MID），服务端去重；仅支持五类主素材(VIDEO/IMAGE/CAROUSEL/TRIAL_PLAY_MATERIAL/INSTANT_PLAY_MATERIAL)。省略表示不按MID过滤；显式传空数组报错；单次最多500个
+     * @var string[]
+     */
+    protected ?array $materialIds = null;
+
+    /**
      * @var \Oceanengine\Models\OcProjectMaterialGetV30FilteringMaterialStatusFirst
      */
     protected ?string $materialStatusFirst = null;
@@ -22,9 +28,30 @@ class OcProjectMaterialGetV30Filtering implements \JsonSerializable
     protected ?string $materialType = null;
 
     /**
+     * 搜索关键词；有值时必须同时指定material_type
      * @var string
      */
     protected ?string $searchKeyword = null;
+
+    /**
+     * 素材ID精确过滤（MID），服务端去重；仅支持五类主素材(VIDEO/IMAGE/CAROUSEL/TRIAL_PLAY_MATERIAL/INSTANT_PLAY_MATERIAL)。省略表示不按MID过滤；显式传空数组报错；单次最多500个
+     * @return string[]
+     */
+    public function getMaterialIds(): ?array
+    {
+        return $this->materialIds;
+    }
+
+    /**
+     * 素材ID精确过滤（MID），服务端去重；仅支持五类主素材(VIDEO/IMAGE/CAROUSEL/TRIAL_PLAY_MATERIAL/INSTANT_PLAY_MATERIAL)。省略表示不按MID过滤；显式传空数组报错；单次最多500个
+     * @param string[] $materialIds
+     * @return self
+     */
+    public function setMaterialIds(?array $materialIds): self
+    {
+        $this->materialIds = $materialIds;
+        return $this;
+    }
 
     /**
      * @return \Oceanengine\Models\OcProjectMaterialGetV30FilteringMaterialStatusFirst
@@ -81,6 +108,7 @@ class OcProjectMaterialGetV30Filtering implements \JsonSerializable
     }
 
     /**
+     * 搜索关键词；有值时必须同时指定material_type
      * @return string
      */
     public function getSearchKeyword(): ?string
@@ -89,6 +117,7 @@ class OcProjectMaterialGetV30Filtering implements \JsonSerializable
     }
 
     /**
+     * 搜索关键词；有值时必须同时指定material_type
      * @param string $searchKeyword
      * @return self
      */
@@ -105,6 +134,9 @@ class OcProjectMaterialGetV30Filtering implements \JsonSerializable
     public function jsonSerialize(): array
     {
         $result = [];
+        if ($this->materialIds !== null) {
+            $result['material_ids'] = $this->materialIds;
+        }
         if ($this->materialStatusFirst !== null) {
             $result['material_status_first'] = $this->materialStatusFirst;
         }
@@ -123,6 +155,9 @@ class OcProjectMaterialGetV30Filtering implements \JsonSerializable
     public static function fromArray(array $data): self
     {
         $obj = new self();
+        if (($v = $data['material_ids'] ?? null) !== null && is_array($v)) {
+            $obj->materialIds = $v;
+        }
         if (($v = $data['material_status_first'] ?? null) !== null) {
             $obj->materialStatusFirst = (string) $v;
         }

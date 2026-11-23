@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class ReportAudienceInterestActionListV2FilteringAudienceLevel
 {
-    public const FIRST_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel = 'FIRST_LEVEL';
-    public const SECOND_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel = 'SECOND_LEVEL';
+    public const FOURTH_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel = 'FOURTH_LEVEL';
     public const THIRD_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel = 'THIRD_LEVEL';
     public const KEYWORD_AWEME_ReportAudienceInterestActionListV2FilteringAudienceLevel = 'KEYWORD_AWEME';
-    public const FOURTH_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel = 'FOURTH_LEVEL';
+    public const FIRST_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel = 'FIRST_LEVEL';
+    public const SECOND_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel = 'SECOND_LEVEL';
 
     public const ALLOWED_VALUES = [
-        self::FIRST_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel,
-        self::SECOND_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel,
+        self::FOURTH_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel,
         self::THIRD_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel,
         self::KEYWORD_AWEME_ReportAudienceInterestActionListV2FilteringAudienceLevel,
-        self::FOURTH_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel,
+        self::FIRST_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel,
+        self::SECOND_LEVEL_ReportAudienceInterestActionListV2FilteringAudienceLevel,
     ];
 
     public static function isValid(string $value): bool

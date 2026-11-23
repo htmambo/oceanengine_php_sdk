@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class ClueFormListV2DataListValidateType
 {
-    public const AUTO_VERIFICATION_ClueFormListV2DataListValidateType = 'AUTO_VERIFICATION';
-    public const VALIDITY_PRIORITY_ClueFormListV2DataListValidateType = 'VALIDITY_PRIORITY';
     public const NONE_VERIFICATION_ClueFormListV2DataListValidateType = 'NONE_VERIFICATION';
-    public const ALL_VERIFICATION_ClueFormListV2DataListValidateType = 'ALL_VERIFICATION';
+    public const VALIDITY_PRIORITY_ClueFormListV2DataListValidateType = 'VALIDITY_PRIORITY';
     public const CLUE_PRIORITY_ClueFormListV2DataListValidateType = 'CLUE_PRIORITY';
+    public const AUTO_VERIFICATION_ClueFormListV2DataListValidateType = 'AUTO_VERIFICATION';
+    public const ALL_VERIFICATION_ClueFormListV2DataListValidateType = 'ALL_VERIFICATION';
 
     public const ALLOWED_VALUES = [
-        self::AUTO_VERIFICATION_ClueFormListV2DataListValidateType,
-        self::VALIDITY_PRIORITY_ClueFormListV2DataListValidateType,
         self::NONE_VERIFICATION_ClueFormListV2DataListValidateType,
-        self::ALL_VERIFICATION_ClueFormListV2DataListValidateType,
+        self::VALIDITY_PRIORITY_ClueFormListV2DataListValidateType,
         self::CLUE_PRIORITY_ClueFormListV2DataListValidateType,
+        self::AUTO_VERIFICATION_ClueFormListV2DataListValidateType,
+        self::ALL_VERIFICATION_ClueFormListV2DataListValidateType,
     ];
 
     public static function isValid(string $value): bool

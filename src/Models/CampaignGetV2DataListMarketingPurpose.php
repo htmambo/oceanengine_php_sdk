@@ -6,15 +6,15 @@ namespace Oceanengine\Models;
 
 final class CampaignGetV2DataListMarketingPurpose
 {
+    public const ACKNOWLEDGE_CampaignGetV2DataListMarketingPurpose = 'ACKNOWLEDGE';
     public const UNLIMITED_CampaignGetV2DataListMarketingPurpose = 'UNLIMITED';
     public const CONVERSION_CampaignGetV2DataListMarketingPurpose = 'CONVERSION';
-    public const ACKNOWLEDGE_CampaignGetV2DataListMarketingPurpose = 'ACKNOWLEDGE';
     public const INTENTION_CampaignGetV2DataListMarketingPurpose = 'INTENTION';
 
     public const ALLOWED_VALUES = [
+        self::ACKNOWLEDGE_CampaignGetV2DataListMarketingPurpose,
         self::UNLIMITED_CampaignGetV2DataListMarketingPurpose,
         self::CONVERSION_CampaignGetV2DataListMarketingPurpose,
-        self::ACKNOWLEDGE_CampaignGetV2DataListMarketingPurpose,
         self::INTENTION_CampaignGetV2DataListMarketingPurpose,
     ];
 

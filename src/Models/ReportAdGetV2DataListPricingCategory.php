@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class ReportAdGetV2DataListPricingCategory
 {
-    public const PRICING_CATEGORY_NOC_ReportAdGetV2DataListPricingCategory = 'PRICING_CATEGORY_NOC';
-    public const PRICING_CATEGORY_BRAND_ReportAdGetV2DataListPricingCategory = 'PRICING_CATEGORY_BRAND';
-    public const PRICING_CATEGORY_FREE_ReportAdGetV2DataListPricingCategory = 'PRICING_CATEGORY_FREE';
     public const PRICING_CATEGORY_BRAND_AND_PRICING_ReportAdGetV2DataListPricingCategory = 'PRICING_CATEGORY_BRAND_AND_PRICING';
+    public const PRICING_CATEGORY_BRAND_ReportAdGetV2DataListPricingCategory = 'PRICING_CATEGORY_BRAND';
     public const PRICING_CATEGORY_BID_ReportAdGetV2DataListPricingCategory = 'PRICING_CATEGORY_BID';
+    public const PRICING_CATEGORY_NOC_ReportAdGetV2DataListPricingCategory = 'PRICING_CATEGORY_NOC';
+    public const PRICING_CATEGORY_FREE_ReportAdGetV2DataListPricingCategory = 'PRICING_CATEGORY_FREE';
 
     public const ALLOWED_VALUES = [
-        self::PRICING_CATEGORY_NOC_ReportAdGetV2DataListPricingCategory,
-        self::PRICING_CATEGORY_BRAND_ReportAdGetV2DataListPricingCategory,
-        self::PRICING_CATEGORY_FREE_ReportAdGetV2DataListPricingCategory,
         self::PRICING_CATEGORY_BRAND_AND_PRICING_ReportAdGetV2DataListPricingCategory,
+        self::PRICING_CATEGORY_BRAND_ReportAdGetV2DataListPricingCategory,
         self::PRICING_CATEGORY_BID_ReportAdGetV2DataListPricingCategory,
+        self::PRICING_CATEGORY_NOC_ReportAdGetV2DataListPricingCategory,
+        self::PRICING_CATEGORY_FREE_ReportAdGetV2DataListPricingCategory,
     ];
 
     public static function isValid(string $value): bool

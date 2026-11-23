@@ -6,13 +6,13 @@ namespace Oceanengine\Models;
 
 final class CampaignUpdateStatusV2OptStatus
 {
-    public const DELETE_CampaignUpdateStatusV2OptStatus = 'delete';
     public const DISABLE_CampaignUpdateStatusV2OptStatus = 'disable';
+    public const DELETE_CampaignUpdateStatusV2OptStatus = 'delete';
     public const ENABLE_CampaignUpdateStatusV2OptStatus = 'enable';
 
     public const ALLOWED_VALUES = [
-        self::DELETE_CampaignUpdateStatusV2OptStatus,
         self::DISABLE_CampaignUpdateStatusV2OptStatus,
+        self::DELETE_CampaignUpdateStatusV2OptStatus,
         self::ENABLE_CampaignUpdateStatusV2OptStatus,
     ];
 

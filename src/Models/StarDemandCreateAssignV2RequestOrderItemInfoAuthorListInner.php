@@ -19,6 +19,11 @@ class StarDemandCreateAssignV2RequestOrderItemInfoAuthorListInner implements \Js
     protected ?int $cnt = null;
 
     /**
+     * @var \Oceanengine\Models\StarDemandCreateAssignV2RequestOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem
+     */
+    protected ?\Oceanengine\Models\StarDemandCreateAssignV2RequestOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem $mktApiAuthorOrderCustomizedItem = null;
+
+    /**
      * 任务时长，直播任务使用
      * @var int
      */
@@ -67,6 +72,24 @@ class StarDemandCreateAssignV2RequestOrderItemInfoAuthorListInner implements \Js
     public function setCnt(?int $cnt): self
     {
         $this->cnt = $cnt;
+        return $this;
+    }
+
+    /**
+     * @return \Oceanengine\Models\StarDemandCreateAssignV2RequestOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem
+     */
+    public function getMktApiAuthorOrderCustomizedItem(): ?\Oceanengine\Models\StarDemandCreateAssignV2RequestOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem
+    {
+        return $this->mktApiAuthorOrderCustomizedItem;
+    }
+
+    /**
+     * @param \Oceanengine\Models\StarDemandCreateAssignV2RequestOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem $mktApiAuthorOrderCustomizedItem
+     * @return self
+     */
+    public function setMktApiAuthorOrderCustomizedItem(?\Oceanengine\Models\StarDemandCreateAssignV2RequestOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem $mktApiAuthorOrderCustomizedItem): self
+    {
+        $this->mktApiAuthorOrderCustomizedItem = $mktApiAuthorOrderCustomizedItem;
         return $this;
     }
 
@@ -123,6 +146,9 @@ class StarDemandCreateAssignV2RequestOrderItemInfoAuthorListInner implements \Js
         if ($this->cnt !== null) {
             $result['cnt'] = $this->cnt;
         }
+        if ($this->mktApiAuthorOrderCustomizedItem !== null) {
+            $result['mkt_api_author_order_customized_item'] = $this->mktApiAuthorOrderCustomizedItem;
+        }
         if ($this->orderTimeSpan !== null) {
             $result['order_time_span'] = $this->orderTimeSpan;
         }
@@ -140,6 +166,9 @@ class StarDemandCreateAssignV2RequestOrderItemInfoAuthorListInner implements \Js
         }
         if (($v = $data['cnt'] ?? null) !== null) {
             $obj->cnt = (int) $v;
+        }
+        if (($v = $data['mkt_api_author_order_customized_item'] ?? null) !== null && is_array($v)) {
+            $obj->mktApiAuthorOrderCustomizedItem = \Oceanengine\Models\StarDemandCreateAssignV2RequestOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem::fromArray($v);
         }
         if (($v = $data['order_time_span'] ?? null) !== null) {
             $obj->orderTimeSpan = (int) $v;

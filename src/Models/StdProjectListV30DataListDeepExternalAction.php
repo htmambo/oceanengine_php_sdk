@@ -179,6 +179,7 @@ final class StdProjectListV30DataListDeepExternalAction
     public const AD_CONVERT_TYPE_WECHAT_REGISTER_StdProjectListV30DataListDeepExternalAction = 'AD_CONVERT_TYPE_WECHAT_REGISTER';
     public const AD_CONVERT_TYPE_WECHAT_WECOM_ADD_StdProjectListV30DataListDeepExternalAction = 'AD_CONVERT_TYPE_WECHAT_WECOM_ADD';
     public const AD_CONVERT_TYPE_XPATH_StdProjectListV30DataListDeepExternalAction = 'AD_CONVERT_TYPE_XPATH';
+    public const AD_CONVERT_TYPE_INSURANCE_PAY_StdProjectListV30DataListDeepExternalAction = 'AD_CONVERT_TYPE_INSURANCE_PAY';
 
     public const ALLOWED_VALUES = [
         self::AD_CONVERT_ADD_TO_CART_StdProjectListV30DataListDeepExternalAction,
@@ -354,6 +355,7 @@ final class StdProjectListV30DataListDeepExternalAction
         self::AD_CONVERT_TYPE_WECHAT_REGISTER_StdProjectListV30DataListDeepExternalAction,
         self::AD_CONVERT_TYPE_WECHAT_WECOM_ADD_StdProjectListV30DataListDeepExternalAction,
         self::AD_CONVERT_TYPE_XPATH_StdProjectListV30DataListDeepExternalAction,
+        self::AD_CONVERT_TYPE_INSURANCE_PAY_StdProjectListV30DataListDeepExternalAction,
     ];
 
     public static function isValid(string $value): bool

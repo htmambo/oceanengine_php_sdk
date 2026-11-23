@@ -18,6 +18,7 @@ class ApiOpenApiV30EbpAdvBindGroupGetGetRequest
     private ?int $advertiserId = null;
     /** @var string 查询组织层级方式 */
     private ?string $queryType = null;
+    private ?array $groupType = null;
 
     /** @var string|null Access-Token */
     private ?string $accessToken = null;
@@ -41,6 +42,12 @@ class ApiOpenApiV30EbpAdvBindGroupGetGetRequest
     public function queryType(string $queryType): self
     {
         $this->queryType = $queryType;
+        return $this;
+    }
+
+    public function groupType(array $groupType): self
+    {
+        $this->groupType = $groupType;
         return $this;
     }
 
@@ -74,6 +81,9 @@ class ApiOpenApiV30EbpAdvBindGroupGetGetRequest
         $headers = [];
         $queryParams['advertiser_id'] = $this->advertiserId;
         $queryParams['query_type'] = $this->queryType;
+        if ($this->groupType !== null) {
+            $queryParams['group_type'] = $this->groupType;
+        }
         $body = null;
 
         $queryString = $this->apiClient->buildQuery($queryParams);

@@ -8,15 +8,15 @@ final class ToolsPlayableCloudGameListV2FilteringStatus
 {
     public const ON_SHELF_ToolsPlayableCloudGameListV2FilteringStatus = 'ON_SHELF';
     public const AUDIT_SUCCESS_ToolsPlayableCloudGameListV2FilteringStatus = 'AUDIT_SUCCESS';
-    public const OFF_SHELF_ToolsPlayableCloudGameListV2FilteringStatus = 'OFF_SHELF';
     public const AUDIT_FAIL_ToolsPlayableCloudGameListV2FilteringStatus = 'AUDIT_FAIL';
+    public const OFF_SHELF_ToolsPlayableCloudGameListV2FilteringStatus = 'OFF_SHELF';
     public const UPLOAD_STATUS_ToolsPlayableCloudGameListV2FilteringStatus = 'UPLOAD_STATUS';
 
     public const ALLOWED_VALUES = [
         self::ON_SHELF_ToolsPlayableCloudGameListV2FilteringStatus,
         self::AUDIT_SUCCESS_ToolsPlayableCloudGameListV2FilteringStatus,
-        self::OFF_SHELF_ToolsPlayableCloudGameListV2FilteringStatus,
         self::AUDIT_FAIL_ToolsPlayableCloudGameListV2FilteringStatus,
+        self::OFF_SHELF_ToolsPlayableCloudGameListV2FilteringStatus,
         self::UPLOAD_STATUS_ToolsPlayableCloudGameListV2FilteringStatus,
     ];
 

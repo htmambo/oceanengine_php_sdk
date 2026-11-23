@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus
 {
-    public const CUSTOM_AUDIENCE_DELIVERY_STATUS_NEED_PUSH_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus = 'CUSTOM_AUDIENCE_DELIVERY_STATUS_NEED_PUSH';
-    public const CUSTOM_AUDIENCE_DELIVERY_STATUS_UNAVAILABLE_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus = 'CUSTOM_AUDIENCE_DELIVERY_STATUS_UNAVAILABLE';
     public const CUSTOM_AUDIENCE_DELIVERY_STATUS_NEED_PUBLISH_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus = 'CUSTOM_AUDIENCE_DELIVERY_STATUS_NEED_PUBLISH';
+    public const CUSTOM_AUDIENCE_DELIVERY_STATUS_UNAVAILABLE_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus = 'CUSTOM_AUDIENCE_DELIVERY_STATUS_UNAVAILABLE';
     public const CUSTOM_AUDIENCE_DELIVERY_STATUS_AVAILABLE_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus = 'CUSTOM_AUDIENCE_DELIVERY_STATUS_AVAILABLE';
+    public const CUSTOM_AUDIENCE_DELIVERY_STATUS_NEED_PUSH_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus = 'CUSTOM_AUDIENCE_DELIVERY_STATUS_NEED_PUSH';
 
     public const ALLOWED_VALUES = [
-        self::CUSTOM_AUDIENCE_DELIVERY_STATUS_NEED_PUSH_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus,
-        self::CUSTOM_AUDIENCE_DELIVERY_STATUS_UNAVAILABLE_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus,
         self::CUSTOM_AUDIENCE_DELIVERY_STATUS_NEED_PUBLISH_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus,
+        self::CUSTOM_AUDIENCE_DELIVERY_STATUS_UNAVAILABLE_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus,
         self::CUSTOM_AUDIENCE_DELIVERY_STATUS_AVAILABLE_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus,
+        self::CUSTOM_AUDIENCE_DELIVERY_STATUS_NEED_PUSH_DmpDataSourceReadV2DataDataListDefaultAudienceDeliveryStatus,
     ];
 
     public static function isValid(string $value): bool

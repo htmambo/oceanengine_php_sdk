@@ -6,17 +6,17 @@ namespace Oceanengine\Models;
 
 final class KeywordCreateV2V2DataSuccessListBidType
 {
-    public const CUSTOM_KeywordCreateV2V2DataSuccessListBidType = 'CUSTOM';
     public const SUGGEST_KeywordCreateV2V2DataSuccessListBidType = 'SUGGEST';
-    public const BRAND_AD_KeywordCreateV2V2DataSuccessListBidType = 'BRAND_AD';
     public const WITH_AD_KeywordCreateV2V2DataSuccessListBidType = 'WITH_AD';
+    public const BRAND_AD_KeywordCreateV2V2DataSuccessListBidType = 'BRAND_AD';
+    public const CUSTOM_KeywordCreateV2V2DataSuccessListBidType = 'CUSTOM';
     public const FEED_TO_SEARCH_KeywordCreateV2V2DataSuccessListBidType = 'FEED_TO_SEARCH';
 
     public const ALLOWED_VALUES = [
-        self::CUSTOM_KeywordCreateV2V2DataSuccessListBidType,
         self::SUGGEST_KeywordCreateV2V2DataSuccessListBidType,
-        self::BRAND_AD_KeywordCreateV2V2DataSuccessListBidType,
         self::WITH_AD_KeywordCreateV2V2DataSuccessListBidType,
+        self::BRAND_AD_KeywordCreateV2V2DataSuccessListBidType,
+        self::CUSTOM_KeywordCreateV2V2DataSuccessListBidType,
         self::FEED_TO_SEARCH_KeywordCreateV2V2DataSuccessListBidType,
     ];
 

@@ -7,13 +7,13 @@ namespace Oceanengine\Models;
 final class ClueCouponDetailV2DataFormFormType
 {
     public const NATIVE_FORM_ClueCouponDetailV2DataFormFormType = 'NATIVE_FORM';
-    public const ADVANCED_CREATIVE_FORM_ClueCouponDetailV2DataFormFormType = 'ADVANCED_CREATIVE_FORM';
     public const NORMAL_FORM_ClueCouponDetailV2DataFormFormType = 'NORMAL_FORM';
+    public const ADVANCED_CREATIVE_FORM_ClueCouponDetailV2DataFormFormType = 'ADVANCED_CREATIVE_FORM';
 
     public const ALLOWED_VALUES = [
         self::NATIVE_FORM_ClueCouponDetailV2DataFormFormType,
-        self::ADVANCED_CREATIVE_FORM_ClueCouponDetailV2DataFormFormType,
         self::NORMAL_FORM_ClueCouponDetailV2DataFormFormType,
+        self::ADVANCED_CREATIVE_FORM_ClueCouponDetailV2DataFormFormType,
     ];
 
     public static function isValid(string $value): bool

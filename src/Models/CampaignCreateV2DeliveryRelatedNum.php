@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class CampaignCreateV2DeliveryRelatedNum
 {
+    public const CAMPAIGN_DPA_MULTI_DELIVERY_CampaignCreateV2DeliveryRelatedNum = 'CAMPAIGN_DPA_MULTI_DELIVERY';
     public const CAMPAIGN_DPA_DEFAULT_NOT_CampaignCreateV2DeliveryRelatedNum = 'CAMPAIGN_DPA_DEFAULT_NOT';
     public const CAMPAIGN_DPA_SINGLE_DELIVERY_CampaignCreateV2DeliveryRelatedNum = 'CAMPAIGN_DPA_SINGLE_DELIVERY';
-    public const CAMPAIGN_DPA_MULTI_DELIVERY_CampaignCreateV2DeliveryRelatedNum = 'CAMPAIGN_DPA_MULTI_DELIVERY';
 
     public const ALLOWED_VALUES = [
+        self::CAMPAIGN_DPA_MULTI_DELIVERY_CampaignCreateV2DeliveryRelatedNum,
         self::CAMPAIGN_DPA_DEFAULT_NOT_CampaignCreateV2DeliveryRelatedNum,
         self::CAMPAIGN_DPA_SINGLE_DELIVERY_CampaignCreateV2DeliveryRelatedNum,
-        self::CAMPAIGN_DPA_MULTI_DELIVERY_CampaignCreateV2DeliveryRelatedNum,
     ];
 
     public static function isValid(string $value): bool

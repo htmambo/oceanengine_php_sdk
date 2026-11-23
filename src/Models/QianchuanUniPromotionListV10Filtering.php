@@ -24,6 +24,18 @@ class QianchuanUniPromotionListV10Filtering implements \JsonSerializable
     protected ?string $havingCost = null;
 
     /**
+     * 计划编辑结束日期，时间格式 2021-04-05 00:00:00
+     * @var string
+     */
+    protected ?string $modifyEndDate = null;
+
+    /**
+     * 计划编辑开始日期，时间格式 2021-04-05 00:00:00
+     * @var string
+     */
+    protected ?string $modifyStartDate = null;
+
+    /**
      * 搜索关键词，支持根据计划名称/ID搜索
      * @var string
      */
@@ -99,6 +111,46 @@ class QianchuanUniPromotionListV10Filtering implements \JsonSerializable
     public function setHavingCost(?string $havingCost): self
     {
         $this->havingCost = $havingCost;
+        return $this;
+    }
+
+    /**
+     * 计划编辑结束日期，时间格式 2021-04-05 00:00:00
+     * @return string
+     */
+    public function getModifyEndDate(): ?string
+    {
+        return $this->modifyEndDate;
+    }
+
+    /**
+     * 计划编辑结束日期，时间格式 2021-04-05 00:00:00
+     * @param string $modifyEndDate
+     * @return self
+     */
+    public function setModifyEndDate(?string $modifyEndDate): self
+    {
+        $this->modifyEndDate = $modifyEndDate;
+        return $this;
+    }
+
+    /**
+     * 计划编辑开始日期，时间格式 2021-04-05 00:00:00
+     * @return string
+     */
+    public function getModifyStartDate(): ?string
+    {
+        return $this->modifyStartDate;
+    }
+
+    /**
+     * 计划编辑开始日期，时间格式 2021-04-05 00:00:00
+     * @param string $modifyStartDate
+     * @return self
+     */
+    public function setModifyStartDate(?string $modifyStartDate): self
+    {
+        $this->modifyStartDate = $modifyStartDate;
         return $this;
     }
 
@@ -192,6 +244,12 @@ class QianchuanUniPromotionListV10Filtering implements \JsonSerializable
         if ($this->havingCost !== null) {
             $result['having_cost'] = $this->havingCost;
         }
+        if ($this->modifyEndDate !== null) {
+            $result['modify_end_date'] = $this->modifyEndDate;
+        }
+        if ($this->modifyStartDate !== null) {
+            $result['modify_start_date'] = $this->modifyStartDate;
+        }
         if ($this->searchKeyword !== null) {
             $result['search_keyword'] = $this->searchKeyword;
         }
@@ -218,6 +276,12 @@ class QianchuanUniPromotionListV10Filtering implements \JsonSerializable
         }
         if (($v = $data['having_cost'] ?? null) !== null) {
             $obj->havingCost = (string) $v;
+        }
+        if (($v = $data['modify_end_date'] ?? null) !== null) {
+            $obj->modifyEndDate = (string) $v;
+        }
+        if (($v = $data['modify_start_date'] ?? null) !== null) {
+            $obj->modifyStartDate = (string) $v;
         }
         if (($v = $data['search_keyword'] ?? null) !== null) {
             $obj->searchKeyword = (string) $v;

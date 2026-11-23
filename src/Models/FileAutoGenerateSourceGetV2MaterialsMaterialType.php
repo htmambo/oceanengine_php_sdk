@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class FileAutoGenerateSourceGetV2MaterialsMaterialType
 {
-    public const VIDEO_FileAutoGenerateSourceGetV2MaterialsMaterialType = 'video';
     public const IMAGE_FileAutoGenerateSourceGetV2MaterialsMaterialType = 'image';
+    public const VIDEO_FileAutoGenerateSourceGetV2MaterialsMaterialType = 'video';
 
     public const ALLOWED_VALUES = [
-        self::VIDEO_FileAutoGenerateSourceGetV2MaterialsMaterialType,
         self::IMAGE_FileAutoGenerateSourceGetV2MaterialsMaterialType,
+        self::VIDEO_FileAutoGenerateSourceGetV2MaterialsMaterialType,
     ];
 
     public static function isValid(string $value): bool

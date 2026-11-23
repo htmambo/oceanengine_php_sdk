@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class AudiencePackageUpdateV2Ac
 {
+    public const WIFI_AudiencePackageUpdateV2Ac = 'WIFI';
     public const Enum_5_G_AudiencePackageUpdateV2Ac = '5G';
+    public const Enum_2_G_AudiencePackageUpdateV2Ac = '2G';
     public const Enum_4_G_AudiencePackageUpdateV2Ac = '4G';
     public const Enum_3_G_AudiencePackageUpdateV2Ac = '3G';
-    public const WIFI_AudiencePackageUpdateV2Ac = 'WIFI';
-    public const Enum_2_G_AudiencePackageUpdateV2Ac = '2G';
 
     public const ALLOWED_VALUES = [
+        self::WIFI_AudiencePackageUpdateV2Ac,
         self::Enum_5_G_AudiencePackageUpdateV2Ac,
+        self::Enum_2_G_AudiencePackageUpdateV2Ac,
         self::Enum_4_G_AudiencePackageUpdateV2Ac,
         self::Enum_3_G_AudiencePackageUpdateV2Ac,
-        self::WIFI_AudiencePackageUpdateV2Ac,
-        self::Enum_2_G_AudiencePackageUpdateV2Ac,
     ];
 
     public static function isValid(string $value): bool

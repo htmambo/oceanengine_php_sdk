@@ -7,13 +7,13 @@ namespace Oceanengine\Models;
 final class ToolsAppManagementShareAccountListV2DataListShareMode
 {
     public const COMPANY_ToolsAppManagementShareAccountListV2DataListShareMode = 'COMPANY';
-    public const ALL_ToolsAppManagementShareAccountListV2DataListShareMode = 'ALL';
     public const PART_ToolsAppManagementShareAccountListV2DataListShareMode = 'PART';
+    public const ALL_ToolsAppManagementShareAccountListV2DataListShareMode = 'ALL';
 
     public const ALLOWED_VALUES = [
         self::COMPANY_ToolsAppManagementShareAccountListV2DataListShareMode,
-        self::ALL_ToolsAppManagementShareAccountListV2DataListShareMode,
         self::PART_ToolsAppManagementShareAccountListV2DataListShareMode,
+        self::ALL_ToolsAppManagementShareAccountListV2DataListShareMode,
     ];
 
     public static function isValid(string $value): bool

@@ -6,20 +6,20 @@ namespace Oceanengine\Models;
 
 final class ReportAdGetV2DataListAc
 {
-    public const Enum_5_G_ReportAdGetV2DataListAc = '5G';
-    public const Enum_4_G_ReportAdGetV2DataListAc = '4G';
     public const UNKNOWN_ReportAdGetV2DataListAc = 'unknown';
-    public const Enum_3_G_ReportAdGetV2DataListAc = '3G';
     public const WIFI_ReportAdGetV2DataListAc = 'WIFI';
+    public const Enum_5_G_ReportAdGetV2DataListAc = '5G';
     public const Enum_2_G_ReportAdGetV2DataListAc = '2G';
+    public const Enum_4_G_ReportAdGetV2DataListAc = '4G';
+    public const Enum_3_G_ReportAdGetV2DataListAc = '3G';
 
     public const ALLOWED_VALUES = [
-        self::Enum_5_G_ReportAdGetV2DataListAc,
-        self::Enum_4_G_ReportAdGetV2DataListAc,
         self::UNKNOWN_ReportAdGetV2DataListAc,
-        self::Enum_3_G_ReportAdGetV2DataListAc,
         self::WIFI_ReportAdGetV2DataListAc,
+        self::Enum_5_G_ReportAdGetV2DataListAc,
         self::Enum_2_G_ReportAdGetV2DataListAc,
+        self::Enum_4_G_ReportAdGetV2DataListAc,
+        self::Enum_3_G_ReportAdGetV2DataListAc,
     ];
 
     public static function isValid(string $value): bool

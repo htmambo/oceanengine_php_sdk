@@ -6,17 +6,17 @@ namespace Oceanengine\Models;
 
 final class KeywordUpdateV2V2KeywordsBidType
 {
-    public const CUSTOM_KeywordUpdateV2V2KeywordsBidType = 'CUSTOM';
     public const SUGGEST_KeywordUpdateV2V2KeywordsBidType = 'SUGGEST';
-    public const BRAND_AD_KeywordUpdateV2V2KeywordsBidType = 'BRAND_AD';
     public const WITH_AD_KeywordUpdateV2V2KeywordsBidType = 'WITH_AD';
+    public const BRAND_AD_KeywordUpdateV2V2KeywordsBidType = 'BRAND_AD';
+    public const CUSTOM_KeywordUpdateV2V2KeywordsBidType = 'CUSTOM';
     public const FEED_TO_SEARCH_KeywordUpdateV2V2KeywordsBidType = 'FEED_TO_SEARCH';
 
     public const ALLOWED_VALUES = [
-        self::CUSTOM_KeywordUpdateV2V2KeywordsBidType,
         self::SUGGEST_KeywordUpdateV2V2KeywordsBidType,
-        self::BRAND_AD_KeywordUpdateV2V2KeywordsBidType,
         self::WITH_AD_KeywordUpdateV2V2KeywordsBidType,
+        self::BRAND_AD_KeywordUpdateV2V2KeywordsBidType,
+        self::CUSTOM_KeywordUpdateV2V2KeywordsBidType,
         self::FEED_TO_SEARCH_KeywordUpdateV2V2KeywordsBidType,
     ];
 

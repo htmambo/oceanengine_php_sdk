@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class ToolsEstimateAudienceV2RetargetingType
 {
-    public const RETARGETING_NONE_ToolsEstimateAudienceV2RetargetingType = 'RETARGETING_NONE';
-    public const RETARGETING_EXCLUDE_ToolsEstimateAudienceV2RetargetingType = 'RETARGETING_EXCLUDE';
-    public const RETARGETING_INCLUDE_ToolsEstimateAudienceV2RetargetingType = 'RETARGETING_INCLUDE';
     public const NONE_ToolsEstimateAudienceV2RetargetingType = 'NONE';
+    public const RETARGETING_INCLUDE_ToolsEstimateAudienceV2RetargetingType = 'RETARGETING_INCLUDE';
+    public const RETARGETING_EXCLUDE_ToolsEstimateAudienceV2RetargetingType = 'RETARGETING_EXCLUDE';
+    public const RETARGETING_NONE_ToolsEstimateAudienceV2RetargetingType = 'RETARGETING_NONE';
 
     public const ALLOWED_VALUES = [
-        self::RETARGETING_NONE_ToolsEstimateAudienceV2RetargetingType,
-        self::RETARGETING_EXCLUDE_ToolsEstimateAudienceV2RetargetingType,
-        self::RETARGETING_INCLUDE_ToolsEstimateAudienceV2RetargetingType,
         self::NONE_ToolsEstimateAudienceV2RetargetingType,
+        self::RETARGETING_INCLUDE_ToolsEstimateAudienceV2RetargetingType,
+        self::RETARGETING_EXCLUDE_ToolsEstimateAudienceV2RetargetingType,
+        self::RETARGETING_NONE_ToolsEstimateAudienceV2RetargetingType,
     ];
 
     public static function isValid(string $value): bool

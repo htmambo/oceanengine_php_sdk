@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class CreativeCustomCreativeCreateV2AdDataAnchorRelatedType
 {
-    public const SELECT_CreativeCustomCreativeCreateV2AdDataAnchorRelatedType = 'SELECT';
     public const OFF_CreativeCustomCreativeCreateV2AdDataAnchorRelatedType = 'OFF';
     public const AUTO_CreativeCustomCreativeCreateV2AdDataAnchorRelatedType = 'AUTO';
+    public const SELECT_CreativeCustomCreativeCreateV2AdDataAnchorRelatedType = 'SELECT';
 
     public const ALLOWED_VALUES = [
-        self::SELECT_CreativeCustomCreativeCreateV2AdDataAnchorRelatedType,
         self::OFF_CreativeCustomCreativeCreateV2AdDataAnchorRelatedType,
         self::AUTO_CreativeCustomCreativeCreateV2AdDataAnchorRelatedType,
+        self::SELECT_CreativeCustomCreativeCreateV2AdDataAnchorRelatedType,
     ];
 
     public static function isValid(string $value): bool

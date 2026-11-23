@@ -6,31 +6,31 @@ namespace Oceanengine\Models;
 
 final class AudiencePackageUpdateV2AwemeFanBehaviors
 {
-    public const LIVE_EXCEPTIONAL_AudiencePackageUpdateV2AwemeFanBehaviors = 'LIVE_EXCEPTIONAL';
-    public const GOODS_CARTS_ORDER_AudiencePackageUpdateV2AwemeFanBehaviors = 'GOODS_CARTS_ORDER';
-    public const COMMENTED_USER_AudiencePackageUpdateV2AwemeFanBehaviors = 'COMMENTED_USER';
-    public const LIVE_GOODS_CLICK_AudiencePackageUpdateV2AwemeFanBehaviors = 'LIVE_GOODS_CLICK';
-    public const FOLLOWED_USER_AudiencePackageUpdateV2AwemeFanBehaviors = 'FOLLOWED_USER';
-    public const LIKED_USER_AudiencePackageUpdateV2AwemeFanBehaviors = 'LIKED_USER';
     public const GOODS_CARTS_CLICK_AudiencePackageUpdateV2AwemeFanBehaviors = 'GOODS_CARTS_CLICK';
+    public const LIKED_USER_AudiencePackageUpdateV2AwemeFanBehaviors = 'LIKED_USER';
     public const LIVE_EFFECTIVE_WATCH_AudiencePackageUpdateV2AwemeFanBehaviors = 'LIVE_EFFECTIVE_WATCH';
+    public const LIVE_GOODS_CLICK_AudiencePackageUpdateV2AwemeFanBehaviors = 'LIVE_GOODS_CLICK';
+    public const COMMENTED_USER_AudiencePackageUpdateV2AwemeFanBehaviors = 'COMMENTED_USER';
+    public const GOODS_CARTS_ORDER_AudiencePackageUpdateV2AwemeFanBehaviors = 'GOODS_CARTS_ORDER';
+    public const FOLLOWED_USER_AudiencePackageUpdateV2AwemeFanBehaviors = 'FOLLOWED_USER';
+    public const LIVE_EXCEPTIONAL_AudiencePackageUpdateV2AwemeFanBehaviors = 'LIVE_EXCEPTIONAL';
     public const SHARED_USER_AudiencePackageUpdateV2AwemeFanBehaviors = 'SHARED_USER';
-    public const LIVE_COMMENT_AudiencePackageUpdateV2AwemeFanBehaviors = 'LIVE_COMMENT';
     public const LIVE_WATCH_AudiencePackageUpdateV2AwemeFanBehaviors = 'LIVE_WATCH';
+    public const LIVE_COMMENT_AudiencePackageUpdateV2AwemeFanBehaviors = 'LIVE_COMMENT';
     public const LIVE_GOODS_ORDER_AudiencePackageUpdateV2AwemeFanBehaviors = 'LIVE_GOODS_ORDER';
 
     public const ALLOWED_VALUES = [
-        self::LIVE_EXCEPTIONAL_AudiencePackageUpdateV2AwemeFanBehaviors,
-        self::GOODS_CARTS_ORDER_AudiencePackageUpdateV2AwemeFanBehaviors,
-        self::COMMENTED_USER_AudiencePackageUpdateV2AwemeFanBehaviors,
-        self::LIVE_GOODS_CLICK_AudiencePackageUpdateV2AwemeFanBehaviors,
-        self::FOLLOWED_USER_AudiencePackageUpdateV2AwemeFanBehaviors,
-        self::LIKED_USER_AudiencePackageUpdateV2AwemeFanBehaviors,
         self::GOODS_CARTS_CLICK_AudiencePackageUpdateV2AwemeFanBehaviors,
+        self::LIKED_USER_AudiencePackageUpdateV2AwemeFanBehaviors,
         self::LIVE_EFFECTIVE_WATCH_AudiencePackageUpdateV2AwemeFanBehaviors,
+        self::LIVE_GOODS_CLICK_AudiencePackageUpdateV2AwemeFanBehaviors,
+        self::COMMENTED_USER_AudiencePackageUpdateV2AwemeFanBehaviors,
+        self::GOODS_CARTS_ORDER_AudiencePackageUpdateV2AwemeFanBehaviors,
+        self::FOLLOWED_USER_AudiencePackageUpdateV2AwemeFanBehaviors,
+        self::LIVE_EXCEPTIONAL_AudiencePackageUpdateV2AwemeFanBehaviors,
         self::SHARED_USER_AudiencePackageUpdateV2AwemeFanBehaviors,
-        self::LIVE_COMMENT_AudiencePackageUpdateV2AwemeFanBehaviors,
         self::LIVE_WATCH_AudiencePackageUpdateV2AwemeFanBehaviors,
+        self::LIVE_COMMENT_AudiencePackageUpdateV2AwemeFanBehaviors,
         self::LIVE_GOODS_ORDER_AudiencePackageUpdateV2AwemeFanBehaviors,
     ];
 

@@ -6,20 +6,20 @@ namespace Oceanengine\Models;
 
 final class ClueCouponDetailV2DataCouponResourceListIndustryType
 {
-    public const ENTERTAINMENT_ClueCouponDetailV2DataCouponResourceListIndustryType = 'ENTERTAINMENT';
-    public const TICKET_ClueCouponDetailV2DataCouponResourceListIndustryType = 'TICKET';
-    public const FINANCIAL_ClueCouponDetailV2DataCouponResourceListIndustryType = 'FINANCIAL';
-    public const GAME_ClueCouponDetailV2DataCouponResourceListIndustryType = 'GAME';
-    public const FOOD_ClueCouponDetailV2DataCouponResourceListIndustryType = 'FOOD';
     public const OTHER_ClueCouponDetailV2DataCouponResourceListIndustryType = 'OTHER';
+    public const TICKET_ClueCouponDetailV2DataCouponResourceListIndustryType = 'TICKET';
+    public const ENTERTAINMENT_ClueCouponDetailV2DataCouponResourceListIndustryType = 'ENTERTAINMENT';
+    public const GAME_ClueCouponDetailV2DataCouponResourceListIndustryType = 'GAME';
+    public const FINANCIAL_ClueCouponDetailV2DataCouponResourceListIndustryType = 'FINANCIAL';
+    public const FOOD_ClueCouponDetailV2DataCouponResourceListIndustryType = 'FOOD';
 
     public const ALLOWED_VALUES = [
-        self::ENTERTAINMENT_ClueCouponDetailV2DataCouponResourceListIndustryType,
-        self::TICKET_ClueCouponDetailV2DataCouponResourceListIndustryType,
-        self::FINANCIAL_ClueCouponDetailV2DataCouponResourceListIndustryType,
-        self::GAME_ClueCouponDetailV2DataCouponResourceListIndustryType,
-        self::FOOD_ClueCouponDetailV2DataCouponResourceListIndustryType,
         self::OTHER_ClueCouponDetailV2DataCouponResourceListIndustryType,
+        self::TICKET_ClueCouponDetailV2DataCouponResourceListIndustryType,
+        self::ENTERTAINMENT_ClueCouponDetailV2DataCouponResourceListIndustryType,
+        self::GAME_ClueCouponDetailV2DataCouponResourceListIndustryType,
+        self::FINANCIAL_ClueCouponDetailV2DataCouponResourceListIndustryType,
+        self::FOOD_ClueCouponDetailV2DataCouponResourceListIndustryType,
     ];
 
     public static function isValid(string $value): bool

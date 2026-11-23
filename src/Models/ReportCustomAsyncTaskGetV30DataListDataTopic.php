@@ -16,6 +16,7 @@ final class ReportCustomAsyncTaskGetV30DataListDataTopic
     public const STD_BASIC_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic = 'STD_BASIC_DATA';
     public const STD_BIDWORD_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic = 'STD_BIDWORD_DATA';
     public const STD_DMP_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic = 'STD_DMP_DATA';
+    public const STD_DPA_VIDEO_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic = 'STD_DPA_VIDEO_DATA';
     public const STD_MATERIAL_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic = 'STD_MATERIAL_DATA';
     public const STD_PRODUCT_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic = 'STD_PRODUCT_DATA';
     public const STD_QUERY_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic = 'STD_QUERY_DATA';
@@ -31,6 +32,7 @@ final class ReportCustomAsyncTaskGetV30DataListDataTopic
         self::STD_BASIC_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic,
         self::STD_BIDWORD_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic,
         self::STD_DMP_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic,
+        self::STD_DPA_VIDEO_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic,
         self::STD_MATERIAL_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic,
         self::STD_PRODUCT_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic,
         self::STD_QUERY_DATA_ReportCustomAsyncTaskGetV30DataListDataTopic,

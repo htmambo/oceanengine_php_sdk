@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ClueFormCreateV2ElementsIsUnique
 {
-    public const Enum_0_ClueFormCreateV2ElementsIsUnique = '0';
     public const Enum_1_ClueFormCreateV2ElementsIsUnique = '1';
+    public const Enum_0_ClueFormCreateV2ElementsIsUnique = '0';
 
     public const ALLOWED_VALUES = [
-        self::Enum_0_ClueFormCreateV2ElementsIsUnique,
         self::Enum_1_ClueFormCreateV2ElementsIsUnique,
+        self::Enum_0_ClueFormCreateV2ElementsIsUnique,
     ];
 
     public static function isValid(string $value): bool

@@ -97,6 +97,12 @@ class BrandMaMaterialListV30ResponseDataMaterialsInnerMaterialDate implements \J
     protected ?int $orderShowStatus = null;
 
     /**
+     * 预订单来源：1-ECP，2-AD，3-Poseidon
+     * @var int
+     */
+    protected ?int $orderSource = null;
+
+    /**
      * 预订单聚合状态
      * @var int
      */
@@ -125,6 +131,12 @@ class BrandMaMaterialListV30ResponseDataMaterialsInnerMaterialDate implements \J
      * @var string[]
      */
     protected ?array $reason = null;
+
+    /**
+     * 自助来源：1-AD，3-Poseidon
+     * @var int
+     */
+    protected ?int $selfServiceSource = null;
 
     /**
      * 是否展示草稿 tag
@@ -463,6 +475,26 @@ class BrandMaMaterialListV30ResponseDataMaterialsInnerMaterialDate implements \J
     }
 
     /**
+     * 预订单来源：1-ECP，2-AD，3-Poseidon
+     * @return int
+     */
+    public function getOrderSource(): ?int
+    {
+        return $this->orderSource;
+    }
+
+    /**
+     * 预订单来源：1-ECP，2-AD，3-Poseidon
+     * @param int $orderSource
+     * @return self
+     */
+    public function setOrderSource(?int $orderSource): self
+    {
+        $this->orderSource = $orderSource;
+        return $this;
+    }
+
+    /**
      * 预订单聚合状态
      * @return int
      */
@@ -559,6 +591,26 @@ class BrandMaMaterialListV30ResponseDataMaterialsInnerMaterialDate implements \J
     public function setReason(?array $reason): self
     {
         $this->reason = $reason;
+        return $this;
+    }
+
+    /**
+     * 自助来源：1-AD，3-Poseidon
+     * @return int
+     */
+    public function getSelfServiceSource(): ?int
+    {
+        return $this->selfServiceSource;
+    }
+
+    /**
+     * 自助来源：1-AD，3-Poseidon
+     * @param int $selfServiceSource
+     * @return self
+     */
+    public function setSelfServiceSource(?int $selfServiceSource): self
+    {
+        $this->selfServiceSource = $selfServiceSource;
         return $this;
     }
 
@@ -734,6 +786,9 @@ class BrandMaMaterialListV30ResponseDataMaterialsInnerMaterialDate implements \J
         if ($this->orderShowStatus !== null) {
             $result['order_show_status'] = $this->orderShowStatus;
         }
+        if ($this->orderSource !== null) {
+            $result['order_source'] = $this->orderSource;
+        }
         if ($this->orderUnionStatus !== null) {
             $result['order_union_status'] = $this->orderUnionStatus;
         }
@@ -748,6 +803,9 @@ class BrandMaMaterialListV30ResponseDataMaterialsInnerMaterialDate implements \J
         }
         if ($this->reason !== null) {
             $result['reason'] = $this->reason;
+        }
+        if ($this->selfServiceSource !== null) {
+            $result['self_service_source'] = $this->selfServiceSource;
         }
         if ($this->showDraftTag !== null) {
             $result['show_draft_tag'] = $this->showDraftTag;
@@ -818,6 +876,9 @@ class BrandMaMaterialListV30ResponseDataMaterialsInnerMaterialDate implements \J
         if (($v = $data['order_show_status'] ?? null) !== null) {
             $obj->orderShowStatus = (int) $v;
         }
+        if (($v = $data['order_source'] ?? null) !== null) {
+            $obj->orderSource = (int) $v;
+        }
         if (($v = $data['order_union_status'] ?? null) !== null) {
             $obj->orderUnionStatus = (int) $v;
         }
@@ -832,6 +893,9 @@ class BrandMaMaterialListV30ResponseDataMaterialsInnerMaterialDate implements \J
         }
         if (($v = $data['reason'] ?? null) !== null && is_array($v)) {
             $obj->reason = $v;
+        }
+        if (($v = $data['self_service_source'] ?? null) !== null) {
+            $obj->selfServiceSource = (int) $v;
         }
         if (($v = $data['show_draft_tag'] ?? null) !== null) {
             $obj->showDraftTag = (bool) $v;

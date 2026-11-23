@@ -19,11 +19,11 @@ class ApiOpenApiV10QianchuanUniPromotionListGetRequest
     private ?string $startTime = null;
     private ?string $endTime = null;
     private ?string $marketingGoal = null;
-    private ?array $fields = null;
     /** @var \Oceanengine\Models\QianchuanUniPromotionListV10Filtering 过滤器 */
     private ?\Oceanengine\Models\QianchuanUniPromotionListV10Filtering $filtering = null;
     /** @var bool 是否获取成本保障信息 */
     private ?bool $needCompensateInfo = null;
+    private ?array $fields = null;
     private ?string $orderType = null;
     private ?string $orderField = null;
     private ?int $page = null;
@@ -66,12 +66,6 @@ class ApiOpenApiV10QianchuanUniPromotionListGetRequest
         return $this;
     }
 
-    public function fields(array $fields): self
-    {
-        $this->fields = $fields;
-        return $this;
-    }
-
     /**
      * 过滤器
      */
@@ -87,6 +81,12 @@ class ApiOpenApiV10QianchuanUniPromotionListGetRequest
     public function needCompensateInfo(bool $needCompensateInfo): self
     {
         $this->needCompensateInfo = $needCompensateInfo;
+        return $this;
+    }
+
+    public function fields(array $fields): self
+    {
+        $this->fields = $fields;
         return $this;
     }
 
@@ -159,9 +159,6 @@ class ApiOpenApiV10QianchuanUniPromotionListGetRequest
         if ($this->marketingGoal === null) {
             throw new \InvalidArgumentException('marketingGoal is required and must be specified');
         }
-        if ($this->fields === null) {
-            throw new \InvalidArgumentException('fields is required and must be specified');
-        }
         $queryParams = [];
         $formParams = [];
         $files = [];
@@ -180,7 +177,9 @@ class ApiOpenApiV10QianchuanUniPromotionListGetRequest
         if ($this->needCompensateInfo !== null) {
             $queryParams['need_compensate_info'] = $this->needCompensateInfo;
         }
-        $queryParams['fields'] = $this->fields;
+        if ($this->fields !== null) {
+            $queryParams['fields'] = $this->fields;
+        }
         if ($this->orderType !== null) {
             $queryParams['order_type'] = $this->orderType;
         }

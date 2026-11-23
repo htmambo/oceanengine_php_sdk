@@ -33,6 +33,7 @@ final class StdProjectListV30FilteringDeepBidType
     public const SMARTBID_StdProjectListV30FilteringDeepBidType = 'SMARTBID';
     public const SOCIAL_ROI_StdProjectListV30FilteringDeepBidType = 'SOCIAL_ROI';
     public const THIRTY_ROI_COEFFICIENT_StdProjectListV30FilteringDeepBidType = 'THIRTY_ROI_COEFFICIENT';
+    public const INSURANCE_PAY_ROI_StdProjectListV30FilteringDeepBidType = 'INSURANCE_PAY_ROI';
 
     public const ALLOWED_VALUES = [
         self::ALI_FL_StdProjectListV30FilteringDeepBidType,
@@ -62,6 +63,7 @@ final class StdProjectListV30FilteringDeepBidType
         self::SMARTBID_StdProjectListV30FilteringDeepBidType,
         self::SOCIAL_ROI_StdProjectListV30FilteringDeepBidType,
         self::THIRTY_ROI_COEFFICIENT_StdProjectListV30FilteringDeepBidType,
+        self::INSURANCE_PAY_ROI_StdProjectListV30FilteringDeepBidType,
     ];
 
     public static function isValid(string $value): bool

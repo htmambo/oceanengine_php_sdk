@@ -174,6 +174,7 @@ final class ProjectListV30DataListOptimizeGoalDeepExternalAction
     public const AD_CONVERT_TYPE_WECHAT_REGISTER_ProjectListV30DataListOptimizeGoalDeepExternalAction = 'AD_CONVERT_TYPE_WECHAT_REGISTER';
     public const AD_CONVERT_TYPE_WECHAT_WECOM_ADD_ProjectListV30DataListOptimizeGoalDeepExternalAction = 'AD_CONVERT_TYPE_WECHAT_WECOM_ADD';
     public const AD_CONVERT_TYPE_XPATH_ProjectListV30DataListOptimizeGoalDeepExternalAction = 'AD_CONVERT_TYPE_XPATH';
+    public const AD_CONVERT_TYPE_INSURANCE_PAY_ProjectListV30DataListOptimizeGoalDeepExternalAction = 'AD_CONVERT_TYPE_INSURANCE_PAY';
 
     public const ALLOWED_VALUES = [
         self::AD_CONVERT_PAGE_VIEW_ProjectListV30DataListOptimizeGoalDeepExternalAction,
@@ -344,6 +345,7 @@ final class ProjectListV30DataListOptimizeGoalDeepExternalAction
         self::AD_CONVERT_TYPE_WECHAT_REGISTER_ProjectListV30DataListOptimizeGoalDeepExternalAction,
         self::AD_CONVERT_TYPE_WECHAT_WECOM_ADD_ProjectListV30DataListOptimizeGoalDeepExternalAction,
         self::AD_CONVERT_TYPE_XPATH_ProjectListV30DataListOptimizeGoalDeepExternalAction,
+        self::AD_CONVERT_TYPE_INSURANCE_PAY_ProjectListV30DataListOptimizeGoalDeepExternalAction,
     ];
 
     public static function isValid(string $value): bool

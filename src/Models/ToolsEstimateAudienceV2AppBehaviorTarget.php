@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class ToolsEstimateAudienceV2AppBehaviorTarget
 {
-    public const APP_ToolsEstimateAudienceV2AppBehaviorTarget = 'APP';
-    public const CATEGORY_ToolsEstimateAudienceV2AppBehaviorTarget = 'CATEGORY';
     public const NONE_ToolsEstimateAudienceV2AppBehaviorTarget = 'NONE';
+    public const CATEGORY_ToolsEstimateAudienceV2AppBehaviorTarget = 'CATEGORY';
+    public const APP_ToolsEstimateAudienceV2AppBehaviorTarget = 'APP';
 
     public const ALLOWED_VALUES = [
-        self::APP_ToolsEstimateAudienceV2AppBehaviorTarget,
-        self::CATEGORY_ToolsEstimateAudienceV2AppBehaviorTarget,
         self::NONE_ToolsEstimateAudienceV2AppBehaviorTarget,
+        self::CATEGORY_ToolsEstimateAudienceV2AppBehaviorTarget,
+        self::APP_ToolsEstimateAudienceV2AppBehaviorTarget,
     ];
 
     public static function isValid(string $value): bool

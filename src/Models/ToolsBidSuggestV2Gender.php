@@ -6,15 +6,15 @@ namespace Oceanengine\Models;
 
 final class ToolsBidSuggestV2Gender
 {
+    public const GENDER_UNLIMITED_ToolsBidSuggestV2Gender = 'GENDER_UNLIMITED';
     public const GENDER_FEMALE_ToolsBidSuggestV2Gender = 'GENDER_FEMALE';
     public const GENDER_MALE_ToolsBidSuggestV2Gender = 'GENDER_MALE';
-    public const GENDER_UNLIMITED_ToolsBidSuggestV2Gender = 'GENDER_UNLIMITED';
     public const NONE_ToolsBidSuggestV2Gender = 'NONE';
 
     public const ALLOWED_VALUES = [
+        self::GENDER_UNLIMITED_ToolsBidSuggestV2Gender,
         self::GENDER_FEMALE_ToolsBidSuggestV2Gender,
         self::GENDER_MALE_ToolsBidSuggestV2Gender,
-        self::GENDER_UNLIMITED_ToolsBidSuggestV2Gender,
         self::NONE_ToolsBidSuggestV2Gender,
     ];
 

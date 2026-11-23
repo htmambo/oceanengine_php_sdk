@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class AudiencePackageCreateV2MarketingGoal
 {
-    public const VIDEO_AND_IMAGE_AudiencePackageCreateV2MarketingGoal = 'VIDEO_AND_IMAGE';
     public const LIVE_AudiencePackageCreateV2MarketingGoal = 'LIVE';
+    public const VIDEO_AND_IMAGE_AudiencePackageCreateV2MarketingGoal = 'VIDEO_AND_IMAGE';
 
     public const ALLOWED_VALUES = [
-        self::VIDEO_AND_IMAGE_AudiencePackageCreateV2MarketingGoal,
         self::LIVE_AudiencePackageCreateV2MarketingGoal,
+        self::VIDEO_AND_IMAGE_AudiencePackageCreateV2MarketingGoal,
     ];
 
     public static function isValid(string $value): bool

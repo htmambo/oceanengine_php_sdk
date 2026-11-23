@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ReportAdvertiserGetV2OrderType
 {
-    public const DESC_ReportAdvertiserGetV2OrderType = 'DESC';
     public const ASC_ReportAdvertiserGetV2OrderType = 'ASC';
+    public const DESC_ReportAdvertiserGetV2OrderType = 'DESC';
 
     public const ALLOWED_VALUES = [
-        self::DESC_ReportAdvertiserGetV2OrderType,
         self::ASC_ReportAdvertiserGetV2OrderType,
+        self::DESC_ReportAdvertiserGetV2OrderType,
     ];
 
     public static function isValid(string $value): bool

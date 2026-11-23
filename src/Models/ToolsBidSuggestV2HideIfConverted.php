@@ -6,24 +6,24 @@ namespace Oceanengine\Models;
 
 final class ToolsBidSuggestV2HideIfConverted
 {
-    public const APP_ToolsBidSuggestV2HideIfConverted = 'APP';
-    public const ADVERTISER_ToolsBidSuggestV2HideIfConverted = 'ADVERTISER';
-    public const CAMPAIGN_ToolsBidSuggestV2HideIfConverted = 'CAMPAIGN';
-    public const ORGANIZATION_ToolsBidSuggestV2HideIfConverted = 'ORGANIZATION';
-    public const NO_EXCLUDE_ToolsBidSuggestV2HideIfConverted = 'NO_EXCLUDE';
-    public const AD_ToolsBidSuggestV2HideIfConverted = 'AD';
     public const CUSTOMER_ToolsBidSuggestV2HideIfConverted = 'CUSTOMER';
     public const GLOBAL_APP_ToolsBidSuggestV2HideIfConverted = 'GLOBAL_APP';
+    public const AD_ToolsBidSuggestV2HideIfConverted = 'AD';
+    public const ADVERTISER_ToolsBidSuggestV2HideIfConverted = 'ADVERTISER';
+    public const NO_EXCLUDE_ToolsBidSuggestV2HideIfConverted = 'NO_EXCLUDE';
+    public const APP_ToolsBidSuggestV2HideIfConverted = 'APP';
+    public const CAMPAIGN_ToolsBidSuggestV2HideIfConverted = 'CAMPAIGN';
+    public const ORGANIZATION_ToolsBidSuggestV2HideIfConverted = 'ORGANIZATION';
 
     public const ALLOWED_VALUES = [
-        self::APP_ToolsBidSuggestV2HideIfConverted,
-        self::ADVERTISER_ToolsBidSuggestV2HideIfConverted,
-        self::CAMPAIGN_ToolsBidSuggestV2HideIfConverted,
-        self::ORGANIZATION_ToolsBidSuggestV2HideIfConverted,
-        self::NO_EXCLUDE_ToolsBidSuggestV2HideIfConverted,
-        self::AD_ToolsBidSuggestV2HideIfConverted,
         self::CUSTOMER_ToolsBidSuggestV2HideIfConverted,
         self::GLOBAL_APP_ToolsBidSuggestV2HideIfConverted,
+        self::AD_ToolsBidSuggestV2HideIfConverted,
+        self::ADVERTISER_ToolsBidSuggestV2HideIfConverted,
+        self::NO_EXCLUDE_ToolsBidSuggestV2HideIfConverted,
+        self::APP_ToolsBidSuggestV2HideIfConverted,
+        self::CAMPAIGN_ToolsBidSuggestV2HideIfConverted,
+        self::ORGANIZATION_ToolsBidSuggestV2HideIfConverted,
     ];
 
     public static function isValid(string $value): bool

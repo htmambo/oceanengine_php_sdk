@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType
 {
-    public const BYTE_GAME_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType = 'BYTE_GAME';
     public const BYTE_APP_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType = 'BYTE_APP';
-    public const SHELL_APP_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType = 'SHELL_APP';
+    public const BYTE_GAME_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType = 'BYTE_GAME';
     public const TEMPLATE_APP_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType = 'TEMPLATE_APP';
+    public const SHELL_APP_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType = 'SHELL_APP';
 
     public const ALLOWED_VALUES = [
-        self::BYTE_GAME_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType,
         self::BYTE_APP_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType,
-        self::SHELL_APP_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType,
+        self::BYTE_GAME_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType,
         self::TEMPLATE_APP_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType,
+        self::SHELL_APP_CreativeCustomCreativeUpdateV2AdDataMiniProgramInfoType,
     ];
 
     public static function isValid(string $value): bool

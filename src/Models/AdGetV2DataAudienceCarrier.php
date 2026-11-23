@@ -6,13 +6,13 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataAudienceCarrier
 {
-    public const UNICOM_AdGetV2DataAudienceCarrier = 'UNICOM';
     public const TELCOM_AdGetV2DataAudienceCarrier = 'TELCOM';
+    public const UNICOM_AdGetV2DataAudienceCarrier = 'UNICOM';
     public const MOBILE_AdGetV2DataAudienceCarrier = 'MOBILE';
 
     public const ALLOWED_VALUES = [
-        self::UNICOM_AdGetV2DataAudienceCarrier,
         self::TELCOM_AdGetV2DataAudienceCarrier,
+        self::UNICOM_AdGetV2DataAudienceCarrier,
         self::MOBILE_AdGetV2DataAudienceCarrier,
     ];
 

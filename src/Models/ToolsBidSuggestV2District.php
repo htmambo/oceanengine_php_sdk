@@ -6,20 +6,20 @@ namespace Oceanengine\Models;
 
 final class ToolsBidSuggestV2District
 {
-    public const COUNTY_ToolsBidSuggestV2District = 'COUNTY';
+    public const REGION_ToolsBidSuggestV2District = 'REGION';
     public const BUSINESS_DISTRICT_ToolsBidSuggestV2District = 'BUSINESS_DISTRICT';
     public const OVERSEA_ToolsBidSuggestV2District = 'OVERSEA';
-    public const CITY_ToolsBidSuggestV2District = 'CITY';
-    public const REGION_ToolsBidSuggestV2District = 'REGION';
     public const NONE_ToolsBidSuggestV2District = 'NONE';
+    public const COUNTY_ToolsBidSuggestV2District = 'COUNTY';
+    public const CITY_ToolsBidSuggestV2District = 'CITY';
 
     public const ALLOWED_VALUES = [
-        self::COUNTY_ToolsBidSuggestV2District,
+        self::REGION_ToolsBidSuggestV2District,
         self::BUSINESS_DISTRICT_ToolsBidSuggestV2District,
         self::OVERSEA_ToolsBidSuggestV2District,
-        self::CITY_ToolsBidSuggestV2District,
-        self::REGION_ToolsBidSuggestV2District,
         self::NONE_ToolsBidSuggestV2District,
+        self::COUNTY_ToolsBidSuggestV2District,
+        self::CITY_ToolsBidSuggestV2District,
     ];
 
     public static function isValid(string $value): bool

@@ -25,6 +25,12 @@ class BrandMaAccountListV30ResponseDataAccountsInner implements \JsonSerializabl
     protected ?int $advertiserStatus = null;
 
     /**
+     * 账户类型：0-AD，80-ECP
+     * @var int
+     */
+    protected ?int $appKey = null;
+
+    /**
      * @var \Oceanengine\Models\BrandMaAccountListV30ResponseDataAccountsInnerDeliveryInfo
      */
     protected ?\Oceanengine\Models\BrandMaAccountListV30ResponseDataAccountsInnerDeliveryInfo $deliveryInfo = null;
@@ -96,6 +102,26 @@ class BrandMaAccountListV30ResponseDataAccountsInner implements \JsonSerializabl
     }
 
     /**
+     * 账户类型：0-AD，80-ECP
+     * @return int
+     */
+    public function getAppKey(): ?int
+    {
+        return $this->appKey;
+    }
+
+    /**
+     * 账户类型：0-AD，80-ECP
+     * @param int $appKey
+     * @return self
+     */
+    public function setAppKey(?int $appKey): self
+    {
+        $this->appKey = $appKey;
+        return $this;
+    }
+
+    /**
      * @return \Oceanengine\Models\BrandMaAccountListV30ResponseDataAccountsInnerDeliveryInfo
      */
     public function getDeliveryInfo(): ?\Oceanengine\Models\BrandMaAccountListV30ResponseDataAccountsInnerDeliveryInfo
@@ -149,6 +175,9 @@ class BrandMaAccountListV30ResponseDataAccountsInner implements \JsonSerializabl
         if ($this->advertiserStatus !== null) {
             $result['advertiser_status'] = $this->advertiserStatus;
         }
+        if ($this->appKey !== null) {
+            $result['app_key'] = $this->appKey;
+        }
         if ($this->deliveryInfo !== null) {
             $result['delivery_info'] = $this->deliveryInfo;
         }
@@ -169,6 +198,9 @@ class BrandMaAccountListV30ResponseDataAccountsInner implements \JsonSerializabl
         }
         if (($v = $data['advertiser_status'] ?? null) !== null) {
             $obj->advertiserStatus = (int) $v;
+        }
+        if (($v = $data['app_key'] ?? null) !== null) {
+            $obj->appKey = (int) $v;
         }
         if (($v = $data['delivery_info'] ?? null) !== null && is_array($v)) {
             $obj->deliveryInfo = \Oceanengine\Models\BrandMaAccountListV30ResponseDataAccountsInnerDeliveryInfo::fromArray($v);

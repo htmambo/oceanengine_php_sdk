@@ -97,6 +97,12 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
     protected ?int $coreUserId = null;
 
     /**
+     * 客户审核结果：1 通过，2 拒绝，3 审核中
+     * @var int
+     */
+    protected ?int $demanderAuditStatus = null;
+
+    /**
      * 视频完播率，单位：百分数 x 100，展示时需 /100 后加 %
      * @var int
      */
@@ -107,6 +113,12 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
      * @var int
      */
     protected ?int $itemId = null;
+
+    /**
+     * 视频状态，与请求 item_status 使用相同枚举
+     * @var int
+     */
+    protected ?int $itemStatus = null;
 
     /**
      * 视频标题
@@ -143,6 +155,18 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
      * @var int
      */
     protected ?int $materialId = null;
+
+    /**
+     * 平台审核结果，仅返回指定五类审核的展示名称、状态和审核原因
+     * @var \Oceanengine\Models\StarProviderTaskItemListV2ResponseDataItemListInnerPlatformAuditDetailInner[]
+     */
+    protected ?array $platformAuditDetail = null;
+
+    /**
+     * 平台识别内容类型枚举，与 task CreativeMaterialType 一致
+     * @var int
+     */
+    protected ?int $platformMaterialTypeEnum = null;
 
     /**
      * 视频10秒播放率，单位：百分数 x 100，展示时需 /100 后加 %
@@ -193,6 +217,24 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
     protected ?int $productPlanCnt = null;
 
     /**
+     * 服务商审核结果：1 通过，2 拒绝，3 审核中
+     * @var int
+     */
+    protected ?int $providerAuditStatus = null;
+
+    /**
+     * 服务商识别内容类型枚举，与 task CreativeMaterialType 一致
+     * @var int
+     */
+    protected ?int $providerConfirmedMaterialTypeEnum = null;
+
+    /**
+     * 服务商确认的拍摄方向名称
+     * @var string
+     */
+    protected ?string $providerConfirmedShootDirection = null;
+
+    /**
      * 服务商预估总收益，单位：厘
      * @var int
      */
@@ -239,6 +281,12 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
      * @var int
      */
     protected ?int $taskId = null;
+
+    /**
+     * 原始视频 ID，供服务商自行拼接播放链接；为空时不返回
+     * @var string
+     */
+    protected ?string $videoId = null;
 
     /**
      * 整体消耗，单位：厘
@@ -541,6 +589,26 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
     }
 
     /**
+     * 客户审核结果：1 通过，2 拒绝，3 审核中
+     * @return int
+     */
+    public function getDemanderAuditStatus(): ?int
+    {
+        return $this->demanderAuditStatus;
+    }
+
+    /**
+     * 客户审核结果：1 通过，2 拒绝，3 审核中
+     * @param int $demanderAuditStatus
+     * @return self
+     */
+    public function setDemanderAuditStatus(?int $demanderAuditStatus): self
+    {
+        $this->demanderAuditStatus = $demanderAuditStatus;
+        return $this;
+    }
+
+    /**
      * 视频完播率，单位：百分数 x 100，展示时需 /100 后加 %
      * @return int
      */
@@ -577,6 +645,26 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
     public function setItemId(?int $itemId): self
     {
         $this->itemId = $itemId;
+        return $this;
+    }
+
+    /**
+     * 视频状态，与请求 item_status 使用相同枚举
+     * @return int
+     */
+    public function getItemStatus(): ?int
+    {
+        return $this->itemStatus;
+    }
+
+    /**
+     * 视频状态，与请求 item_status 使用相同枚举
+     * @param int $itemStatus
+     * @return self
+     */
+    public function setItemStatus(?int $itemStatus): self
+    {
+        $this->itemStatus = $itemStatus;
         return $this;
     }
 
@@ -697,6 +785,46 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
     public function setMaterialId(?int $materialId): self
     {
         $this->materialId = $materialId;
+        return $this;
+    }
+
+    /**
+     * 平台审核结果，仅返回指定五类审核的展示名称、状态和审核原因
+     * @return \Oceanengine\Models\StarProviderTaskItemListV2ResponseDataItemListInnerPlatformAuditDetailInner[]
+     */
+    public function getPlatformAuditDetail(): ?array
+    {
+        return $this->platformAuditDetail;
+    }
+
+    /**
+     * 平台审核结果，仅返回指定五类审核的展示名称、状态和审核原因
+     * @param \Oceanengine\Models\StarProviderTaskItemListV2ResponseDataItemListInnerPlatformAuditDetailInner[] $platformAuditDetail
+     * @return self
+     */
+    public function setPlatformAuditDetail(?array $platformAuditDetail): self
+    {
+        $this->platformAuditDetail = $platformAuditDetail;
+        return $this;
+    }
+
+    /**
+     * 平台识别内容类型枚举，与 task CreativeMaterialType 一致
+     * @return int
+     */
+    public function getPlatformMaterialTypeEnum(): ?int
+    {
+        return $this->platformMaterialTypeEnum;
+    }
+
+    /**
+     * 平台识别内容类型枚举，与 task CreativeMaterialType 一致
+     * @param int $platformMaterialTypeEnum
+     * @return self
+     */
+    public function setPlatformMaterialTypeEnum(?int $platformMaterialTypeEnum): self
+    {
+        $this->platformMaterialTypeEnum = $platformMaterialTypeEnum;
         return $this;
     }
 
@@ -861,6 +989,66 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
     }
 
     /**
+     * 服务商审核结果：1 通过，2 拒绝，3 审核中
+     * @return int
+     */
+    public function getProviderAuditStatus(): ?int
+    {
+        return $this->providerAuditStatus;
+    }
+
+    /**
+     * 服务商审核结果：1 通过，2 拒绝，3 审核中
+     * @param int $providerAuditStatus
+     * @return self
+     */
+    public function setProviderAuditStatus(?int $providerAuditStatus): self
+    {
+        $this->providerAuditStatus = $providerAuditStatus;
+        return $this;
+    }
+
+    /**
+     * 服务商识别内容类型枚举，与 task CreativeMaterialType 一致
+     * @return int
+     */
+    public function getProviderConfirmedMaterialTypeEnum(): ?int
+    {
+        return $this->providerConfirmedMaterialTypeEnum;
+    }
+
+    /**
+     * 服务商识别内容类型枚举，与 task CreativeMaterialType 一致
+     * @param int $providerConfirmedMaterialTypeEnum
+     * @return self
+     */
+    public function setProviderConfirmedMaterialTypeEnum(?int $providerConfirmedMaterialTypeEnum): self
+    {
+        $this->providerConfirmedMaterialTypeEnum = $providerConfirmedMaterialTypeEnum;
+        return $this;
+    }
+
+    /**
+     * 服务商确认的拍摄方向名称
+     * @return string
+     */
+    public function getProviderConfirmedShootDirection(): ?string
+    {
+        return $this->providerConfirmedShootDirection;
+    }
+
+    /**
+     * 服务商确认的拍摄方向名称
+     * @param string $providerConfirmedShootDirection
+     * @return self
+     */
+    public function setProviderConfirmedShootDirection(?string $providerConfirmedShootDirection): self
+    {
+        $this->providerConfirmedShootDirection = $providerConfirmedShootDirection;
+        return $this;
+    }
+
+    /**
      * 服务商预估总收益，单位：厘
      * @return int
      */
@@ -1021,6 +1209,26 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
     }
 
     /**
+     * 原始视频 ID，供服务商自行拼接播放链接；为空时不返回
+     * @return string
+     */
+    public function getVideoId(): ?string
+    {
+        return $this->videoId;
+    }
+
+    /**
+     * 原始视频 ID，供服务商自行拼接播放链接；为空时不返回
+     * @param string $videoId
+     * @return self
+     */
+    public function setVideoId(?string $videoId): self
+    {
+        $this->videoId = $videoId;
+        return $this;
+    }
+
+    /**
      * @return array<string,mixed>
      */
     #[\ReturnTypeWillChange]
@@ -1072,11 +1280,17 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
         if ($this->coreUserId !== null) {
             $result['core_user_id'] = $this->coreUserId;
         }
+        if ($this->demanderAuditStatus !== null) {
+            $result['demander_audit_status'] = $this->demanderAuditStatus;
+        }
         if ($this->finishRate !== null) {
             $result['finish_rate'] = $this->finishRate;
         }
         if ($this->itemId !== null) {
             $result['item_id'] = $this->itemId;
+        }
+        if ($this->itemStatus !== null) {
+            $result['item_status'] = $this->itemStatus;
         }
         if ($this->itemTitle !== null) {
             $result['item_title'] = $this->itemTitle;
@@ -1095,6 +1309,12 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
         }
         if ($this->materialId !== null) {
             $result['material_id'] = $this->materialId;
+        }
+        if ($this->platformAuditDetail !== null) {
+            $result['platform_audit_detail'] = $this->platformAuditDetail;
+        }
+        if ($this->platformMaterialTypeEnum !== null) {
+            $result['platform_material_type_enum'] = $this->platformMaterialTypeEnum;
         }
         if ($this->play10sRate !== null) {
             $result['play10s_rate'] = $this->play10sRate;
@@ -1120,6 +1340,15 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
         if ($this->productPlanCnt !== null) {
             $result['product_plan_cnt'] = $this->productPlanCnt;
         }
+        if ($this->providerAuditStatus !== null) {
+            $result['provider_audit_status'] = $this->providerAuditStatus;
+        }
+        if ($this->providerConfirmedMaterialTypeEnum !== null) {
+            $result['provider_confirmed_material_type_enum'] = $this->providerConfirmedMaterialTypeEnum;
+        }
+        if ($this->providerConfirmedShootDirection !== null) {
+            $result['provider_confirmed_shoot_direction'] = $this->providerConfirmedShootDirection;
+        }
         if ($this->providerEstimatedIncome !== null) {
             $result['provider_estimated_income'] = $this->providerEstimatedIncome;
         }
@@ -1143,6 +1372,9 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
         }
         if ($this->taskId !== null) {
             $result['task_id'] = $this->taskId;
+        }
+        if ($this->videoId !== null) {
+            $result['video_id'] = $this->videoId;
         }
         return $result;
     }
@@ -1195,11 +1427,17 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
         if (($v = $data['core_user_id'] ?? null) !== null) {
             $obj->coreUserId = (int) $v;
         }
+        if (($v = $data['demander_audit_status'] ?? null) !== null) {
+            $obj->demanderAuditStatus = (int) $v;
+        }
         if (($v = $data['finish_rate'] ?? null) !== null) {
             $obj->finishRate = (int) $v;
         }
         if (($v = $data['item_id'] ?? null) !== null) {
             $obj->itemId = (int) $v;
+        }
+        if (($v = $data['item_status'] ?? null) !== null) {
+            $obj->itemStatus = (int) $v;
         }
         if (($v = $data['item_title'] ?? null) !== null) {
             $obj->itemTitle = (string) $v;
@@ -1218,6 +1456,12 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
         }
         if (($v = $data['material_id'] ?? null) !== null) {
             $obj->materialId = (int) $v;
+        }
+        if (($v = $data['platform_audit_detail'] ?? null) !== null && is_array($v)) {
+            $obj->platformAuditDetail = array_map(fn ($vv) => \Oceanengine\Models\StarProviderTaskItemListV2ResponseDataItemListInnerPlatformAuditDetailInner::fromArray($vv), $v);
+        }
+        if (($v = $data['platform_material_type_enum'] ?? null) !== null) {
+            $obj->platformMaterialTypeEnum = (int) $v;
         }
         if (($v = $data['play10s_rate'] ?? null) !== null) {
             $obj->play10sRate = (int) $v;
@@ -1243,6 +1487,15 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
         if (($v = $data['product_plan_cnt'] ?? null) !== null) {
             $obj->productPlanCnt = (int) $v;
         }
+        if (($v = $data['provider_audit_status'] ?? null) !== null) {
+            $obj->providerAuditStatus = (int) $v;
+        }
+        if (($v = $data['provider_confirmed_material_type_enum'] ?? null) !== null) {
+            $obj->providerConfirmedMaterialTypeEnum = (int) $v;
+        }
+        if (($v = $data['provider_confirmed_shoot_direction'] ?? null) !== null) {
+            $obj->providerConfirmedShootDirection = (string) $v;
+        }
         if (($v = $data['provider_estimated_income'] ?? null) !== null) {
             $obj->providerEstimatedIncome = (int) $v;
         }
@@ -1266,6 +1519,9 @@ class StarProviderTaskItemListV2ResponseDataItemListInner implements \JsonSerial
         }
         if (($v = $data['task_id'] ?? null) !== null) {
             $obj->taskId = (int) $v;
+        }
+        if (($v = $data['video_id'] ?? null) !== null) {
+            $obj->videoId = (string) $v;
         }
         return $obj;
     }

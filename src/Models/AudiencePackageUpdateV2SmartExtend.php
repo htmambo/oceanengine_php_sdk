@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class AudiencePackageUpdateV2SmartExtend
 {
-    public const OFF_AudiencePackageUpdateV2SmartExtend = 'OFF';
     public const NONE_AudiencePackageUpdateV2SmartExtend = 'NONE';
     public const ON_AudiencePackageUpdateV2SmartExtend = 'ON';
+    public const OFF_AudiencePackageUpdateV2SmartExtend = 'OFF';
 
     public const ALLOWED_VALUES = [
-        self::OFF_AudiencePackageUpdateV2SmartExtend,
         self::NONE_AudiencePackageUpdateV2SmartExtend,
         self::ON_AudiencePackageUpdateV2SmartExtend,
+        self::OFF_AudiencePackageUpdateV2SmartExtend,
     ];
 
     public static function isValid(string $value): bool

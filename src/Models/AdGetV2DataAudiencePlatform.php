@@ -7,19 +7,19 @@ namespace Oceanengine\Models;
 final class AdGetV2DataAudiencePlatform
 {
     public const PC_AdGetV2DataAudiencePlatform = 'PC';
+    public const IOS_AdGetV2DataAudiencePlatform = 'IOS';
     public const ANDROID_AdGetV2DataAudiencePlatform = 'ANDROID';
     public const HARMONY_AdGetV2DataAudiencePlatform = 'HARMONY';
     public const IPAD_AdGetV2DataAudiencePlatform = 'IPAD';
-    public const IOS_AdGetV2DataAudiencePlatform = 'IOS';
     public const NONE_AdGetV2DataAudiencePlatform = 'NONE';
     public const WAP_AdGetV2DataAudiencePlatform = 'WAP';
 
     public const ALLOWED_VALUES = [
         self::PC_AdGetV2DataAudiencePlatform,
+        self::IOS_AdGetV2DataAudiencePlatform,
         self::ANDROID_AdGetV2DataAudiencePlatform,
         self::HARMONY_AdGetV2DataAudiencePlatform,
         self::IPAD_AdGetV2DataAudiencePlatform,
-        self::IOS_AdGetV2DataAudiencePlatform,
         self::NONE_AdGetV2DataAudiencePlatform,
         self::WAP_AdGetV2DataAudiencePlatform,
     ];

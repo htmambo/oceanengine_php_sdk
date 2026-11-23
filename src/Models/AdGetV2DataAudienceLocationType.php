@@ -6,15 +6,15 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataAudienceLocationType
 {
-    public const CURRENT_AdGetV2DataAudienceLocationType = 'CURRENT';
     public const TRAVEL_AdGetV2DataAudienceLocationType = 'TRAVEL';
     public const ALL_AdGetV2DataAudienceLocationType = 'ALL';
+    public const CURRENT_AdGetV2DataAudienceLocationType = 'CURRENT';
     public const HOME_AdGetV2DataAudienceLocationType = 'HOME';
 
     public const ALLOWED_VALUES = [
-        self::CURRENT_AdGetV2DataAudienceLocationType,
         self::TRAVEL_AdGetV2DataAudienceLocationType,
         self::ALL_AdGetV2DataAudienceLocationType,
+        self::CURRENT_AdGetV2DataAudienceLocationType,
         self::HOME_AdGetV2DataAudienceLocationType,
     ];
 

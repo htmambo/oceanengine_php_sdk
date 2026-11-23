@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class ToolsAppManagementBpShareCancelV2DataErrorListAccountInfoAccountType
 {
+    public const AD_ToolsAppManagementBpShareCancelV2DataErrorListAccountInfoAccountType = 'AD';
     public const BP_ToolsAppManagementBpShareCancelV2DataErrorListAccountInfoAccountType = 'BP';
     public const STAR_ToolsAppManagementBpShareCancelV2DataErrorListAccountInfoAccountType = 'STAR';
-    public const AD_ToolsAppManagementBpShareCancelV2DataErrorListAccountInfoAccountType = 'AD';
 
     public const ALLOWED_VALUES = [
+        self::AD_ToolsAppManagementBpShareCancelV2DataErrorListAccountInfoAccountType,
         self::BP_ToolsAppManagementBpShareCancelV2DataErrorListAccountInfoAccountType,
         self::STAR_ToolsAppManagementBpShareCancelV2DataErrorListAccountInfoAccountType,
-        self::AD_ToolsAppManagementBpShareCancelV2DataErrorListAccountInfoAccountType,
     ];
 
     public static function isValid(string $value): bool

@@ -7,14 +7,14 @@ namespace Oceanengine\Models;
 final class DpaAssetsDetailReadV2DataListAuditStatus
 {
     public const ASSETS_AUDIT_DENY_DpaAssetsDetailReadV2DataListAuditStatus = 'ASSETS_AUDIT_DENY';
-    public const ASSETS_PENDING_AUDIT_DpaAssetsDetailReadV2DataListAuditStatus = 'ASSETS_PENDING_AUDIT';
     public const ASSETS_AUDIT_SUCCESS_DpaAssetsDetailReadV2DataListAuditStatus = 'ASSETS_AUDIT_SUCCESS';
+    public const ASSETS_PENDING_AUDIT_DpaAssetsDetailReadV2DataListAuditStatus = 'ASSETS_PENDING_AUDIT';
     public const ASSETS_TO_SUBMIT_AUDIT_DpaAssetsDetailReadV2DataListAuditStatus = 'ASSETS_TO_SUBMIT_AUDIT';
 
     public const ALLOWED_VALUES = [
         self::ASSETS_AUDIT_DENY_DpaAssetsDetailReadV2DataListAuditStatus,
-        self::ASSETS_PENDING_AUDIT_DpaAssetsDetailReadV2DataListAuditStatus,
         self::ASSETS_AUDIT_SUCCESS_DpaAssetsDetailReadV2DataListAuditStatus,
+        self::ASSETS_PENDING_AUDIT_DpaAssetsDetailReadV2DataListAuditStatus,
         self::ASSETS_TO_SUBMIT_AUDIT_DpaAssetsDetailReadV2DataListAuditStatus,
     ];
 

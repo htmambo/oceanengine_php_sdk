@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class AudiencePackageCreateV2DeliveryRange
 {
-    public const DEFAULT_AudiencePackageCreateV2DeliveryRange = 'DEFAULT';
     public const UNIVERSAL_AudiencePackageCreateV2DeliveryRange = 'UNIVERSAL';
     public const UNION_AudiencePackageCreateV2DeliveryRange = 'UNION';
+    public const DEFAULT_AudiencePackageCreateV2DeliveryRange = 'DEFAULT';
 
     public const ALLOWED_VALUES = [
-        self::DEFAULT_AudiencePackageCreateV2DeliveryRange,
         self::UNIVERSAL_AudiencePackageCreateV2DeliveryRange,
         self::UNION_AudiencePackageCreateV2DeliveryRange,
+        self::DEFAULT_AudiencePackageCreateV2DeliveryRange,
     ];
 
     public static function isValid(string $value): bool

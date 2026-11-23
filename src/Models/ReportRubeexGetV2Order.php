@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ReportRubeexGetV2Order
 {
-    public const DESC_ReportRubeexGetV2Order = 'DESC';
     public const ASC_ReportRubeexGetV2Order = 'ASC';
+    public const DESC_ReportRubeexGetV2Order = 'DESC';
 
     public const ALLOWED_VALUES = [
-        self::DESC_ReportRubeexGetV2Order,
         self::ASC_ReportRubeexGetV2Order,
+        self::DESC_ReportRubeexGetV2Order,
     ];
 
     public static function isValid(string $value): bool

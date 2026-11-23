@@ -177,6 +177,7 @@ final class StdProjectCreateV30ExternalAction
     public const AD_CONVERT_TYPE_WECHAT_WECOM_ADD_StdProjectCreateV30ExternalAction = 'AD_CONVERT_TYPE_WECHAT_WECOM_ADD';
     public const AD_CONVERT_TYPE_XPATH_StdProjectCreateV30ExternalAction = 'AD_CONVERT_TYPE_XPATH';
     public const AD_FORM_SUBMIT_StdProjectCreateV30ExternalAction = 'AD_FORM_SUBMIT';
+    public const AD_CONVERT_TYPE_INSURANCE_PAY_StdProjectCreateV30ExternalAction = 'AD_CONVERT_TYPE_INSURANCE_PAY';
 
     public const ALLOWED_VALUES = [
         self::AD_CONVERT_ADD_TO_CART_StdProjectCreateV30ExternalAction,
@@ -350,6 +351,7 @@ final class StdProjectCreateV30ExternalAction
         self::AD_CONVERT_TYPE_WECHAT_WECOM_ADD_StdProjectCreateV30ExternalAction,
         self::AD_CONVERT_TYPE_XPATH_StdProjectCreateV30ExternalAction,
         self::AD_FORM_SUBMIT_StdProjectCreateV30ExternalAction,
+        self::AD_CONVERT_TYPE_INSURANCE_PAY_StdProjectCreateV30ExternalAction,
     ];
 
     public static function isValid(string $value): bool

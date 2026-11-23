@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class ToolsBidSuggestV2InterestActionMode
 {
+    public const UNLIMITED_ToolsBidSuggestV2InterestActionMode = 'UNLIMITED';
     public const CUSTOM_ToolsBidSuggestV2InterestActionMode = 'CUSTOM';
     public const RECOMMEND_ToolsBidSuggestV2InterestActionMode = 'RECOMMEND';
-    public const UNLIMITED_ToolsBidSuggestV2InterestActionMode = 'UNLIMITED';
 
     public const ALLOWED_VALUES = [
+        self::UNLIMITED_ToolsBidSuggestV2InterestActionMode,
         self::CUSTOM_ToolsBidSuggestV2InterestActionMode,
         self::RECOMMEND_ToolsBidSuggestV2InterestActionMode,
-        self::UNLIMITED_ToolsBidSuggestV2InterestActionMode,
     ];
 
     public static function isValid(string $value): bool

@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class ClueCouponCodeGetV2Status
 {
-    public const VALID_ClueCouponCodeGetV2Status = 'VALID';
-    public const ABANDONED_ClueCouponCodeGetV2Status = 'ABANDONED';
     public const INVALID_ClueCouponCodeGetV2Status = 'INVALID';
+    public const VALID_ClueCouponCodeGetV2Status = 'VALID';
     public const EXPIRED_ClueCouponCodeGetV2Status = 'EXPIRED';
     public const USED_ClueCouponCodeGetV2Status = 'USED';
+    public const ABANDONED_ClueCouponCodeGetV2Status = 'ABANDONED';
 
     public const ALLOWED_VALUES = [
-        self::VALID_ClueCouponCodeGetV2Status,
-        self::ABANDONED_ClueCouponCodeGetV2Status,
         self::INVALID_ClueCouponCodeGetV2Status,
+        self::VALID_ClueCouponCodeGetV2Status,
         self::EXPIRED_ClueCouponCodeGetV2Status,
         self::USED_ClueCouponCodeGetV2Status,
+        self::ABANDONED_ClueCouponCodeGetV2Status,
     ];
 
     public static function isValid(string $value): bool

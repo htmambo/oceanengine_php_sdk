@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataLaunchTargetType
 {
-    public const LIVE_CONVERT_AdGetV2DataLaunchTargetType = 'LIVE_CONVERT';
-    public const APP_AdGetV2DataLaunchTargetType = 'APP';
     public const EXTERNAL_AdGetV2DataLaunchTargetType = 'EXTERNAL';
+    public const APP_AdGetV2DataLaunchTargetType = 'APP';
+    public const LIVE_CONVERT_AdGetV2DataLaunchTargetType = 'LIVE_CONVERT';
 
     public const ALLOWED_VALUES = [
-        self::LIVE_CONVERT_AdGetV2DataLaunchTargetType,
-        self::APP_AdGetV2DataLaunchTargetType,
         self::EXTERNAL_AdGetV2DataLaunchTargetType,
+        self::APP_AdGetV2DataLaunchTargetType,
+        self::LIVE_CONVERT_AdGetV2DataLaunchTargetType,
     ];
 
     public static function isValid(string $value): bool

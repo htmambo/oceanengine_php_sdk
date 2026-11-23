@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class ToolsBidSuggestV2Ac
 {
+    public const WIFI_ToolsBidSuggestV2Ac = 'WIFI';
     public const Enum_5_G_ToolsBidSuggestV2Ac = '5G';
+    public const Enum_2_G_ToolsBidSuggestV2Ac = '2G';
     public const Enum_4_G_ToolsBidSuggestV2Ac = '4G';
     public const Enum_3_G_ToolsBidSuggestV2Ac = '3G';
-    public const WIFI_ToolsBidSuggestV2Ac = 'WIFI';
-    public const Enum_2_G_ToolsBidSuggestV2Ac = '2G';
 
     public const ALLOWED_VALUES = [
+        self::WIFI_ToolsBidSuggestV2Ac,
         self::Enum_5_G_ToolsBidSuggestV2Ac,
+        self::Enum_2_G_ToolsBidSuggestV2Ac,
         self::Enum_4_G_ToolsBidSuggestV2Ac,
         self::Enum_3_G_ToolsBidSuggestV2Ac,
-        self::WIFI_ToolsBidSuggestV2Ac,
-        self::Enum_2_G_ToolsBidSuggestV2Ac,
     ];
 
     public static function isValid(string $value): bool

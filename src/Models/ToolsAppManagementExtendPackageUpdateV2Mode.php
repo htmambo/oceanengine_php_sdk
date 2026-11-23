@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class ToolsAppManagementExtendPackageUpdateV2Mode
 {
-    public const ALL_ToolsAppManagementExtendPackageUpdateV2Mode = 'All';
     public const CUSTOMIZE_ToolsAppManagementExtendPackageUpdateV2Mode = 'Customize';
     public const LIST_ToolsAppManagementExtendPackageUpdateV2Mode = 'List';
+    public const ALL_ToolsAppManagementExtendPackageUpdateV2Mode = 'All';
 
     public const ALLOWED_VALUES = [
-        self::ALL_ToolsAppManagementExtendPackageUpdateV2Mode,
         self::CUSTOMIZE_ToolsAppManagementExtendPackageUpdateV2Mode,
         self::LIST_ToolsAppManagementExtendPackageUpdateV2Mode,
+        self::ALL_ToolsAppManagementExtendPackageUpdateV2Mode,
     ];
 
     public static function isValid(string $value): bool

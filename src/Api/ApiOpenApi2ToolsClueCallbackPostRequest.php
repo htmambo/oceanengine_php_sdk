@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Oceanengine\Api;
 
 /**
- * API Description
+ * 根据advid回传线索
  */
 class ApiOpenApi2ToolsClueCallbackPostRequest
 {
@@ -47,7 +47,7 @@ class ApiOpenApi2ToolsClueCallbackPostRequest
 
     /**
      * @throws \InvalidArgumentException
-     * API Description
+     * 根据advid回传线索
      */
     public function execute(): \Oceanengine\Models\ToolsClueCallbackV2Response
     {

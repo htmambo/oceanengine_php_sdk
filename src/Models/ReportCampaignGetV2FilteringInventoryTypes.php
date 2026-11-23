@@ -6,38 +6,38 @@ namespace Oceanengine\Models;
 
 final class ReportCampaignGetV2FilteringInventoryTypes
 {
-    public const INVENTORY_HOTSOON_FEED_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_HOTSOON_FEED';
-    public const INVENTORY_BEAUTY_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_BEAUTY';
+    public const INVENTORY_FEED_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_FEED';
     public const INVENTORY_FACE_U_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_FACE_U';
-    public const INVENTORY_UNIVERSAL_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_UNIVERSAL';
+    public const INVENTORY_STUDY_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_STUDY';
+    public const INVENTORY_VIDEO_FEED_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_VIDEO_FEED';
+    public const INVENTORY_BEAUTY_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_BEAUTY';
+    public const INVENTORY_AUTOMOBILE_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_AUTOMOBILE';
+    public const INVENTORY_AWEME_FEED_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_AWEME_FEED';
+    public const INVENTORY_TOMATO_NOVEL_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_TOMATO_NOVEL';
+    public const INVENTORY_HOTSOON_FEED_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_HOTSOON_FEED';
+    public const INVENTORY_PIPIXIA_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_PIPIXIA';
+    public const INVENTORY_FURNISH_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_FURNISH';
+    public const INVENTORY_UNION_SLOT_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_UNION_SLOT';
     public const INVENTORY_SEARCH_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_SEARCH';
     public const UNION_BOUTIQUE_GAME_ReportCampaignGetV2FilteringInventoryTypes = 'UNION_BOUTIQUE_GAME';
-    public const INVENTORY_VIDEO_FEED_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_VIDEO_FEED';
-    public const INVENTORY_TOMATO_NOVEL_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_TOMATO_NOVEL';
-    public const INVENTORY_STUDY_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_STUDY';
-    public const INVENTORY_PIPIXIA_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_PIPIXIA';
-    public const INVENTORY_FEED_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_FEED';
-    public const INVENTORY_UNION_SLOT_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_UNION_SLOT';
-    public const INVENTORY_AWEME_FEED_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_AWEME_FEED';
-    public const INVENTORY_FURNISH_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_FURNISH';
-    public const INVENTORY_AUTOMOBILE_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_AUTOMOBILE';
+    public const INVENTORY_UNIVERSAL_ReportCampaignGetV2FilteringInventoryTypes = 'INVENTORY_UNIVERSAL';
 
     public const ALLOWED_VALUES = [
-        self::INVENTORY_HOTSOON_FEED_ReportCampaignGetV2FilteringInventoryTypes,
-        self::INVENTORY_BEAUTY_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_FEED_ReportCampaignGetV2FilteringInventoryTypes,
         self::INVENTORY_FACE_U_ReportCampaignGetV2FilteringInventoryTypes,
-        self::INVENTORY_UNIVERSAL_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_STUDY_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_VIDEO_FEED_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_BEAUTY_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_AUTOMOBILE_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_AWEME_FEED_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_TOMATO_NOVEL_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_HOTSOON_FEED_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_PIPIXIA_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_FURNISH_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_UNION_SLOT_ReportCampaignGetV2FilteringInventoryTypes,
         self::INVENTORY_SEARCH_ReportCampaignGetV2FilteringInventoryTypes,
         self::UNION_BOUTIQUE_GAME_ReportCampaignGetV2FilteringInventoryTypes,
-        self::INVENTORY_VIDEO_FEED_ReportCampaignGetV2FilteringInventoryTypes,
-        self::INVENTORY_TOMATO_NOVEL_ReportCampaignGetV2FilteringInventoryTypes,
-        self::INVENTORY_STUDY_ReportCampaignGetV2FilteringInventoryTypes,
-        self::INVENTORY_PIPIXIA_ReportCampaignGetV2FilteringInventoryTypes,
-        self::INVENTORY_FEED_ReportCampaignGetV2FilteringInventoryTypes,
-        self::INVENTORY_UNION_SLOT_ReportCampaignGetV2FilteringInventoryTypes,
-        self::INVENTORY_AWEME_FEED_ReportCampaignGetV2FilteringInventoryTypes,
-        self::INVENTORY_FURNISH_ReportCampaignGetV2FilteringInventoryTypes,
-        self::INVENTORY_AUTOMOBILE_ReportCampaignGetV2FilteringInventoryTypes,
+        self::INVENTORY_UNIVERSAL_ReportCampaignGetV2FilteringInventoryTypes,
     ];
 
     public static function isValid(string $value): bool

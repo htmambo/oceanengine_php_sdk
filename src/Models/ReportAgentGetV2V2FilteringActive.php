@@ -7,13 +7,13 @@ namespace Oceanengine\Models;
 final class ReportAgentGetV2V2FilteringActive
 {
     public const ACTIVE_ReportAgentGetV2V2FilteringActive = 'ACTIVE';
-    public const SILENT_ReportAgentGetV2V2FilteringActive = 'SILENT';
     public const ALL_ReportAgentGetV2V2FilteringActive = 'ALL';
+    public const SILENT_ReportAgentGetV2V2FilteringActive = 'SILENT';
 
     public const ALLOWED_VALUES = [
         self::ACTIVE_ReportAgentGetV2V2FilteringActive,
-        self::SILENT_ReportAgentGetV2V2FilteringActive,
         self::ALL_ReportAgentGetV2V2FilteringActive,
+        self::SILENT_ReportAgentGetV2V2FilteringActive,
     ];
 
     public static function isValid(string $value): bool

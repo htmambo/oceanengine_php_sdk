@@ -9,7 +9,7 @@ declare(strict_types=1);
 namespace Oceanengine\Api;
 
 /**
- * EBP场景下，通过团队ID/advId获取升级版商品列表
+ * EBP场景下，通过团队ID获取升级版商品列表
  */
 class ApiOpenApiV30DpaEbpClueProductListGetRequest
 {
@@ -145,7 +145,7 @@ class ApiOpenApiV30DpaEbpClueProductListGetRequest
 
     /**
      * @throws \InvalidArgumentException
-     * EBP场景下，通过团队ID/advId获取升级版商品列表
+     * EBP场景下，通过团队ID获取升级版商品列表
      */
     public function execute(): \Oceanengine\Models\DpaEbpClueProductListV30Response
     {

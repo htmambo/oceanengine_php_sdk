@@ -32,6 +32,7 @@ final class ProjectCreateV30DeliverySettingDeepBidType
     public const SMARTBID_ProjectCreateV30DeliverySettingDeepBidType = 'SMARTBID';
     public const SOCIAL_ROI_ProjectCreateV30DeliverySettingDeepBidType = 'SOCIAL_ROI';
     public const THIRTY_ROI_COEFFICIENT_ProjectCreateV30DeliverySettingDeepBidType = 'THIRTY_ROI_COEFFICIENT';
+    public const INSURANCE_PAY_ROI_ProjectCreateV30DeliverySettingDeepBidType = 'INSURANCE_PAY_ROI';
 
     public const ALLOWED_VALUES = [
         self::ALI_FL_ProjectCreateV30DeliverySettingDeepBidType,
@@ -60,6 +61,7 @@ final class ProjectCreateV30DeliverySettingDeepBidType
         self::SMARTBID_ProjectCreateV30DeliverySettingDeepBidType,
         self::SOCIAL_ROI_ProjectCreateV30DeliverySettingDeepBidType,
         self::THIRTY_ROI_COEFFICIENT_ProjectCreateV30DeliverySettingDeepBidType,
+        self::INSURANCE_PAY_ROI_ProjectCreateV30DeliverySettingDeepBidType,
     ];
 
     public static function isValid(string $value): bool

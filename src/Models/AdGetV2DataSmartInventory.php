@@ -8,14 +8,14 @@ final class AdGetV2DataSmartInventory
 {
     public const NORMAL_AdGetV2DataSmartInventory = 'NORMAL';
     public const UNIVERSAL_ALL_AdGetV2DataSmartInventory = 'UNIVERSAL_ALL';
-    public const UNIVERSAL_AdGetV2DataSmartInventory = 'UNIVERSAL';
     public const SMART_AdGetV2DataSmartInventory = 'SMART';
+    public const UNIVERSAL_AdGetV2DataSmartInventory = 'UNIVERSAL';
 
     public const ALLOWED_VALUES = [
         self::NORMAL_AdGetV2DataSmartInventory,
         self::UNIVERSAL_ALL_AdGetV2DataSmartInventory,
-        self::UNIVERSAL_AdGetV2DataSmartInventory,
         self::SMART_AdGetV2DataSmartInventory,
+        self::UNIVERSAL_AdGetV2DataSmartInventory,
     ];
 
     public static function isValid(string $value): bool

@@ -7,15 +7,15 @@ namespace Oceanengine\Models;
 final class AdGetV2DataOptStatus
 {
     public const AD_STATUS_DISABLE_AdGetV2DataOptStatus = 'AD_STATUS_DISABLE';
-    public const AD_STATUS_ENABLE_AdGetV2DataOptStatus = 'AD_STATUS_ENABLE';
     public const AD_STATUS_FROZEN_AdGetV2DataOptStatus = 'AD_STATUS_FROZEN';
     public const AD_STATUS_DISABLE_BY_QUOTA_AdGetV2DataOptStatus = 'AD_STATUS_DISABLE_BY_QUOTA';
+    public const AD_STATUS_ENABLE_AdGetV2DataOptStatus = 'AD_STATUS_ENABLE';
 
     public const ALLOWED_VALUES = [
         self::AD_STATUS_DISABLE_AdGetV2DataOptStatus,
-        self::AD_STATUS_ENABLE_AdGetV2DataOptStatus,
         self::AD_STATUS_FROZEN_AdGetV2DataOptStatus,
         self::AD_STATUS_DISABLE_BY_QUOTA_AdGetV2DataOptStatus,
+        self::AD_STATUS_ENABLE_AdGetV2DataOptStatus,
     ];
 
     public static function isValid(string $value): bool

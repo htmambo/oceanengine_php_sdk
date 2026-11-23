@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class AudiencePackageUpdateV2District
 {
-    public const BUSINESS_DISTRICT_AudiencePackageUpdateV2District = 'BUSINESS_DISTRICT';
-    public const REGION_AudiencePackageUpdateV2District = 'REGION';
     public const NONE_AudiencePackageUpdateV2District = 'NONE';
     public const OVERSEA_AudiencePackageUpdateV2District = 'OVERSEA';
+    public const REGION_AudiencePackageUpdateV2District = 'REGION';
+    public const BUSINESS_DISTRICT_AudiencePackageUpdateV2District = 'BUSINESS_DISTRICT';
 
     public const ALLOWED_VALUES = [
-        self::BUSINESS_DISTRICT_AudiencePackageUpdateV2District,
-        self::REGION_AudiencePackageUpdateV2District,
         self::NONE_AudiencePackageUpdateV2District,
         self::OVERSEA_AudiencePackageUpdateV2District,
+        self::REGION_AudiencePackageUpdateV2District,
+        self::BUSINESS_DISTRICT_AudiencePackageUpdateV2District,
     ];
 
     public static function isValid(string $value): bool

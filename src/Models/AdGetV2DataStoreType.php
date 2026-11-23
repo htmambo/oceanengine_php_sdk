@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataStoreType
 {
-    public const STORE_NORMAL_AdGetV2DataStoreType = 'STORE_NORMAL';
     public const STORE_DOUYIN_AdGetV2DataStoreType = 'STORE_DOUYIN';
+    public const STORE_NORMAL_AdGetV2DataStoreType = 'STORE_NORMAL';
     public const STORE_THIRT_PARTY_AdGetV2DataStoreType = 'STORE_THIRT_PARTY';
     public const STORE_LANDING_AdGetV2DataStoreType = 'STORE_LANDING';
 
     public const ALLOWED_VALUES = [
-        self::STORE_NORMAL_AdGetV2DataStoreType,
         self::STORE_DOUYIN_AdGetV2DataStoreType,
+        self::STORE_NORMAL_AdGetV2DataStoreType,
         self::STORE_THIRT_PARTY_AdGetV2DataStoreType,
         self::STORE_LANDING_AdGetV2DataStoreType,
     ];

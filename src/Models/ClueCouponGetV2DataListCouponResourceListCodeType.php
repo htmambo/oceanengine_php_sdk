@@ -7,15 +7,15 @@ namespace Oceanengine\Models;
 final class ClueCouponGetV2DataListCouponResourceListCodeType
 {
     public const MERCHANT_ClueCouponGetV2DataListCouponResourceListCodeType = 'MERCHANT';
-    public const COMMON_ClueCouponGetV2DataListCouponResourceListCodeType = 'COMMON';
-    public const API_ClueCouponGetV2DataListCouponResourceListCodeType = 'API';
     public const PLATFORM_ClueCouponGetV2DataListCouponResourceListCodeType = 'PLATFORM';
+    public const API_ClueCouponGetV2DataListCouponResourceListCodeType = 'API';
+    public const COMMON_ClueCouponGetV2DataListCouponResourceListCodeType = 'COMMON';
 
     public const ALLOWED_VALUES = [
         self::MERCHANT_ClueCouponGetV2DataListCouponResourceListCodeType,
-        self::COMMON_ClueCouponGetV2DataListCouponResourceListCodeType,
-        self::API_ClueCouponGetV2DataListCouponResourceListCodeType,
         self::PLATFORM_ClueCouponGetV2DataListCouponResourceListCodeType,
+        self::API_ClueCouponGetV2DataListCouponResourceListCodeType,
+        self::COMMON_ClueCouponGetV2DataListCouponResourceListCodeType,
     ];
 
     public static function isValid(string $value): bool

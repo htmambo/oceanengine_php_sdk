@@ -6,13 +6,13 @@ namespace Oceanengine\Models;
 
 final class ToolsPromotionCardRecommendGetV2DownloadType
 {
-    public const QUICK_APP_URL_ToolsPromotionCardRecommendGetV2DownloadType = 'QUICK_APP_URL';
     public const EXTERNAL_URL_ToolsPromotionCardRecommendGetV2DownloadType = 'EXTERNAL_URL';
+    public const QUICK_APP_URL_ToolsPromotionCardRecommendGetV2DownloadType = 'QUICK_APP_URL';
     public const DOWNLOAD_URL_ToolsPromotionCardRecommendGetV2DownloadType = 'DOWNLOAD_URL';
 
     public const ALLOWED_VALUES = [
-        self::QUICK_APP_URL_ToolsPromotionCardRecommendGetV2DownloadType,
         self::EXTERNAL_URL_ToolsPromotionCardRecommendGetV2DownloadType,
+        self::QUICK_APP_URL_ToolsPromotionCardRecommendGetV2DownloadType,
         self::DOWNLOAD_URL_ToolsPromotionCardRecommendGetV2DownloadType,
     ];
 

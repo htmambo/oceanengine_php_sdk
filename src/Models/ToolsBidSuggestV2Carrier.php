@@ -6,13 +6,13 @@ namespace Oceanengine\Models;
 
 final class ToolsBidSuggestV2Carrier
 {
-    public const UNICOM_ToolsBidSuggestV2Carrier = 'UNICOM';
     public const TELCOM_ToolsBidSuggestV2Carrier = 'TELCOM';
+    public const UNICOM_ToolsBidSuggestV2Carrier = 'UNICOM';
     public const MOBILE_ToolsBidSuggestV2Carrier = 'MOBILE';
 
     public const ALLOWED_VALUES = [
-        self::UNICOM_ToolsBidSuggestV2Carrier,
         self::TELCOM_ToolsBidSuggestV2Carrier,
+        self::UNICOM_ToolsBidSuggestV2Carrier,
         self::MOBILE_ToolsBidSuggestV2Carrier,
     ];
 

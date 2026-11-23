@@ -65,7 +65,7 @@ class FileMaterialAttributesListV2ResponseDataMaterialsInner implements \JsonSer
     protected ?bool $isFirstPublishMaterial = null;
 
     /**
-     * 是否暗水印搬运素材，仅 account_type = AD 或 LOCAL 查询
+     * 是否暗水印搬运素材
      * @var bool
      */
     protected ?bool $isHiddenWatermark = null;
@@ -315,7 +315,7 @@ class FileMaterialAttributesListV2ResponseDataMaterialsInner implements \JsonSer
     }
 
     /**
-     * 是否暗水印搬运素材，仅 account_type = AD 或 LOCAL 查询
+     * 是否暗水印搬运素材
      * @return bool
      */
     public function getIsHiddenWatermark(): ?bool
@@ -324,7 +324,7 @@ class FileMaterialAttributesListV2ResponseDataMaterialsInner implements \JsonSer
     }
 
     /**
-     * 是否暗水印搬运素材，仅 account_type = AD 或 LOCAL 查询
+     * 是否暗水印搬运素材
      * @param bool $isHiddenWatermark
      * @return self
      */

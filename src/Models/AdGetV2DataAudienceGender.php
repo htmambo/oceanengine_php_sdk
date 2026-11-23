@@ -6,15 +6,15 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataAudienceGender
 {
+    public const GENDER_UNLIMITED_AdGetV2DataAudienceGender = 'GENDER_UNLIMITED';
     public const GENDER_FEMALE_AdGetV2DataAudienceGender = 'GENDER_FEMALE';
     public const GENDER_MALE_AdGetV2DataAudienceGender = 'GENDER_MALE';
-    public const GENDER_UNLIMITED_AdGetV2DataAudienceGender = 'GENDER_UNLIMITED';
     public const NONE_AdGetV2DataAudienceGender = 'NONE';
 
     public const ALLOWED_VALUES = [
+        self::GENDER_UNLIMITED_AdGetV2DataAudienceGender,
         self::GENDER_FEMALE_AdGetV2DataAudienceGender,
         self::GENDER_MALE_AdGetV2DataAudienceGender,
-        self::GENDER_UNLIMITED_AdGetV2DataAudienceGender,
         self::NONE_AdGetV2DataAudienceGender,
     ];
 

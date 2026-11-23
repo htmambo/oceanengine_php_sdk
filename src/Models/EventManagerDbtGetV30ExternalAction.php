@@ -178,6 +178,7 @@ final class EventManagerDbtGetV30ExternalAction
     public const AD_CONVERT_TYPE_WECHAT_REGISTER_EventManagerDbtGetV30ExternalAction = 'AD_CONVERT_TYPE_WECHAT_REGISTER';
     public const AD_CONVERT_TYPE_WECHAT_WECOM_ADD_EventManagerDbtGetV30ExternalAction = 'AD_CONVERT_TYPE_WECHAT_WECOM_ADD';
     public const AD_CONVERT_TYPE_XPATH_EventManagerDbtGetV30ExternalAction = 'AD_CONVERT_TYPE_XPATH';
+    public const AD_CONVERT_TYPE_INSURANCE_PAY_EventManagerDbtGetV30ExternalAction = 'AD_CONVERT_TYPE_INSURANCE_PAY';
 
     public const ALLOWED_VALUES = [
         self::AD_CONVERT_ADD_TO_CART_EventManagerDbtGetV30ExternalAction,
@@ -352,6 +353,7 @@ final class EventManagerDbtGetV30ExternalAction
         self::AD_CONVERT_TYPE_WECHAT_REGISTER_EventManagerDbtGetV30ExternalAction,
         self::AD_CONVERT_TYPE_WECHAT_WECOM_ADD_EventManagerDbtGetV30ExternalAction,
         self::AD_CONVERT_TYPE_XPATH_EventManagerDbtGetV30ExternalAction,
+        self::AD_CONVERT_TYPE_INSURANCE_PAY_EventManagerDbtGetV30ExternalAction,
     ];
 
     public static function isValid(string $value): bool

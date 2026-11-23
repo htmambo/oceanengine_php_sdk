@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ToolsUnionFlowPackageGetV2DataListStatus
 {
-    public const FLOW_PACKAGE_ENABLE_ToolsUnionFlowPackageGetV2DataListStatus = 'FLOW_PACKAGE_ENABLE';
     public const FLOW_PACKAGE_DISABLE_ToolsUnionFlowPackageGetV2DataListStatus = 'FLOW_PACKAGE_DISABLE';
+    public const FLOW_PACKAGE_ENABLE_ToolsUnionFlowPackageGetV2DataListStatus = 'FLOW_PACKAGE_ENABLE';
 
     public const ALLOWED_VALUES = [
-        self::FLOW_PACKAGE_ENABLE_ToolsUnionFlowPackageGetV2DataListStatus,
         self::FLOW_PACKAGE_DISABLE_ToolsUnionFlowPackageGetV2DataListStatus,
+        self::FLOW_PACKAGE_ENABLE_ToolsUnionFlowPackageGetV2DataListStatus,
     ];
 
     public static function isValid(string $value): bool

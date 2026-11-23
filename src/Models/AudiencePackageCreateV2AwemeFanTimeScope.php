@@ -7,13 +7,13 @@ namespace Oceanengine\Models;
 final class AudiencePackageCreateV2AwemeFanTimeScope
 {
     public const THIRTY_DAYS_AudiencePackageCreateV2AwemeFanTimeScope = 'THIRTY_DAYS';
-    public const SIXTY_DAYS_AudiencePackageCreateV2AwemeFanTimeScope = 'SIXTY_DAYS';
     public const FIFTEEN_DAYS_AudiencePackageCreateV2AwemeFanTimeScope = 'FIFTEEN_DAYS';
+    public const SIXTY_DAYS_AudiencePackageCreateV2AwemeFanTimeScope = 'SIXTY_DAYS';
 
     public const ALLOWED_VALUES = [
         self::THIRTY_DAYS_AudiencePackageCreateV2AwemeFanTimeScope,
-        self::SIXTY_DAYS_AudiencePackageCreateV2AwemeFanTimeScope,
         self::FIFTEEN_DAYS_AudiencePackageCreateV2AwemeFanTimeScope,
+        self::SIXTY_DAYS_AudiencePackageCreateV2AwemeFanTimeScope,
     ];
 
     public static function isValid(string $value): bool

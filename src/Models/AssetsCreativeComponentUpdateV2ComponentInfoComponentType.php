@@ -6,34 +6,34 @@ namespace Oceanengine\Models;
 
 final class AssetsCreativeComponentUpdateV2ComponentInfoComponentType
 {
-    public const RESERVATION_BUTTON_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'RESERVATION_BUTTON';
-    public const COMMERCE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'COMMERCE_MAGNET';
-    public const VOTE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'VOTE_MAGNET';
-    public const HALF_INTERACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'HALF_INTERACTIVE';
-    public const PROMOTION_CARD_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'PROMOTION_CARD';
-    public const UNION_LIGHT_INTERACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'UNION_LIGHT_INTERACTIVE';
-    public const LUCKY_BOX_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'LUCKY_BOX';
-    public const COUPON_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'COUPON_MAGNET';
     public const IMAGE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'IMAGE_MAGNET';
+    public const PROMOTION_CARD_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'PROMOTION_CARD';
+    public const LIGHT_INTER_ACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'LIGHT_INTER_ACTIVE';
     public const ECOMMERCE_CARD_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'ECOMMERCE_CARD';
     public const GAME_PACK_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'GAME_PACK';
-    public const LIGHT_INTER_ACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'LIGHT_INTER_ACTIVE';
+    public const HALF_INTERACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'HALF_INTERACTIVE';
+    public const LUCKY_BOX_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'LUCKY_BOX';
+    public const VOTE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'VOTE_MAGNET';
+    public const RESERVATION_BUTTON_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'RESERVATION_BUTTON';
     public const CHOICE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'CHOICE_MAGNET';
+    public const UNION_LIGHT_INTERACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'UNION_LIGHT_INTERACTIVE';
+    public const COUPON_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'COUPON_MAGNET';
+    public const COMMERCE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType = 'COMMERCE_MAGNET';
 
     public const ALLOWED_VALUES = [
-        self::RESERVATION_BUTTON_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
-        self::COMMERCE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
-        self::VOTE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
-        self::HALF_INTERACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
-        self::PROMOTION_CARD_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
-        self::UNION_LIGHT_INTERACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
-        self::LUCKY_BOX_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
-        self::COUPON_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
         self::IMAGE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
+        self::PROMOTION_CARD_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
+        self::LIGHT_INTER_ACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
         self::ECOMMERCE_CARD_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
         self::GAME_PACK_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
-        self::LIGHT_INTER_ACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
+        self::HALF_INTERACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
+        self::LUCKY_BOX_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
+        self::VOTE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
+        self::RESERVATION_BUTTON_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
         self::CHOICE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
+        self::UNION_LIGHT_INTERACTIVE_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
+        self::COUPON_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
+        self::COMMERCE_MAGNET_AssetsCreativeComponentUpdateV2ComponentInfoComponentType,
     ];
 
     public static function isValid(string $value): bool

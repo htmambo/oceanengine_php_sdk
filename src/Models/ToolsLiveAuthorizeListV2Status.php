@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class ToolsLiveAuthorizeListV2Status
 {
-    public const APPLY_OVERDUE_ToolsLiveAuthorizeListV2Status = 'APPLY_OVERDUE';
-    public const AUTHORIZE_OVERDUE_ToolsLiveAuthorizeListV2Status = 'AUTHORIZE_OVERDUE';
-    public const AUTHORIZING_ToolsLiveAuthorizeListV2Status = 'AUTHORIZING';
     public const APPLYING_ToolsLiveAuthorizeListV2Status = 'APPLYING';
+    public const AUTHORIZING_ToolsLiveAuthorizeListV2Status = 'AUTHORIZING';
+    public const AUTHORIZE_OVERDUE_ToolsLiveAuthorizeListV2Status = 'AUTHORIZE_OVERDUE';
+    public const APPLY_OVERDUE_ToolsLiveAuthorizeListV2Status = 'APPLY_OVERDUE';
 
     public const ALLOWED_VALUES = [
-        self::APPLY_OVERDUE_ToolsLiveAuthorizeListV2Status,
-        self::AUTHORIZE_OVERDUE_ToolsLiveAuthorizeListV2Status,
-        self::AUTHORIZING_ToolsLiveAuthorizeListV2Status,
         self::APPLYING_ToolsLiveAuthorizeListV2Status,
+        self::AUTHORIZING_ToolsLiveAuthorizeListV2Status,
+        self::AUTHORIZE_OVERDUE_ToolsLiveAuthorizeListV2Status,
+        self::APPLY_OVERDUE_ToolsLiveAuthorizeListV2Status,
     ];
 
     public static function isValid(string $value): bool

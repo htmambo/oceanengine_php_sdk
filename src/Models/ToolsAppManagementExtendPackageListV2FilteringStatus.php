@@ -6,22 +6,22 @@ namespace Oceanengine\Models;
 
 final class ToolsAppManagementExtendPackageListV2FilteringStatus
 {
+    public const CREATING_ToolsAppManagementExtendPackageListV2FilteringStatus = 'CREATING';
+    public const NOT_UPDATE_ToolsAppManagementExtendPackageListV2FilteringStatus = 'NOT_UPDATE';
     public const UPDATING_ToolsAppManagementExtendPackageListV2FilteringStatus = 'UPDATING';
+    public const UPDATE_FAILED_ToolsAppManagementExtendPackageListV2FilteringStatus = 'UPDATE_FAILED';
     public const ALL_ToolsAppManagementExtendPackageListV2FilteringStatus = 'ALL';
     public const CREATION_FAILED_ToolsAppManagementExtendPackageListV2FilteringStatus = 'CREATION_FAILED';
     public const PUBLISHED_ToolsAppManagementExtendPackageListV2FilteringStatus = 'PUBLISHED';
-    public const CREATING_ToolsAppManagementExtendPackageListV2FilteringStatus = 'CREATING';
-    public const UPDATE_FAILED_ToolsAppManagementExtendPackageListV2FilteringStatus = 'UPDATE_FAILED';
-    public const NOT_UPDATE_ToolsAppManagementExtendPackageListV2FilteringStatus = 'NOT_UPDATE';
 
     public const ALLOWED_VALUES = [
+        self::CREATING_ToolsAppManagementExtendPackageListV2FilteringStatus,
+        self::NOT_UPDATE_ToolsAppManagementExtendPackageListV2FilteringStatus,
         self::UPDATING_ToolsAppManagementExtendPackageListV2FilteringStatus,
+        self::UPDATE_FAILED_ToolsAppManagementExtendPackageListV2FilteringStatus,
         self::ALL_ToolsAppManagementExtendPackageListV2FilteringStatus,
         self::CREATION_FAILED_ToolsAppManagementExtendPackageListV2FilteringStatus,
         self::PUBLISHED_ToolsAppManagementExtendPackageListV2FilteringStatus,
-        self::CREATING_ToolsAppManagementExtendPackageListV2FilteringStatus,
-        self::UPDATE_FAILED_ToolsAppManagementExtendPackageListV2FilteringStatus,
-        self::NOT_UPDATE_ToolsAppManagementExtendPackageListV2FilteringStatus,
     ];
 
     public static function isValid(string $value): bool

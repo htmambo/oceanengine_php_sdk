@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class ReportCampaignGetV2DataListGender
 {
+    public const NONE_ReportCampaignGetV2DataListGender = 'NONE';
     public const GENDER_FEMALE_ReportCampaignGetV2DataListGender = 'GENDER_FEMALE';
     public const GENDER_MALE_ReportCampaignGetV2DataListGender = 'GENDER_MALE';
     public const GENDER_UNLIMITED_ReportCampaignGetV2DataListGender = 'GENDER_UNLIMITED';
-    public const NONE_ReportCampaignGetV2DataListGender = 'NONE';
 
     public const ALLOWED_VALUES = [
+        self::NONE_ReportCampaignGetV2DataListGender,
         self::GENDER_FEMALE_ReportCampaignGetV2DataListGender,
         self::GENDER_MALE_ReportCampaignGetV2DataListGender,
         self::GENDER_UNLIMITED_ReportCampaignGetV2DataListGender,
-        self::NONE_ReportCampaignGetV2DataListGender,
     ];
 
     public static function isValid(string $value): bool

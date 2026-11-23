@@ -6,15 +6,15 @@ namespace Oceanengine\Models;
 
 final class ToolsEstimateAudienceV2LocationType
 {
-    public const CURRENT_ToolsEstimateAudienceV2LocationType = 'CURRENT';
     public const TRAVEL_ToolsEstimateAudienceV2LocationType = 'TRAVEL';
     public const ALL_ToolsEstimateAudienceV2LocationType = 'ALL';
+    public const CURRENT_ToolsEstimateAudienceV2LocationType = 'CURRENT';
     public const HOME_ToolsEstimateAudienceV2LocationType = 'HOME';
 
     public const ALLOWED_VALUES = [
-        self::CURRENT_ToolsEstimateAudienceV2LocationType,
         self::TRAVEL_ToolsEstimateAudienceV2LocationType,
         self::ALL_ToolsEstimateAudienceV2LocationType,
+        self::CURRENT_ToolsEstimateAudienceV2LocationType,
         self::HOME_ToolsEstimateAudienceV2LocationType,
     ];
 

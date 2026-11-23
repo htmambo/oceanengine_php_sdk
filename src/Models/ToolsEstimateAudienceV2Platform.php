@@ -7,19 +7,19 @@ namespace Oceanengine\Models;
 final class ToolsEstimateAudienceV2Platform
 {
     public const PC_ToolsEstimateAudienceV2Platform = 'PC';
+    public const IOS_ToolsEstimateAudienceV2Platform = 'IOS';
     public const ANDROID_ToolsEstimateAudienceV2Platform = 'ANDROID';
     public const HARMONY_ToolsEstimateAudienceV2Platform = 'HARMONY';
     public const IPAD_ToolsEstimateAudienceV2Platform = 'IPAD';
-    public const IOS_ToolsEstimateAudienceV2Platform = 'IOS';
     public const NONE_ToolsEstimateAudienceV2Platform = 'NONE';
     public const WAP_ToolsEstimateAudienceV2Platform = 'WAP';
 
     public const ALLOWED_VALUES = [
         self::PC_ToolsEstimateAudienceV2Platform,
+        self::IOS_ToolsEstimateAudienceV2Platform,
         self::ANDROID_ToolsEstimateAudienceV2Platform,
         self::HARMONY_ToolsEstimateAudienceV2Platform,
         self::IPAD_ToolsEstimateAudienceV2Platform,
-        self::IOS_ToolsEstimateAudienceV2Platform,
         self::NONE_ToolsEstimateAudienceV2Platform,
         self::WAP_ToolsEstimateAudienceV2Platform,
     ];

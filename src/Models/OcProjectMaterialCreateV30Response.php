@@ -12,9 +12,9 @@ class OcProjectMaterialCreateV30Response implements \JsonSerializable
     protected ?int $code = null;
 
     /**
-     * @var array<string,mixed>
+     * @var \Oceanengine\Models\OcProjectMaterialCreateV30ResponseData
      */
-    protected ?array $data = null;
+    protected ?\Oceanengine\Models\OcProjectMaterialCreateV30ResponseData $data = null;
 
     /**
      * @var string
@@ -45,18 +45,18 @@ class OcProjectMaterialCreateV30Response implements \JsonSerializable
     }
 
     /**
-     * @return array<string,mixed>
+     * @return \Oceanengine\Models\OcProjectMaterialCreateV30ResponseData
      */
-    public function getData(): ?array
+    public function getData(): ?\Oceanengine\Models\OcProjectMaterialCreateV30ResponseData
     {
         return $this->data;
     }
 
     /**
-     * @param array<string,mixed> $data
+     * @param \Oceanengine\Models\OcProjectMaterialCreateV30ResponseData $data
      * @return self
      */
-    public function setData(?array $data): self
+    public function setData(?\Oceanengine\Models\OcProjectMaterialCreateV30ResponseData $data): self
     {
         $this->data = $data;
         return $this;
@@ -127,7 +127,7 @@ class OcProjectMaterialCreateV30Response implements \JsonSerializable
             $obj->code = (int) $v;
         }
         if (($v = $data['data'] ?? null) !== null && is_array($v)) {
-            $obj->data = $v;
+            $obj->data = \Oceanengine\Models\OcProjectMaterialCreateV30ResponseData::fromArray($v);
         }
         if (($v = $data['message'] ?? null) !== null) {
             $obj->message = (string) $v;

@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class ReportAudienceInterestActionListV2FilteringActionScene
 {
-    public const APP_ReportAudienceInterestActionListV2FilteringActionScene = 'APP';
     public const SEARCH_ReportAudienceInterestActionListV2FilteringActionScene = 'SEARCH';
-    public const AD_ReportAudienceInterestActionListV2FilteringActionScene = 'AD';
-    public const E_COMMERCE_ReportAudienceInterestActionListV2FilteringActionScene = 'E-COMMERCE';
     public const NEWS_ReportAudienceInterestActionListV2FilteringActionScene = 'NEWS';
+    public const AD_ReportAudienceInterestActionListV2FilteringActionScene = 'AD';
+    public const APP_ReportAudienceInterestActionListV2FilteringActionScene = 'APP';
+    public const E_COMMERCE_ReportAudienceInterestActionListV2FilteringActionScene = 'E-COMMERCE';
 
     public const ALLOWED_VALUES = [
-        self::APP_ReportAudienceInterestActionListV2FilteringActionScene,
         self::SEARCH_ReportAudienceInterestActionListV2FilteringActionScene,
-        self::AD_ReportAudienceInterestActionListV2FilteringActionScene,
-        self::E_COMMERCE_ReportAudienceInterestActionListV2FilteringActionScene,
         self::NEWS_ReportAudienceInterestActionListV2FilteringActionScene,
+        self::AD_ReportAudienceInterestActionListV2FilteringActionScene,
+        self::APP_ReportAudienceInterestActionListV2FilteringActionScene,
+        self::E_COMMERCE_ReportAudienceInterestActionListV2FilteringActionScene,
     ];
 
     public static function isValid(string $value): bool

@@ -6,20 +6,20 @@ namespace Oceanengine\Models;
 
 final class ReportCampaignGetV2FilteringStatus
 {
-    public const CAMPAIGN_STATUS_NOT_DELETE_ReportCampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_NOT_DELETE';
-    public const CAMPAIGN_STATUS_ADVERTISER_BUDGET_EXCEED_ReportCampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_ADVERTISER_BUDGET_EXCEED';
-    public const CAMPAIGN_STATUS_DELETE_ReportCampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_DELETE';
-    public const CAMPAIGN_STATUS_DISABLE_ReportCampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_DISABLE';
     public const CAMPAIGN_STATUS_ALL_ReportCampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_ALL';
     public const CAMPAIGN_STATUS_ENABLE_ReportCampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_ENABLE';
+    public const CAMPAIGN_STATUS_DISABLE_ReportCampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_DISABLE';
+    public const CAMPAIGN_STATUS_ADVERTISER_BUDGET_EXCEED_ReportCampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_ADVERTISER_BUDGET_EXCEED';
+    public const CAMPAIGN_STATUS_NOT_DELETE_ReportCampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_NOT_DELETE';
+    public const CAMPAIGN_STATUS_DELETE_ReportCampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_DELETE';
 
     public const ALLOWED_VALUES = [
-        self::CAMPAIGN_STATUS_NOT_DELETE_ReportCampaignGetV2FilteringStatus,
-        self::CAMPAIGN_STATUS_ADVERTISER_BUDGET_EXCEED_ReportCampaignGetV2FilteringStatus,
-        self::CAMPAIGN_STATUS_DELETE_ReportCampaignGetV2FilteringStatus,
-        self::CAMPAIGN_STATUS_DISABLE_ReportCampaignGetV2FilteringStatus,
         self::CAMPAIGN_STATUS_ALL_ReportCampaignGetV2FilteringStatus,
         self::CAMPAIGN_STATUS_ENABLE_ReportCampaignGetV2FilteringStatus,
+        self::CAMPAIGN_STATUS_DISABLE_ReportCampaignGetV2FilteringStatus,
+        self::CAMPAIGN_STATUS_ADVERTISER_BUDGET_EXCEED_ReportCampaignGetV2FilteringStatus,
+        self::CAMPAIGN_STATUS_NOT_DELETE_ReportCampaignGetV2FilteringStatus,
+        self::CAMPAIGN_STATUS_DELETE_ReportCampaignGetV2FilteringStatus,
     ];
 
     public static function isValid(string $value): bool

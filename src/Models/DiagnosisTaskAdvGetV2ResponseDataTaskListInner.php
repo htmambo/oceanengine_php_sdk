@@ -52,6 +52,11 @@ class DiagnosisTaskAdvGetV2ResponseDataTaskListInner implements \JsonSerializabl
     protected ?array $notEcpHighQualityReason = null;
 
     /**
+     * @var string[]
+     */
+    protected ?array $notLocalHighQualityReason = null;
+
+    /**
      * @var \Oceanengine\Models\DiagnosisTaskAdvGetV2DataTaskListStatus
      */
     protected ?string $status = null;
@@ -229,6 +234,24 @@ class DiagnosisTaskAdvGetV2ResponseDataTaskListInner implements \JsonSerializabl
     }
 
     /**
+     * @return string[]
+     */
+    public function getNotLocalHighQualityReason(): ?array
+    {
+        return $this->notLocalHighQualityReason;
+    }
+
+    /**
+     * @param string[] $notLocalHighQualityReason
+     * @return self
+     */
+    public function setNotLocalHighQualityReason(?array $notLocalHighQualityReason): self
+    {
+        $this->notLocalHighQualityReason = $notLocalHighQualityReason;
+        return $this;
+    }
+
+    /**
      * @return \Oceanengine\Models\DiagnosisTaskAdvGetV2DataTaskListStatus
      */
     public function getStatus(): ?string
@@ -316,6 +339,9 @@ class DiagnosisTaskAdvGetV2ResponseDataTaskListInner implements \JsonSerializabl
         if ($this->notEcpHighQualityReason !== null) {
             $result['not_ecp_high_quality_reason'] = $this->notEcpHighQualityReason;
         }
+        if ($this->notLocalHighQualityReason !== null) {
+            $result['not_local_high_quality_reason'] = $this->notLocalHighQualityReason;
+        }
         if ($this->status !== null) {
             $result['status'] = $this->status;
         }
@@ -357,6 +383,9 @@ class DiagnosisTaskAdvGetV2ResponseDataTaskListInner implements \JsonSerializabl
         }
         if (($v = $data['not_ecp_high_quality_reason'] ?? null) !== null && is_array($v)) {
             $obj->notEcpHighQualityReason = $v;
+        }
+        if (($v = $data['not_local_high_quality_reason'] ?? null) !== null && is_array($v)) {
+            $obj->notLocalHighQualityReason = $v;
         }
         if (($v = $data['status'] ?? null) !== null) {
             $obj->status = (string) $v;

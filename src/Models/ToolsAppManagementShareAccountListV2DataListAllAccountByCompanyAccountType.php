@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class ToolsAppManagementShareAccountListV2DataListAllAccountByCompanyAccountType
 {
+    public const AD_ToolsAppManagementShareAccountListV2DataListAllAccountByCompanyAccountType = 'AD';
     public const BP_ToolsAppManagementShareAccountListV2DataListAllAccountByCompanyAccountType = 'BP';
     public const STAR_ToolsAppManagementShareAccountListV2DataListAllAccountByCompanyAccountType = 'STAR';
-    public const AD_ToolsAppManagementShareAccountListV2DataListAllAccountByCompanyAccountType = 'AD';
 
     public const ALLOWED_VALUES = [
+        self::AD_ToolsAppManagementShareAccountListV2DataListAllAccountByCompanyAccountType,
         self::BP_ToolsAppManagementShareAccountListV2DataListAllAccountByCompanyAccountType,
         self::STAR_ToolsAppManagementShareAccountListV2DataListAllAccountByCompanyAccountType,
-        self::AD_ToolsAppManagementShareAccountListV2DataListAllAccountByCompanyAccountType,
     ];
 
     public static function isValid(string $value): bool

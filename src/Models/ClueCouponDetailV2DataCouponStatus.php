@@ -6,21 +6,21 @@ namespace Oceanengine\Models;
 
 final class ClueCouponDetailV2DataCouponStatus
 {
-    public const PAUSE_ClueCouponDetailV2DataCouponStatus = 'PAUSE';
-    public const UNAUDITED_ClueCouponDetailV2DataCouponStatus = 'UNAUDITED';
-    public const AUDIT_DOING_ClueCouponDetailV2DataCouponStatus = 'AUDIT_DOING';
     public const NORMAL_ClueCouponDetailV2DataCouponStatus = 'NORMAL';
     public const OFFLINE_ClueCouponDetailV2DataCouponStatus = 'OFFLINE';
     public const DELETED_ClueCouponDetailV2DataCouponStatus = 'DELETED';
+    public const UNAUDITED_ClueCouponDetailV2DataCouponStatus = 'UNAUDITED';
+    public const AUDIT_DOING_ClueCouponDetailV2DataCouponStatus = 'AUDIT_DOING';
+    public const PAUSE_ClueCouponDetailV2DataCouponStatus = 'PAUSE';
     public const AUDIT_FAIL_ClueCouponDetailV2DataCouponStatus = 'AUDIT_FAIL';
 
     public const ALLOWED_VALUES = [
-        self::PAUSE_ClueCouponDetailV2DataCouponStatus,
-        self::UNAUDITED_ClueCouponDetailV2DataCouponStatus,
-        self::AUDIT_DOING_ClueCouponDetailV2DataCouponStatus,
         self::NORMAL_ClueCouponDetailV2DataCouponStatus,
         self::OFFLINE_ClueCouponDetailV2DataCouponStatus,
         self::DELETED_ClueCouponDetailV2DataCouponStatus,
+        self::UNAUDITED_ClueCouponDetailV2DataCouponStatus,
+        self::AUDIT_DOING_ClueCouponDetailV2DataCouponStatus,
+        self::PAUSE_ClueCouponDetailV2DataCouponStatus,
         self::AUDIT_FAIL_ClueCouponDetailV2DataCouponStatus,
     ];
 

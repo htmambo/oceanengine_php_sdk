@@ -6,22 +6,22 @@ namespace Oceanengine\Models;
 
 final class CreativeProceduralCreativeUpdateV2AdDataAnchorType
 {
-    public const APP_SHOP_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'APP_SHOP';
-    public const INSURANCE_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'INSURANCE';
-    public const SHOPPING_CART_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'SHOPPING_CART';
-    public const APP_GAME_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'APP_GAME';
-    public const PRIVATE_CHAT_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'PRIVATE_CHAT';
     public const ONLINE_SUBSCRIBE_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'ONLINE_SUBSCRIBE';
+    public const INSURANCE_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'INSURANCE';
+    public const PRIVATE_CHAT_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'PRIVATE_CHAT';
+    public const APP_GAME_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'APP_GAME';
+    public const SHOPPING_CART_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'SHOPPING_CART';
     public const APP_INTERNET_SERVICE_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'APP_INTERNET_SERVICE';
+    public const APP_SHOP_CreativeProceduralCreativeUpdateV2AdDataAnchorType = 'APP_SHOP';
 
     public const ALLOWED_VALUES = [
-        self::APP_SHOP_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
-        self::INSURANCE_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
-        self::SHOPPING_CART_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
-        self::APP_GAME_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
-        self::PRIVATE_CHAT_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
         self::ONLINE_SUBSCRIBE_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
+        self::INSURANCE_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
+        self::PRIVATE_CHAT_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
+        self::APP_GAME_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
+        self::SHOPPING_CART_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
         self::APP_INTERNET_SERVICE_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
+        self::APP_SHOP_CreativeProceduralCreativeUpdateV2AdDataAnchorType,
     ];
 
     public static function isValid(string $value): bool

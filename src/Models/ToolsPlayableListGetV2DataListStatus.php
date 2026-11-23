@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class ToolsPlayableListGetV2DataListStatus
 {
-    public const VALIDATE_FAIL_ToolsPlayableListGetV2DataListStatus = 'VALIDATE_FAIL';
-    public const VALIDATE_SUCCESS_ToolsPlayableListGetV2DataListStatus = 'VALIDATE_SUCCESS';
-    public const AUDIT_SUCCESS_ToolsPlayableListGetV2DataListStatus = 'AUDIT_SUCCESS';
     public const VALIDATING_ToolsPlayableListGetV2DataListStatus = 'VALIDATING';
+    public const AUDIT_SUCCESS_ToolsPlayableListGetV2DataListStatus = 'AUDIT_SUCCESS';
+    public const VALIDATE_FAIL_ToolsPlayableListGetV2DataListStatus = 'VALIDATE_FAIL';
     public const AUDIT_FAIL_ToolsPlayableListGetV2DataListStatus = 'AUDIT_FAIL';
+    public const VALIDATE_SUCCESS_ToolsPlayableListGetV2DataListStatus = 'VALIDATE_SUCCESS';
 
     public const ALLOWED_VALUES = [
-        self::VALIDATE_FAIL_ToolsPlayableListGetV2DataListStatus,
-        self::VALIDATE_SUCCESS_ToolsPlayableListGetV2DataListStatus,
-        self::AUDIT_SUCCESS_ToolsPlayableListGetV2DataListStatus,
         self::VALIDATING_ToolsPlayableListGetV2DataListStatus,
+        self::AUDIT_SUCCESS_ToolsPlayableListGetV2DataListStatus,
+        self::VALIDATE_FAIL_ToolsPlayableListGetV2DataListStatus,
         self::AUDIT_FAIL_ToolsPlayableListGetV2DataListStatus,
+        self::VALIDATE_SUCCESS_ToolsPlayableListGetV2DataListStatus,
     ];
 
     public static function isValid(string $value): bool

@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ToolsLandingGroupGetV2DataListSitesSiteOptStatus
 {
-    public const SITE_OPT_STATUS_DISABLE_ToolsLandingGroupGetV2DataListSitesSiteOptStatus = 'SITE_OPT_STATUS_DISABLE';
     public const SITE_OPT_STATUS_ENABLE_ToolsLandingGroupGetV2DataListSitesSiteOptStatus = 'SITE_OPT_STATUS_ENABLE';
+    public const SITE_OPT_STATUS_DISABLE_ToolsLandingGroupGetV2DataListSitesSiteOptStatus = 'SITE_OPT_STATUS_DISABLE';
 
     public const ALLOWED_VALUES = [
-        self::SITE_OPT_STATUS_DISABLE_ToolsLandingGroupGetV2DataListSitesSiteOptStatus,
         self::SITE_OPT_STATUS_ENABLE_ToolsLandingGroupGetV2DataListSitesSiteOptStatus,
+        self::SITE_OPT_STATUS_DISABLE_ToolsLandingGroupGetV2DataListSitesSiteOptStatus,
     ];
 
     public static function isValid(string $value): bool

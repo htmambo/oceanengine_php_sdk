@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class ReportAdGetV2FilteringCreativeMaterialModes
 {
+    public const INTERVENE_ReportAdGetV2FilteringCreativeMaterialModes = 'INTERVENE';
     public const STATIC_ASSEMBLE_ReportAdGetV2FilteringCreativeMaterialModes = 'STATIC_ASSEMBLE';
     public const CTR_ReportAdGetV2FilteringCreativeMaterialModes = 'CTR';
-    public const INTERVENE_ReportAdGetV2FilteringCreativeMaterialModes = 'INTERVENE';
 
     public const ALLOWED_VALUES = [
+        self::INTERVENE_ReportAdGetV2FilteringCreativeMaterialModes,
         self::STATIC_ASSEMBLE_ReportAdGetV2FilteringCreativeMaterialModes,
         self::CTR_ReportAdGetV2FilteringCreativeMaterialModes,
-        self::INTERVENE_ReportAdGetV2FilteringCreativeMaterialModes,
     ];
 
     public static function isValid(string $value): bool

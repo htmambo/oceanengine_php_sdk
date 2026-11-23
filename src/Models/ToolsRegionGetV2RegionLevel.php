@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class ToolsRegionGetV2RegionLevel
 {
-    public const REGION_LEVEL_BUSINESS_DISTRICT_ToolsRegionGetV2RegionLevel = 'REGION_LEVEL_BUSINESS_DISTRICT';
-    public const REGION_LEVEL_DISTRICT_ToolsRegionGetV2RegionLevel = 'REGION_LEVEL_DISTRICT';
-    public const REGION_LEVEL_CITY_ToolsRegionGetV2RegionLevel = 'REGION_LEVEL_CITY';
     public const REGION_LEVEL_PROVINCE_ToolsRegionGetV2RegionLevel = 'REGION_LEVEL_PROVINCE';
+    public const REGION_LEVEL_CITY_ToolsRegionGetV2RegionLevel = 'REGION_LEVEL_CITY';
+    public const REGION_LEVEL_DISTRICT_ToolsRegionGetV2RegionLevel = 'REGION_LEVEL_DISTRICT';
+    public const REGION_LEVEL_BUSINESS_DISTRICT_ToolsRegionGetV2RegionLevel = 'REGION_LEVEL_BUSINESS_DISTRICT';
 
     public const ALLOWED_VALUES = [
-        self::REGION_LEVEL_BUSINESS_DISTRICT_ToolsRegionGetV2RegionLevel,
-        self::REGION_LEVEL_DISTRICT_ToolsRegionGetV2RegionLevel,
-        self::REGION_LEVEL_CITY_ToolsRegionGetV2RegionLevel,
         self::REGION_LEVEL_PROVINCE_ToolsRegionGetV2RegionLevel,
+        self::REGION_LEVEL_CITY_ToolsRegionGetV2RegionLevel,
+        self::REGION_LEVEL_DISTRICT_ToolsRegionGetV2RegionLevel,
+        self::REGION_LEVEL_BUSINESS_DISTRICT_ToolsRegionGetV2RegionLevel,
     ];
 
     public static function isValid(string $value): bool

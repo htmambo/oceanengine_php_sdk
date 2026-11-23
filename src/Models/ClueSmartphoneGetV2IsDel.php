@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ClueSmartphoneGetV2IsDel
 {
-    public const Enum_0_ClueSmartphoneGetV2IsDel = '0';
     public const Enum_1_ClueSmartphoneGetV2IsDel = '1';
+    public const Enum_0_ClueSmartphoneGetV2IsDel = '0';
 
     public const ALLOWED_VALUES = [
-        self::Enum_0_ClueSmartphoneGetV2IsDel,
         self::Enum_1_ClueSmartphoneGetV2IsDel,
+        self::Enum_0_ClueSmartphoneGetV2IsDel,
     ];
 
     public static function isValid(string $value): bool

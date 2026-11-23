@@ -22,6 +22,7 @@ final class LocalProjectListV30DataProjectListExternalAction
     public const POI_RECOMMEND_LocalProjectListV30DataProjectListExternalAction = 'POI_RECOMMEND';
     public const PRIVATE_MESSAGE_LocalProjectListV30DataProjectListExternalAction = 'PRIVATE_MESSAGE';
     public const SHOW_LocalProjectListV30DataProjectListExternalAction = 'SHOW';
+    public const WECHAT_ADD_BUSINESS_LocalProjectListV30DataProjectListExternalAction = 'WECHAT_ADD_BUSINESS';
 
     public const ALLOWED_VALUES = [
         self::CLUE_ACQUISITION_LocalProjectListV30DataProjectListExternalAction,
@@ -40,6 +41,7 @@ final class LocalProjectListV30DataProjectListExternalAction
         self::POI_RECOMMEND_LocalProjectListV30DataProjectListExternalAction,
         self::PRIVATE_MESSAGE_LocalProjectListV30DataProjectListExternalAction,
         self::SHOW_LocalProjectListV30DataProjectListExternalAction,
+        self::WECHAT_ADD_BUSINESS_LocalProjectListV30DataProjectListExternalAction,
     ];
 
     public static function isValid(string $value): bool

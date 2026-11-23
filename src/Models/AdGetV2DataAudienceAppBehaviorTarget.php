@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataAudienceAppBehaviorTarget
 {
-    public const APP_AdGetV2DataAudienceAppBehaviorTarget = 'APP';
-    public const CATEGORY_AdGetV2DataAudienceAppBehaviorTarget = 'CATEGORY';
     public const NONE_AdGetV2DataAudienceAppBehaviorTarget = 'NONE';
+    public const CATEGORY_AdGetV2DataAudienceAppBehaviorTarget = 'CATEGORY';
+    public const APP_AdGetV2DataAudienceAppBehaviorTarget = 'APP';
 
     public const ALLOWED_VALUES = [
-        self::APP_AdGetV2DataAudienceAppBehaviorTarget,
-        self::CATEGORY_AdGetV2DataAudienceAppBehaviorTarget,
         self::NONE_AdGetV2DataAudienceAppBehaviorTarget,
+        self::CATEGORY_AdGetV2DataAudienceAppBehaviorTarget,
+        self::APP_AdGetV2DataAudienceAppBehaviorTarget,
     ];
 
     public static function isValid(string $value): bool

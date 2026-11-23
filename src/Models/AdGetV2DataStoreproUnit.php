@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataStoreproUnit
 {
-    public const STORE_AdGetV2DataStoreproUnit = 'STORE';
     public const STORE_ACTIVITY_AdGetV2DataStoreproUnit = 'STORE_ACTIVITY';
+    public const STORE_AdGetV2DataStoreproUnit = 'STORE';
 
     public const ALLOWED_VALUES = [
-        self::STORE_AdGetV2DataStoreproUnit,
         self::STORE_ACTIVITY_AdGetV2DataStoreproUnit,
+        self::STORE_AdGetV2DataStoreproUnit,
     ];
 
     public static function isValid(string $value): bool

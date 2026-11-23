@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataInventoryCatalog
 {
-    public const SCENE_AdGetV2DataInventoryCatalog = 'SCENE';
-    public const UNIVERSAL_AdGetV2DataInventoryCatalog = 'UNIVERSAL';
-    public const UNIVERSAL_SMART_AdGetV2DataInventoryCatalog = 'UNIVERSAL_SMART';
     public const SMART_AdGetV2DataInventoryCatalog = 'SMART';
+    public const UNIVERSAL_SMART_AdGetV2DataInventoryCatalog = 'UNIVERSAL_SMART';
     public const MANUAL_AdGetV2DataInventoryCatalog = 'MANUAL';
+    public const UNIVERSAL_AdGetV2DataInventoryCatalog = 'UNIVERSAL';
+    public const SCENE_AdGetV2DataInventoryCatalog = 'SCENE';
 
     public const ALLOWED_VALUES = [
-        self::SCENE_AdGetV2DataInventoryCatalog,
-        self::UNIVERSAL_AdGetV2DataInventoryCatalog,
-        self::UNIVERSAL_SMART_AdGetV2DataInventoryCatalog,
         self::SMART_AdGetV2DataInventoryCatalog,
+        self::UNIVERSAL_SMART_AdGetV2DataInventoryCatalog,
         self::MANUAL_AdGetV2DataInventoryCatalog,
+        self::UNIVERSAL_AdGetV2DataInventoryCatalog,
+        self::SCENE_AdGetV2DataInventoryCatalog,
     ];
 
     public static function isValid(string $value): bool

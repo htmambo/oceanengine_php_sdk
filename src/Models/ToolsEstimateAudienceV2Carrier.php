@@ -6,13 +6,13 @@ namespace Oceanengine\Models;
 
 final class ToolsEstimateAudienceV2Carrier
 {
-    public const UNICOM_ToolsEstimateAudienceV2Carrier = 'UNICOM';
     public const TELCOM_ToolsEstimateAudienceV2Carrier = 'TELCOM';
+    public const UNICOM_ToolsEstimateAudienceV2Carrier = 'UNICOM';
     public const MOBILE_ToolsEstimateAudienceV2Carrier = 'MOBILE';
 
     public const ALLOWED_VALUES = [
-        self::UNICOM_ToolsEstimateAudienceV2Carrier,
         self::TELCOM_ToolsEstimateAudienceV2Carrier,
+        self::UNICOM_ToolsEstimateAudienceV2Carrier,
         self::MOBILE_ToolsEstimateAudienceV2Carrier,
     ];
 

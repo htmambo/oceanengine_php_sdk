@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class QianchuanAdRejectReasonV10DataListAuditRecordsAuditPlatform
 {
+    public const AD_QianchuanAdRejectReasonV10DataListAuditRecordsAuditPlatform = 'AD';
     public const UNKNOWN_QianchuanAdRejectReasonV10DataListAuditRecordsAuditPlatform = 'UNKNOWN';
     public const CONTENT_QianchuanAdRejectReasonV10DataListAuditRecordsAuditPlatform = 'CONTENT';
-    public const AD_QianchuanAdRejectReasonV10DataListAuditRecordsAuditPlatform = 'AD';
 
     public const ALLOWED_VALUES = [
+        self::AD_QianchuanAdRejectReasonV10DataListAuditRecordsAuditPlatform,
         self::UNKNOWN_QianchuanAdRejectReasonV10DataListAuditRecordsAuditPlatform,
         self::CONTENT_QianchuanAdRejectReasonV10DataListAuditRecordsAuditPlatform,
-        self::AD_QianchuanAdRejectReasonV10DataListAuditRecordsAuditPlatform,
     ];
 
     public static function isValid(string $value): bool

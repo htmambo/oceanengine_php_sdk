@@ -162,6 +162,7 @@ final class ProjectCreateV30OptimizeGoalExternalAction
     public const AD_CONVERT_TYPE_WECHAT_REGISTER_ProjectCreateV30OptimizeGoalExternalAction = 'AD_CONVERT_TYPE_WECHAT_REGISTER';
     public const AD_CONVERT_TYPE_WECHAT_WECOM_ADD_ProjectCreateV30OptimizeGoalExternalAction = 'AD_CONVERT_TYPE_WECHAT_WECOM_ADD';
     public const AD_CONVERT_TYPE_XPATH_ProjectCreateV30OptimizeGoalExternalAction = 'AD_CONVERT_TYPE_XPATH';
+    public const AD_CONVERT_TYPE_INSURANCE_PAY_ProjectCreateV30OptimizeGoalExternalAction = 'AD_CONVERT_TYPE_INSURANCE_PAY';
 
     public const ALLOWED_VALUES = [
         self::AD_CONVERT_ADD_TO_CART_ProjectCreateV30OptimizeGoalExternalAction,
@@ -320,6 +321,7 @@ final class ProjectCreateV30OptimizeGoalExternalAction
         self::AD_CONVERT_TYPE_WECHAT_REGISTER_ProjectCreateV30OptimizeGoalExternalAction,
         self::AD_CONVERT_TYPE_WECHAT_WECOM_ADD_ProjectCreateV30OptimizeGoalExternalAction,
         self::AD_CONVERT_TYPE_XPATH_ProjectCreateV30OptimizeGoalExternalAction,
+        self::AD_CONVERT_TYPE_INSURANCE_PAY_ProjectCreateV30OptimizeGoalExternalAction,
     ];
 
     public static function isValid(string $value): bool

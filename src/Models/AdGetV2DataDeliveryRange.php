@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataDeliveryRange
 {
-    public const DEFAULT_AdGetV2DataDeliveryRange = 'DEFAULT';
     public const UNIVERSAL_AdGetV2DataDeliveryRange = 'UNIVERSAL';
     public const UNION_AdGetV2DataDeliveryRange = 'UNION';
+    public const DEFAULT_AdGetV2DataDeliveryRange = 'DEFAULT';
 
     public const ALLOWED_VALUES = [
-        self::DEFAULT_AdGetV2DataDeliveryRange,
         self::UNIVERSAL_AdGetV2DataDeliveryRange,
         self::UNION_AdGetV2DataDeliveryRange,
+        self::DEFAULT_AdGetV2DataDeliveryRange,
     ];
 
     public static function isValid(string $value): bool

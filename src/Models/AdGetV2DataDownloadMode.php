@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataDownloadMode
 {
-    public const DEFAULT_AdGetV2DataDownloadMode = 'DEFAULT';
     public const APP_STORE_DELIVERY_AdGetV2DataDownloadMode = 'APP_STORE_DELIVERY';
+    public const DEFAULT_AdGetV2DataDownloadMode = 'DEFAULT';
 
     public const ALLOWED_VALUES = [
-        self::DEFAULT_AdGetV2DataDownloadMode,
         self::APP_STORE_DELIVERY_AdGetV2DataDownloadMode,
+        self::DEFAULT_AdGetV2DataDownloadMode,
     ];
 
     public static function isValid(string $value): bool

@@ -6,22 +6,22 @@ namespace Oceanengine\Models;
 
 final class AudiencePackageCreateV2ConvertedTimeDuration
 {
-    public const TWELVE_MONTH_AudiencePackageCreateV2ConvertedTimeDuration = 'TWELVE_MONTH';
-    public const TODAY_AudiencePackageCreateV2ConvertedTimeDuration = 'TODAY';
-    public const THREE_MONTH_AudiencePackageCreateV2ConvertedTimeDuration = 'THREE_MONTH';
     public const ONE_MONTH_AudiencePackageCreateV2ConvertedTimeDuration = 'ONE_MONTH';
-    public const SEVEN_DAY_AudiencePackageCreateV2ConvertedTimeDuration = 'SEVEN_DAY';
+    public const TWELVE_MONTH_AudiencePackageCreateV2ConvertedTimeDuration = 'TWELVE_MONTH';
+    public const THREE_MONTH_AudiencePackageCreateV2ConvertedTimeDuration = 'THREE_MONTH';
     public const SIX_MONTH_AudiencePackageCreateV2ConvertedTimeDuration = 'SIX_MONTH';
+    public const SEVEN_DAY_AudiencePackageCreateV2ConvertedTimeDuration = 'SEVEN_DAY';
     public const NONE_AudiencePackageCreateV2ConvertedTimeDuration = 'NONE';
+    public const TODAY_AudiencePackageCreateV2ConvertedTimeDuration = 'TODAY';
 
     public const ALLOWED_VALUES = [
-        self::TWELVE_MONTH_AudiencePackageCreateV2ConvertedTimeDuration,
-        self::TODAY_AudiencePackageCreateV2ConvertedTimeDuration,
-        self::THREE_MONTH_AudiencePackageCreateV2ConvertedTimeDuration,
         self::ONE_MONTH_AudiencePackageCreateV2ConvertedTimeDuration,
-        self::SEVEN_DAY_AudiencePackageCreateV2ConvertedTimeDuration,
+        self::TWELVE_MONTH_AudiencePackageCreateV2ConvertedTimeDuration,
+        self::THREE_MONTH_AudiencePackageCreateV2ConvertedTimeDuration,
         self::SIX_MONTH_AudiencePackageCreateV2ConvertedTimeDuration,
+        self::SEVEN_DAY_AudiencePackageCreateV2ConvertedTimeDuration,
         self::NONE_AudiencePackageCreateV2ConvertedTimeDuration,
+        self::TODAY_AudiencePackageCreateV2ConvertedTimeDuration,
     ];
 
     public static function isValid(string $value): bool

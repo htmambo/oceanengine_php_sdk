@@ -7,13 +7,13 @@ namespace Oceanengine\Models;
 final class ClueFormListV2DataListFormType
 {
     public const NATIVE_FORM_ClueFormListV2DataListFormType = 'NATIVE_FORM';
-    public const ADVANCED_CREATIVE_FORM_ClueFormListV2DataListFormType = 'ADVANCED_CREATIVE_FORM';
     public const NORMAL_FORM_ClueFormListV2DataListFormType = 'NORMAL_FORM';
+    public const ADVANCED_CREATIVE_FORM_ClueFormListV2DataListFormType = 'ADVANCED_CREATIVE_FORM';
 
     public const ALLOWED_VALUES = [
         self::NATIVE_FORM_ClueFormListV2DataListFormType,
-        self::ADVANCED_CREATIVE_FORM_ClueFormListV2DataListFormType,
         self::NORMAL_FORM_ClueFormListV2DataListFormType,
+        self::ADVANCED_CREATIVE_FORM_ClueFormListV2DataListFormType,
     ];
 
     public static function isValid(string $value): bool

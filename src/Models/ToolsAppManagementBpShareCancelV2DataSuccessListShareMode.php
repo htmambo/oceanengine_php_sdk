@@ -7,13 +7,13 @@ namespace Oceanengine\Models;
 final class ToolsAppManagementBpShareCancelV2DataSuccessListShareMode
 {
     public const COMPANY_ToolsAppManagementBpShareCancelV2DataSuccessListShareMode = 'COMPANY';
-    public const ALL_ToolsAppManagementBpShareCancelV2DataSuccessListShareMode = 'ALL';
     public const PART_ToolsAppManagementBpShareCancelV2DataSuccessListShareMode = 'PART';
+    public const ALL_ToolsAppManagementBpShareCancelV2DataSuccessListShareMode = 'ALL';
 
     public const ALLOWED_VALUES = [
         self::COMPANY_ToolsAppManagementBpShareCancelV2DataSuccessListShareMode,
-        self::ALL_ToolsAppManagementBpShareCancelV2DataSuccessListShareMode,
         self::PART_ToolsAppManagementBpShareCancelV2DataSuccessListShareMode,
+        self::ALL_ToolsAppManagementBpShareCancelV2DataSuccessListShareMode,
     ];
 
     public static function isValid(string $value): bool

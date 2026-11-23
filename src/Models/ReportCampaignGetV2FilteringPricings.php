@@ -6,21 +6,21 @@ namespace Oceanengine\Models;
 
 final class ReportCampaignGetV2FilteringPricings
 {
+    public const PRICING_OCPC_ReportCampaignGetV2FilteringPricings = 'PRICING_OCPC';
     public const PRICING_CPV_ReportCampaignGetV2FilteringPricings = 'PRICING_CPV';
-    public const PRICING_CPM_ReportCampaignGetV2FilteringPricings = 'PRICING_CPM';
     public const PRICING_ECPC_ReportCampaignGetV2FilteringPricings = 'PRICING_ECPC';
     public const PRICING_CPC_ReportCampaignGetV2FilteringPricings = 'PRICING_CPC';
+    public const PRICING_CPM_ReportCampaignGetV2FilteringPricings = 'PRICING_CPM';
     public const PRICING_OCPM_ReportCampaignGetV2FilteringPricings = 'PRICING_OCPM';
-    public const PRICING_OCPC_ReportCampaignGetV2FilteringPricings = 'PRICING_OCPC';
     public const PRICING_CPA_ReportCampaignGetV2FilteringPricings = 'PRICING_CPA';
 
     public const ALLOWED_VALUES = [
+        self::PRICING_OCPC_ReportCampaignGetV2FilteringPricings,
         self::PRICING_CPV_ReportCampaignGetV2FilteringPricings,
-        self::PRICING_CPM_ReportCampaignGetV2FilteringPricings,
         self::PRICING_ECPC_ReportCampaignGetV2FilteringPricings,
         self::PRICING_CPC_ReportCampaignGetV2FilteringPricings,
+        self::PRICING_CPM_ReportCampaignGetV2FilteringPricings,
         self::PRICING_OCPM_ReportCampaignGetV2FilteringPricings,
-        self::PRICING_OCPC_ReportCampaignGetV2FilteringPricings,
         self::PRICING_CPA_ReportCampaignGetV2FilteringPricings,
     ];
 

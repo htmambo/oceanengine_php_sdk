@@ -6,28 +6,28 @@ namespace Oceanengine\Models;
 
 final class ReportAdGetV2FilteringLandingType
 {
-    public const LIVE_ReportAdGetV2FilteringLandingType = 'LIVE';
-    public const APP_ReportAdGetV2FilteringLandingType = 'APP';
-    public const ARTICLE_ReportAdGetV2FilteringLandingType = 'ARTICLE';
     public const SHOP_ReportAdGetV2FilteringLandingType = 'SHOP';
-    public const QUICK_APP_ReportAdGetV2FilteringLandingType = 'QUICK_APP';
-    public const LINK_ReportAdGetV2FilteringLandingType = 'LINK';
-    public const DPA_ReportAdGetV2FilteringLandingType = 'DPA';
-    public const STORE_ReportAdGetV2FilteringLandingType = 'STORE';
+    public const LIVE_ReportAdGetV2FilteringLandingType = 'LIVE';
+    public const ARTICLE_ReportAdGetV2FilteringLandingType = 'ARTICLE';
     public const AWEME_ReportAdGetV2FilteringLandingType = 'AWEME';
+    public const DPA_ReportAdGetV2FilteringLandingType = 'DPA';
+    public const QUICK_APP_ReportAdGetV2FilteringLandingType = 'QUICK_APP';
+    public const APP_ReportAdGetV2FilteringLandingType = 'APP';
+    public const STORE_ReportAdGetV2FilteringLandingType = 'STORE';
     public const GOODS_ReportAdGetV2FilteringLandingType = 'GOODS';
+    public const LINK_ReportAdGetV2FilteringLandingType = 'LINK';
 
     public const ALLOWED_VALUES = [
-        self::LIVE_ReportAdGetV2FilteringLandingType,
-        self::APP_ReportAdGetV2FilteringLandingType,
-        self::ARTICLE_ReportAdGetV2FilteringLandingType,
         self::SHOP_ReportAdGetV2FilteringLandingType,
-        self::QUICK_APP_ReportAdGetV2FilteringLandingType,
-        self::LINK_ReportAdGetV2FilteringLandingType,
-        self::DPA_ReportAdGetV2FilteringLandingType,
-        self::STORE_ReportAdGetV2FilteringLandingType,
+        self::LIVE_ReportAdGetV2FilteringLandingType,
+        self::ARTICLE_ReportAdGetV2FilteringLandingType,
         self::AWEME_ReportAdGetV2FilteringLandingType,
+        self::DPA_ReportAdGetV2FilteringLandingType,
+        self::QUICK_APP_ReportAdGetV2FilteringLandingType,
+        self::APP_ReportAdGetV2FilteringLandingType,
+        self::STORE_ReportAdGetV2FilteringLandingType,
         self::GOODS_ReportAdGetV2FilteringLandingType,
+        self::LINK_ReportAdGetV2FilteringLandingType,
     ];
 
     public static function isValid(string $value): bool

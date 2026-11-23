@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ClueFormCreateV2EnableLayer
 {
-    public const Enum_0_ClueFormCreateV2EnableLayer = '0';
     public const Enum_1_ClueFormCreateV2EnableLayer = '1';
+    public const Enum_0_ClueFormCreateV2EnableLayer = '0';
 
     public const ALLOWED_VALUES = [
-        self::Enum_0_ClueFormCreateV2EnableLayer,
         self::Enum_1_ClueFormCreateV2EnableLayer,
+        self::Enum_0_ClueFormCreateV2EnableLayer,
     ];
 
     public static function isValid(string $value): bool

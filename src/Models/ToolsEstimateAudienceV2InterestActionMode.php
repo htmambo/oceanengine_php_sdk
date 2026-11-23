@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class ToolsEstimateAudienceV2InterestActionMode
 {
+    public const UNLIMITED_ToolsEstimateAudienceV2InterestActionMode = 'UNLIMITED';
     public const CUSTOM_ToolsEstimateAudienceV2InterestActionMode = 'CUSTOM';
     public const RECOMMEND_ToolsEstimateAudienceV2InterestActionMode = 'RECOMMEND';
-    public const UNLIMITED_ToolsEstimateAudienceV2InterestActionMode = 'UNLIMITED';
 
     public const ALLOWED_VALUES = [
+        self::UNLIMITED_ToolsEstimateAudienceV2InterestActionMode,
         self::CUSTOM_ToolsEstimateAudienceV2InterestActionMode,
         self::RECOMMEND_ToolsEstimateAudienceV2InterestActionMode,
-        self::UNLIMITED_ToolsEstimateAudienceV2InterestActionMode,
     ];
 
     public static function isValid(string $value): bool

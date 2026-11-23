@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ClueCouponDetailV2DataFormExtendInfoSignUpConfigSignType
 {
-    public const SIGN_TYPE_SCROLL_BAR_ClueCouponDetailV2DataFormExtendInfoSignUpConfigSignType = 'SIGN_TYPE_SCROLL_BAR';
     public const SIGN_TYPE_SCROLL_WALL_ClueCouponDetailV2DataFormExtendInfoSignUpConfigSignType = 'SIGN_TYPE_SCROLL_WALL';
+    public const SIGN_TYPE_SCROLL_BAR_ClueCouponDetailV2DataFormExtendInfoSignUpConfigSignType = 'SIGN_TYPE_SCROLL_BAR';
 
     public const ALLOWED_VALUES = [
-        self::SIGN_TYPE_SCROLL_BAR_ClueCouponDetailV2DataFormExtendInfoSignUpConfigSignType,
         self::SIGN_TYPE_SCROLL_WALL_ClueCouponDetailV2DataFormExtendInfoSignUpConfigSignType,
+        self::SIGN_TYPE_SCROLL_BAR_ClueCouponDetailV2DataFormExtendInfoSignUpConfigSignType,
     ];
 
     public static function isValid(string $value): bool

@@ -106,6 +106,12 @@ class BrandMaOrderListV30ResponseDataOrdersInner implements \JsonSerializable
     protected ?string $orderName = null;
 
     /**
+     * 预订单来源：1-ECP，2-AD，3-Poseidon
+     * @var int
+     */
+    protected ?int $orderSource = null;
+
+    /**
      * 预订单状态
      * @var int
      */
@@ -133,6 +139,12 @@ class BrandMaOrderListV30ResponseDataOrdersInner implements \JsonSerializable
      * @var \Oceanengine\Models\BrandMaOrderListV30ResponseDataOrdersInnerScheduleInfo
      */
     protected ?\Oceanengine\Models\BrandMaOrderListV30ResponseDataOrdersInnerScheduleInfo $scheduleInfo = null;
+
+    /**
+     * 自助来源：1-AD，3-Poseidon
+     * @var int
+     */
+    protected ?int $selfServiceSource = null;
 
     /**
      * 操作员工ID
@@ -475,6 +487,26 @@ class BrandMaOrderListV30ResponseDataOrdersInner implements \JsonSerializable
     }
 
     /**
+     * 预订单来源：1-ECP，2-AD，3-Poseidon
+     * @return int
+     */
+    public function getOrderSource(): ?int
+    {
+        return $this->orderSource;
+    }
+
+    /**
+     * 预订单来源：1-ECP，2-AD，3-Poseidon
+     * @param int $orderSource
+     * @return self
+     */
+    public function setOrderSource(?int $orderSource): self
+    {
+        $this->orderSource = $orderSource;
+        return $this;
+    }
+
+    /**
      * 预订单状态
      * @return int
      */
@@ -573,6 +605,26 @@ class BrandMaOrderListV30ResponseDataOrdersInner implements \JsonSerializable
     }
 
     /**
+     * 自助来源：1-AD，3-Poseidon
+     * @return int
+     */
+    public function getSelfServiceSource(): ?int
+    {
+        return $this->selfServiceSource;
+    }
+
+    /**
+     * 自助来源：1-AD，3-Poseidon
+     * @param int $selfServiceSource
+     * @return self
+     */
+    public function setSelfServiceSource(?int $selfServiceSource): self
+    {
+        $this->selfServiceSource = $selfServiceSource;
+        return $this;
+    }
+
+    /**
      * 操作员工ID
      * @return int[]
      */
@@ -650,6 +702,9 @@ class BrandMaOrderListV30ResponseDataOrdersInner implements \JsonSerializable
         if ($this->orderName !== null) {
             $result['order_name'] = $this->orderName;
         }
+        if ($this->orderSource !== null) {
+            $result['order_source'] = $this->orderSource;
+        }
         if ($this->orderStatus !== null) {
             $result['order_status'] = $this->orderStatus;
         }
@@ -664,6 +719,9 @@ class BrandMaOrderListV30ResponseDataOrdersInner implements \JsonSerializable
         }
         if ($this->scheduleInfo !== null) {
             $result['schedule_info'] = $this->scheduleInfo;
+        }
+        if ($this->selfServiceSource !== null) {
+            $result['self_service_source'] = $this->selfServiceSource;
         }
         if ($this->staffId !== null) {
             $result['staff_id'] = $this->staffId;
@@ -725,6 +783,9 @@ class BrandMaOrderListV30ResponseDataOrdersInner implements \JsonSerializable
         if (($v = $data['order_name'] ?? null) !== null) {
             $obj->orderName = (string) $v;
         }
+        if (($v = $data['order_source'] ?? null) !== null) {
+            $obj->orderSource = (int) $v;
+        }
         if (($v = $data['order_status'] ?? null) !== null) {
             $obj->orderStatus = (int) $v;
         }
@@ -739,6 +800,9 @@ class BrandMaOrderListV30ResponseDataOrdersInner implements \JsonSerializable
         }
         if (($v = $data['schedule_info'] ?? null) !== null && is_array($v)) {
             $obj->scheduleInfo = \Oceanengine\Models\BrandMaOrderListV30ResponseDataOrdersInnerScheduleInfo::fromArray($v);
+        }
+        if (($v = $data['self_service_source'] ?? null) !== null) {
+            $obj->selfServiceSource = (int) $v;
         }
         if (($v = $data['staff_id'] ?? null) !== null && is_array($v)) {
             $obj->staffId = $v;

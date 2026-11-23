@@ -23,7 +23,7 @@ class ToolsClueCallbackV2ApiService
     }
 
     /**
-     * API Description
+     * 根据advid回传线索
      */
     public function post(): ApiOpenApi2ToolsClueCallbackPostRequest
     {

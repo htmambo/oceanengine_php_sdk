@@ -19,6 +19,11 @@ class StarOrderGetInfoV2ResponseDataOrderListInnerOrderItemInfoAuthorListInner i
     protected ?int $cnt = null;
 
     /**
+     * @var \Oceanengine\Models\StarOrderGetInfoV2ResponseDataOrderListInnerOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem
+     */
+    protected ?\Oceanengine\Models\StarOrderGetInfoV2ResponseDataOrderListInnerOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem $mktApiAuthorOrderCustomizedItem = null;
+
+    /**
      * 任务类型枚举 (1)：1-20s视频； (2)：21-60s视频； (71)：60s+视频
      * @var int
      */
@@ -65,6 +70,24 @@ class StarOrderGetInfoV2ResponseDataOrderListInnerOrderItemInfoAuthorListInner i
     }
 
     /**
+     * @return \Oceanengine\Models\StarOrderGetInfoV2ResponseDataOrderListInnerOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem
+     */
+    public function getMktApiAuthorOrderCustomizedItem(): ?\Oceanengine\Models\StarOrderGetInfoV2ResponseDataOrderListInnerOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem
+    {
+        return $this->mktApiAuthorOrderCustomizedItem;
+    }
+
+    /**
+     * @param \Oceanengine\Models\StarOrderGetInfoV2ResponseDataOrderListInnerOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem $mktApiAuthorOrderCustomizedItem
+     * @return self
+     */
+    public function setMktApiAuthorOrderCustomizedItem(?\Oceanengine\Models\StarOrderGetInfoV2ResponseDataOrderListInnerOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem $mktApiAuthorOrderCustomizedItem): self
+    {
+        $this->mktApiAuthorOrderCustomizedItem = $mktApiAuthorOrderCustomizedItem;
+        return $this;
+    }
+
+    /**
      * 任务类型枚举 (1)：1-20s视频； (2)：21-60s视频； (71)：60s+视频
      * @return int
      */
@@ -97,6 +120,9 @@ class StarOrderGetInfoV2ResponseDataOrderListInnerOrderItemInfoAuthorListInner i
         if ($this->cnt !== null) {
             $result['cnt'] = $this->cnt;
         }
+        if ($this->mktApiAuthorOrderCustomizedItem !== null) {
+            $result['mkt_api_author_order_customized_item'] = $this->mktApiAuthorOrderCustomizedItem;
+        }
         if ($this->videoType !== null) {
             $result['video_type'] = $this->videoType;
         }
@@ -111,6 +137,9 @@ class StarOrderGetInfoV2ResponseDataOrderListInnerOrderItemInfoAuthorListInner i
         }
         if (($v = $data['cnt'] ?? null) !== null) {
             $obj->cnt = (int) $v;
+        }
+        if (($v = $data['mkt_api_author_order_customized_item'] ?? null) !== null && is_array($v)) {
+            $obj->mktApiAuthorOrderCustomizedItem = \Oceanengine\Models\StarOrderGetInfoV2ResponseDataOrderListInnerOrderItemInfoAuthorListInnerMktApiAuthorOrderCustomizedItem::fromArray($v);
         }
         if (($v = $data['video_type'] ?? null) !== null) {
             $obj->videoType = (int) $v;

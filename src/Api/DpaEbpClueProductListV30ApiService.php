@@ -23,7 +23,7 @@ class DpaEbpClueProductListV30ApiService
     }
 
     /**
-     * EBP场景下，通过团队ID/advId获取升级版商品列表
+     * EBP场景下，通过团队ID获取升级版商品列表
      */
     public function get(): ApiOpenApiV30DpaEbpClueProductListGetRequest
     {

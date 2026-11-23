@@ -174,6 +174,7 @@ final class EventManagerOptimizedGoalGetV30DataGoalsExternalAction
     public const AD_CONVERT_TYPE_WECHAT_REGISTER_EventManagerOptimizedGoalGetV30DataGoalsExternalAction = 'AD_CONVERT_TYPE_WECHAT_REGISTER';
     public const AD_CONVERT_TYPE_WECHAT_WECOM_ADD_EventManagerOptimizedGoalGetV30DataGoalsExternalAction = 'AD_CONVERT_TYPE_WECHAT_WECOM_ADD';
     public const AD_CONVERT_TYPE_XPATH_EventManagerOptimizedGoalGetV30DataGoalsExternalAction = 'AD_CONVERT_TYPE_XPATH';
+    public const AD_CONVERT_TYPE_INSURANCE_PAY_EventManagerOptimizedGoalGetV30DataGoalsExternalAction = 'AD_CONVERT_TYPE_INSURANCE_PAY';
 
     public const ALLOWED_VALUES = [
         self::AD_CONVERT_ADD_TO_CART_EventManagerOptimizedGoalGetV30DataGoalsExternalAction,
@@ -344,6 +345,7 @@ final class EventManagerOptimizedGoalGetV30DataGoalsExternalAction
         self::AD_CONVERT_TYPE_WECHAT_REGISTER_EventManagerOptimizedGoalGetV30DataGoalsExternalAction,
         self::AD_CONVERT_TYPE_WECHAT_WECOM_ADD_EventManagerOptimizedGoalGetV30DataGoalsExternalAction,
         self::AD_CONVERT_TYPE_XPATH_EventManagerOptimizedGoalGetV30DataGoalsExternalAction,
+        self::AD_CONVERT_TYPE_INSURANCE_PAY_EventManagerOptimizedGoalGetV30DataGoalsExternalAction,
     ];
 
     public static function isValid(string $value): bool

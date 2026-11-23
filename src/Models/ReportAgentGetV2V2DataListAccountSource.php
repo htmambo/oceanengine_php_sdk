@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ReportAgentGetV2V2DataListAccountSource
 {
-    public const LUBAN_ACCOUNT_ReportAgentGetV2V2DataListAccountSource = 'LUBAN_ACCOUNT';
     public const NORMAL_ADVERTISER_ReportAgentGetV2V2DataListAccountSource = 'NORMAL_ADVERTISER';
+    public const LUBAN_ACCOUNT_ReportAgentGetV2V2DataListAccountSource = 'LUBAN_ACCOUNT';
 
     public const ALLOWED_VALUES = [
-        self::LUBAN_ACCOUNT_ReportAgentGetV2V2DataListAccountSource,
         self::NORMAL_ADVERTISER_ReportAgentGetV2V2DataListAccountSource,
+        self::LUBAN_ACCOUNT_ReportAgentGetV2V2DataListAccountSource,
     ];
 
     public static function isValid(string $value): bool

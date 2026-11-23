@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class CreativeProceduralCreativeCreateV2AdDataSupplementsGamesOrientation
 {
-    public const HORIZONTAL_CreativeProceduralCreativeCreateV2AdDataSupplementsGamesOrientation = 'HORIZONTAL';
     public const VERTICAL_CreativeProceduralCreativeCreateV2AdDataSupplementsGamesOrientation = 'VERTICAL';
+    public const HORIZONTAL_CreativeProceduralCreativeCreateV2AdDataSupplementsGamesOrientation = 'HORIZONTAL';
 
     public const ALLOWED_VALUES = [
-        self::HORIZONTAL_CreativeProceduralCreativeCreateV2AdDataSupplementsGamesOrientation,
         self::VERTICAL_CreativeProceduralCreativeCreateV2AdDataSupplementsGamesOrientation,
+        self::HORIZONTAL_CreativeProceduralCreativeCreateV2AdDataSupplementsGamesOrientation,
     ];
 
     public static function isValid(string $value): bool

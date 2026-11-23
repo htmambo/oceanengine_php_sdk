@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataAudienceAc
 {
+    public const WIFI_AdGetV2DataAudienceAc = 'WIFI';
     public const Enum_5_G_AdGetV2DataAudienceAc = '5G';
+    public const Enum_2_G_AdGetV2DataAudienceAc = '2G';
     public const Enum_4_G_AdGetV2DataAudienceAc = '4G';
     public const Enum_3_G_AdGetV2DataAudienceAc = '3G';
-    public const WIFI_AdGetV2DataAudienceAc = 'WIFI';
-    public const Enum_2_G_AdGetV2DataAudienceAc = '2G';
 
     public const ALLOWED_VALUES = [
+        self::WIFI_AdGetV2DataAudienceAc,
         self::Enum_5_G_AdGetV2DataAudienceAc,
+        self::Enum_2_G_AdGetV2DataAudienceAc,
         self::Enum_4_G_AdGetV2DataAudienceAc,
         self::Enum_3_G_AdGetV2DataAudienceAc,
-        self::WIFI_AdGetV2DataAudienceAc,
-        self::Enum_2_G_AdGetV2DataAudienceAc,
     ];
 
     public static function isValid(string $value): bool

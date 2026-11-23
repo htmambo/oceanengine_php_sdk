@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class ToolsPromotionCardRecommendGetV2RecommendType
 {
+    public const CALL_TO_ACTION_ToolsPromotionCardRecommendGetV2RecommendType = 'CALL_TO_ACTION';
     public const SELLING_POINTS_ToolsPromotionCardRecommendGetV2RecommendType = 'SELLING_POINTS';
     public const PRODUCT_DESCRIPTION_ToolsPromotionCardRecommendGetV2RecommendType = 'PRODUCT_DESCRIPTION';
-    public const CALL_TO_ACTION_ToolsPromotionCardRecommendGetV2RecommendType = 'CALL_TO_ACTION';
 
     public const ALLOWED_VALUES = [
+        self::CALL_TO_ACTION_ToolsPromotionCardRecommendGetV2RecommendType,
         self::SELLING_POINTS_ToolsPromotionCardRecommendGetV2RecommendType,
         self::PRODUCT_DESCRIPTION_ToolsPromotionCardRecommendGetV2RecommendType,
-        self::CALL_TO_ACTION_ToolsPromotionCardRecommendGetV2RecommendType,
     ];
 
     public static function isValid(string $value): bool

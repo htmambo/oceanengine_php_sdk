@@ -6,21 +6,21 @@ namespace Oceanengine\Models;
 
 final class ToolsNoBidSuggestBidV2FilteringPricing
 {
-    public const PRICING_CPV_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_CPV';
-    public const PRICING_CPM_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_CPM';
-    public const PRICING_CPC_OCPM_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_CPC_OCPM';
-    public const PRICING_CPC_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_CPC';
-    public const PRICING_OCPM_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_OCPM';
     public const PRICING_OCPC_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_OCPC';
+    public const PRICING_CPV_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_CPV';
+    public const PRICING_CPC_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_CPC';
+    public const PRICING_CPM_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_CPM';
+    public const PRICING_OCPM_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_OCPM';
+    public const PRICING_CPC_OCPM_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_CPC_OCPM';
     public const PRICING_CPA_ToolsNoBidSuggestBidV2FilteringPricing = 'PRICING_CPA';
 
     public const ALLOWED_VALUES = [
-        self::PRICING_CPV_ToolsNoBidSuggestBidV2FilteringPricing,
-        self::PRICING_CPM_ToolsNoBidSuggestBidV2FilteringPricing,
-        self::PRICING_CPC_OCPM_ToolsNoBidSuggestBidV2FilteringPricing,
-        self::PRICING_CPC_ToolsNoBidSuggestBidV2FilteringPricing,
-        self::PRICING_OCPM_ToolsNoBidSuggestBidV2FilteringPricing,
         self::PRICING_OCPC_ToolsNoBidSuggestBidV2FilteringPricing,
+        self::PRICING_CPV_ToolsNoBidSuggestBidV2FilteringPricing,
+        self::PRICING_CPC_ToolsNoBidSuggestBidV2FilteringPricing,
+        self::PRICING_CPM_ToolsNoBidSuggestBidV2FilteringPricing,
+        self::PRICING_OCPM_ToolsNoBidSuggestBidV2FilteringPricing,
+        self::PRICING_CPC_OCPM_ToolsNoBidSuggestBidV2FilteringPricing,
         self::PRICING_CPA_ToolsNoBidSuggestBidV2FilteringPricing,
     ];
 

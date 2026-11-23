@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class ToolsBidSuggestV2ActionScene
 {
-    public const APP_ToolsBidSuggestV2ActionScene = 'APP';
     public const SEARCH_ToolsBidSuggestV2ActionScene = 'SEARCH';
-    public const AD_ToolsBidSuggestV2ActionScene = 'AD';
-    public const E_COMMERCE_ToolsBidSuggestV2ActionScene = 'E-COMMERCE';
     public const NEWS_ToolsBidSuggestV2ActionScene = 'NEWS';
+    public const AD_ToolsBidSuggestV2ActionScene = 'AD';
+    public const APP_ToolsBidSuggestV2ActionScene = 'APP';
+    public const E_COMMERCE_ToolsBidSuggestV2ActionScene = 'E-COMMERCE';
 
     public const ALLOWED_VALUES = [
-        self::APP_ToolsBidSuggestV2ActionScene,
         self::SEARCH_ToolsBidSuggestV2ActionScene,
-        self::AD_ToolsBidSuggestV2ActionScene,
-        self::E_COMMERCE_ToolsBidSuggestV2ActionScene,
         self::NEWS_ToolsBidSuggestV2ActionScene,
+        self::AD_ToolsBidSuggestV2ActionScene,
+        self::APP_ToolsBidSuggestV2ActionScene,
+        self::E_COMMERCE_ToolsBidSuggestV2ActionScene,
     ];
 
     public static function isValid(string $value): bool

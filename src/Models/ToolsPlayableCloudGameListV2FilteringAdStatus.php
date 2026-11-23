@@ -6,13 +6,13 @@ namespace Oceanengine\Models;
 
 final class ToolsPlayableCloudGameListV2FilteringAdStatus
 {
-    public const INUSE_ToolsPlayableCloudGameListV2FilteringAdStatus = 'INUSE';
     public const DELETE_ToolsPlayableCloudGameListV2FilteringAdStatus = 'DELETE';
+    public const INUSE_ToolsPlayableCloudGameListV2FilteringAdStatus = 'INUSE';
     public const UNUSED_ToolsPlayableCloudGameListV2FilteringAdStatus = 'UNUSED';
 
     public const ALLOWED_VALUES = [
-        self::INUSE_ToolsPlayableCloudGameListV2FilteringAdStatus,
         self::DELETE_ToolsPlayableCloudGameListV2FilteringAdStatus,
+        self::INUSE_ToolsPlayableCloudGameListV2FilteringAdStatus,
         self::UNUSED_ToolsPlayableCloudGameListV2FilteringAdStatus,
     ];
 

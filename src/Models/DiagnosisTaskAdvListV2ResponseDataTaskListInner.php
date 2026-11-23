@@ -27,11 +27,6 @@ class DiagnosisTaskAdvListV2ResponseDataTaskListInner implements \JsonSerializab
     protected ?string $isFirstPublishMaterial = null;
 
     /**
-     * @var \Oceanengine\Models\DiagnosisTaskAdvListV2DataTaskListIsInefficientMaterial
-     */
-    protected ?string $isInefficientMaterial = null;
-
-    /**
      * @var \Oceanengine\Models\DiagnosisTaskAdvListV2DataTaskListIsLocalHighQualityMaterial
      */
     protected ?string $isLocalHighQualityMaterial = null;
@@ -50,6 +45,11 @@ class DiagnosisTaskAdvListV2ResponseDataTaskListInner implements \JsonSerializab
      * @var string[]
      */
     protected ?array $notEcpHighQualityReason = null;
+
+    /**
+     * @var string[]
+     */
+    protected ?array $notLocalHighQualityReason = null;
 
     /**
      * @var \Oceanengine\Models\DiagnosisTaskAdvListV2DataTaskListStatus
@@ -139,24 +139,6 @@ class DiagnosisTaskAdvListV2ResponseDataTaskListInner implements \JsonSerializab
     }
 
     /**
-     * @return \Oceanengine\Models\DiagnosisTaskAdvListV2DataTaskListIsInefficientMaterial
-     */
-    public function getIsInefficientMaterial(): ?string
-    {
-        return $this->isInefficientMaterial;
-    }
-
-    /**
-     * @param \Oceanengine\Models\DiagnosisTaskAdvListV2DataTaskListIsInefficientMaterial $isInefficientMaterial
-     * @return self
-     */
-    public function setIsInefficientMaterial(?string $isInefficientMaterial): self
-    {
-        $this->isInefficientMaterial = $isInefficientMaterial;
-        return $this;
-    }
-
-    /**
      * @return \Oceanengine\Models\DiagnosisTaskAdvListV2DataTaskListIsLocalHighQualityMaterial
      */
     public function getIsLocalHighQualityMaterial(): ?string
@@ -225,6 +207,24 @@ class DiagnosisTaskAdvListV2ResponseDataTaskListInner implements \JsonSerializab
     public function setNotEcpHighQualityReason(?array $notEcpHighQualityReason): self
     {
         $this->notEcpHighQualityReason = $notEcpHighQualityReason;
+        return $this;
+    }
+
+    /**
+     * @return string[]
+     */
+    public function getNotLocalHighQualityReason(): ?array
+    {
+        return $this->notLocalHighQualityReason;
+    }
+
+    /**
+     * @param string[] $notLocalHighQualityReason
+     * @return self
+     */
+    public function setNotLocalHighQualityReason(?array $notLocalHighQualityReason): self
+    {
+        $this->notLocalHighQualityReason = $notLocalHighQualityReason;
         return $this;
     }
 
@@ -301,9 +301,6 @@ class DiagnosisTaskAdvListV2ResponseDataTaskListInner implements \JsonSerializab
         if ($this->isFirstPublishMaterial !== null) {
             $result['is_first_publish_material'] = $this->isFirstPublishMaterial;
         }
-        if ($this->isInefficientMaterial !== null) {
-            $result['is_inefficient_material'] = $this->isInefficientMaterial;
-        }
         if ($this->isLocalHighQualityMaterial !== null) {
             $result['is_local_high_quality_material'] = $this->isLocalHighQualityMaterial;
         }
@@ -315,6 +312,9 @@ class DiagnosisTaskAdvListV2ResponseDataTaskListInner implements \JsonSerializab
         }
         if ($this->notEcpHighQualityReason !== null) {
             $result['not_ecp_high_quality_reason'] = $this->notEcpHighQualityReason;
+        }
+        if ($this->notLocalHighQualityReason !== null) {
+            $result['not_local_high_quality_reason'] = $this->notLocalHighQualityReason;
         }
         if ($this->status !== null) {
             $result['status'] = $this->status;
@@ -343,9 +343,6 @@ class DiagnosisTaskAdvListV2ResponseDataTaskListInner implements \JsonSerializab
         if (($v = $data['is_first_publish_material'] ?? null) !== null) {
             $obj->isFirstPublishMaterial = (string) $v;
         }
-        if (($v = $data['is_inefficient_material'] ?? null) !== null) {
-            $obj->isInefficientMaterial = (string) $v;
-        }
         if (($v = $data['is_local_high_quality_material'] ?? null) !== null) {
             $obj->isLocalHighQualityMaterial = (string) $v;
         }
@@ -357,6 +354,9 @@ class DiagnosisTaskAdvListV2ResponseDataTaskListInner implements \JsonSerializab
         }
         if (($v = $data['not_ecp_high_quality_reason'] ?? null) !== null && is_array($v)) {
             $obj->notEcpHighQualityReason = $v;
+        }
+        if (($v = $data['not_local_high_quality_reason'] ?? null) !== null && is_array($v)) {
+            $obj->notLocalHighQualityReason = $v;
         }
         if (($v = $data['status'] ?? null) !== null) {
             $obj->status = (string) $v;

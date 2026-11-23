@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ClueCouponGetV2IsDel
 {
-    public const Enum_0_ClueCouponGetV2IsDel = '0';
     public const Enum_1_ClueCouponGetV2IsDel = '1';
+    public const Enum_0_ClueCouponGetV2IsDel = '0';
 
     public const ALLOWED_VALUES = [
-        self::Enum_0_ClueCouponGetV2IsDel,
         self::Enum_1_ClueCouponGetV2IsDel,
+        self::Enum_0_ClueCouponGetV2IsDel,
     ];
 
     public static function isValid(string $value): bool

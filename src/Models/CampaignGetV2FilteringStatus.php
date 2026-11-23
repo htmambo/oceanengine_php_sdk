@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class CampaignGetV2FilteringStatus
 {
-    public const CAMPAIGN_STATUS_NOT_DELETE_CampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_NOT_DELETE';
-    public const CAMPAIGN_STATUS_DELETE_CampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_DELETE';
-    public const CAMPAIGN_STATUS_DISABLE_CampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_DISABLE';
     public const CAMPAIGN_STATUS_ALL_CampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_ALL';
     public const CAMPAIGN_STATUS_ENABLE_CampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_ENABLE';
+    public const CAMPAIGN_STATUS_DISABLE_CampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_DISABLE';
+    public const CAMPAIGN_STATUS_NOT_DELETE_CampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_NOT_DELETE';
+    public const CAMPAIGN_STATUS_DELETE_CampaignGetV2FilteringStatus = 'CAMPAIGN_STATUS_DELETE';
 
     public const ALLOWED_VALUES = [
-        self::CAMPAIGN_STATUS_NOT_DELETE_CampaignGetV2FilteringStatus,
-        self::CAMPAIGN_STATUS_DELETE_CampaignGetV2FilteringStatus,
-        self::CAMPAIGN_STATUS_DISABLE_CampaignGetV2FilteringStatus,
         self::CAMPAIGN_STATUS_ALL_CampaignGetV2FilteringStatus,
         self::CAMPAIGN_STATUS_ENABLE_CampaignGetV2FilteringStatus,
+        self::CAMPAIGN_STATUS_DISABLE_CampaignGetV2FilteringStatus,
+        self::CAMPAIGN_STATUS_NOT_DELETE_CampaignGetV2FilteringStatus,
+        self::CAMPAIGN_STATUS_DELETE_CampaignGetV2FilteringStatus,
     ];
 
     public static function isValid(string $value): bool

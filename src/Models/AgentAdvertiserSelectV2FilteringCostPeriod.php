@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class AgentAdvertiserSelectV2FilteringCostPeriod
 {
-    public const TODAY_AgentAdvertiserSelectV2FilteringCostPeriod = 'TODAY';
     public const YESTERDAY_AgentAdvertiserSelectV2FilteringCostPeriod = 'YESTERDAY';
-    public const LAST_7_DAYS_AgentAdvertiserSelectV2FilteringCostPeriod = 'LAST_7_DAYS';
-    public const LAST_30_DAYS_AgentAdvertiserSelectV2FilteringCostPeriod = 'LAST_30_DAYS';
     public const LAST_15_DAYS_AgentAdvertiserSelectV2FilteringCostPeriod = 'LAST_15_DAYS';
+    public const LAST_30_DAYS_AgentAdvertiserSelectV2FilteringCostPeriod = 'LAST_30_DAYS';
+    public const LAST_7_DAYS_AgentAdvertiserSelectV2FilteringCostPeriod = 'LAST_7_DAYS';
+    public const TODAY_AgentAdvertiserSelectV2FilteringCostPeriod = 'TODAY';
 
     public const ALLOWED_VALUES = [
-        self::TODAY_AgentAdvertiserSelectV2FilteringCostPeriod,
         self::YESTERDAY_AgentAdvertiserSelectV2FilteringCostPeriod,
-        self::LAST_7_DAYS_AgentAdvertiserSelectV2FilteringCostPeriod,
-        self::LAST_30_DAYS_AgentAdvertiserSelectV2FilteringCostPeriod,
         self::LAST_15_DAYS_AgentAdvertiserSelectV2FilteringCostPeriod,
+        self::LAST_30_DAYS_AgentAdvertiserSelectV2FilteringCostPeriod,
+        self::LAST_7_DAYS_AgentAdvertiserSelectV2FilteringCostPeriod,
+        self::TODAY_AgentAdvertiserSelectV2FilteringCostPeriod,
     ];
 
     public static function isValid(string $value): bool

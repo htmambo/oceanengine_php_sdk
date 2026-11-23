@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class CustomerCenterAdvertiserListV2AccountSource
 {
-    public const ENTERPRISE_CustomerCenterAdvertiserListV2AccountSource = 'ENTERPRISE';
-    public const QIANCHUAN_CustomerCenterAdvertiserListV2AccountSource = 'QIANCHUAN';
     public const AD_CustomerCenterAdvertiserListV2AccountSource = 'AD';
     public const LOCAL_CustomerCenterAdvertiserListV2AccountSource = 'LOCAL';
+    public const QIANCHUAN_CustomerCenterAdvertiserListV2AccountSource = 'QIANCHUAN';
+    public const ENTERPRISE_CustomerCenterAdvertiserListV2AccountSource = 'ENTERPRISE';
 
     public const ALLOWED_VALUES = [
-        self::ENTERPRISE_CustomerCenterAdvertiserListV2AccountSource,
-        self::QIANCHUAN_CustomerCenterAdvertiserListV2AccountSource,
         self::AD_CustomerCenterAdvertiserListV2AccountSource,
         self::LOCAL_CustomerCenterAdvertiserListV2AccountSource,
+        self::QIANCHUAN_CustomerCenterAdvertiserListV2AccountSource,
+        self::ENTERPRISE_CustomerCenterAdvertiserListV2AccountSource,
     ];
 
     public static function isValid(string $value): bool

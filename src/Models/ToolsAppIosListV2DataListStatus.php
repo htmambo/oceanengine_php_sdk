@@ -6,17 +6,17 @@ namespace Oceanengine\Models;
 
 final class ToolsAppIosListV2DataListStatus
 {
-    public const ALL_ToolsAppIosListV2DataListStatus = 'ALL';
-    public const AUDIT_ACCEPTED_ToolsAppIosListV2DataListStatus = 'AUDIT_ACCEPTED';
-    public const AUDIT_DOING_ToolsAppIosListV2DataListStatus = 'AUDIT_DOING';
     public const AUDIT_REJECTED_ToolsAppIosListV2DataListStatus = 'AUDIT_REJECTED';
+    public const AUDIT_ACCEPTED_ToolsAppIosListV2DataListStatus = 'AUDIT_ACCEPTED';
+    public const ALL_ToolsAppIosListV2DataListStatus = 'ALL';
+    public const AUDIT_DOING_ToolsAppIosListV2DataListStatus = 'AUDIT_DOING';
     public const ENABLE_ToolsAppIosListV2DataListStatus = 'ENABLE';
 
     public const ALLOWED_VALUES = [
-        self::ALL_ToolsAppIosListV2DataListStatus,
-        self::AUDIT_ACCEPTED_ToolsAppIosListV2DataListStatus,
-        self::AUDIT_DOING_ToolsAppIosListV2DataListStatus,
         self::AUDIT_REJECTED_ToolsAppIosListV2DataListStatus,
+        self::AUDIT_ACCEPTED_ToolsAppIosListV2DataListStatus,
+        self::ALL_ToolsAppIosListV2DataListStatus,
+        self::AUDIT_DOING_ToolsAppIosListV2DataListStatus,
         self::ENABLE_ToolsAppIosListV2DataListStatus,
     ];
 

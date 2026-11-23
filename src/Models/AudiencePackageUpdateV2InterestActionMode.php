@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class AudiencePackageUpdateV2InterestActionMode
 {
+    public const UNLIMITED_AudiencePackageUpdateV2InterestActionMode = 'UNLIMITED';
     public const CUSTOM_AudiencePackageUpdateV2InterestActionMode = 'CUSTOM';
     public const RECOMMEND_AudiencePackageUpdateV2InterestActionMode = 'RECOMMEND';
-    public const UNLIMITED_AudiencePackageUpdateV2InterestActionMode = 'UNLIMITED';
 
     public const ALLOWED_VALUES = [
+        self::UNLIMITED_AudiencePackageUpdateV2InterestActionMode,
         self::CUSTOM_AudiencePackageUpdateV2InterestActionMode,
         self::RECOMMEND_AudiencePackageUpdateV2InterestActionMode,
-        self::UNLIMITED_AudiencePackageUpdateV2InterestActionMode,
     ];
 
     public static function isValid(string $value): bool

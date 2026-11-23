@@ -6,15 +6,15 @@ namespace Oceanengine\Models;
 
 final class AudiencePackageUpdateV2LocationType
 {
-    public const CURRENT_AudiencePackageUpdateV2LocationType = 'CURRENT';
     public const TRAVEL_AudiencePackageUpdateV2LocationType = 'TRAVEL';
     public const ALL_AudiencePackageUpdateV2LocationType = 'ALL';
+    public const CURRENT_AudiencePackageUpdateV2LocationType = 'CURRENT';
     public const HOME_AudiencePackageUpdateV2LocationType = 'HOME';
 
     public const ALLOWED_VALUES = [
-        self::CURRENT_AudiencePackageUpdateV2LocationType,
         self::TRAVEL_AudiencePackageUpdateV2LocationType,
         self::ALL_AudiencePackageUpdateV2LocationType,
+        self::CURRENT_AudiencePackageUpdateV2LocationType,
         self::HOME_AudiencePackageUpdateV2LocationType,
     ];
 

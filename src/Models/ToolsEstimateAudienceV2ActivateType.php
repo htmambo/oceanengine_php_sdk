@@ -7,15 +7,15 @@ namespace Oceanengine\Models;
 final class ToolsEstimateAudienceV2ActivateType
 {
     public const ONE_MONTH_2_THREE_MONTH_ToolsEstimateAudienceV2ActivateType = 'ONE_MONTH_2_THREE_MONTH';
-    public const THREE_MONTH_EAILIER_ToolsEstimateAudienceV2ActivateType = 'THREE_MONTH_EAILIER';
     public const UNLIMITED_ToolsEstimateAudienceV2ActivateType = 'UNLIMITED';
     public const WITH_IN_A_MONTH_ToolsEstimateAudienceV2ActivateType = 'WITH_IN_A_MONTH';
+    public const THREE_MONTH_EAILIER_ToolsEstimateAudienceV2ActivateType = 'THREE_MONTH_EAILIER';
 
     public const ALLOWED_VALUES = [
         self::ONE_MONTH_2_THREE_MONTH_ToolsEstimateAudienceV2ActivateType,
-        self::THREE_MONTH_EAILIER_ToolsEstimateAudienceV2ActivateType,
         self::UNLIMITED_ToolsEstimateAudienceV2ActivateType,
         self::WITH_IN_A_MONTH_ToolsEstimateAudienceV2ActivateType,
+        self::THREE_MONTH_EAILIER_ToolsEstimateAudienceV2ActivateType,
     ];
 
     public static function isValid(string $value): bool

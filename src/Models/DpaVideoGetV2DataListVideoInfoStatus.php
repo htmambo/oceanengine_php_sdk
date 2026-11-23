@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class DpaVideoGetV2DataListVideoInfoStatus
 {
-    public const AVAILABLE_DpaVideoGetV2DataListVideoInfoStatus = 'AVAILABLE';
     public const UNAVAILABLE_DpaVideoGetV2DataListVideoInfoStatus = 'UNAVAILABLE';
+    public const AVAILABLE_DpaVideoGetV2DataListVideoInfoStatus = 'AVAILABLE';
 
     public const ALLOWED_VALUES = [
-        self::AVAILABLE_DpaVideoGetV2DataListVideoInfoStatus,
         self::UNAVAILABLE_DpaVideoGetV2DataListVideoInfoStatus,
+        self::AVAILABLE_DpaVideoGetV2DataListVideoInfoStatus,
     ];
 
     public static function isValid(string $value): bool

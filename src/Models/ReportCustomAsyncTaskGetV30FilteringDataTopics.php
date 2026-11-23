@@ -16,6 +16,7 @@ final class ReportCustomAsyncTaskGetV30FilteringDataTopics
     public const STD_BASIC_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics = 'STD_BASIC_DATA';
     public const STD_BIDWORD_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics = 'STD_BIDWORD_DATA';
     public const STD_DMP_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics = 'STD_DMP_DATA';
+    public const STD_DPA_VIDEO_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics = 'STD_DPA_VIDEO_DATA';
     public const STD_MATERIAL_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics = 'STD_MATERIAL_DATA';
     public const STD_PRODUCT_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics = 'STD_PRODUCT_DATA';
     public const STD_QUERY_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics = 'STD_QUERY_DATA';
@@ -31,6 +32,7 @@ final class ReportCustomAsyncTaskGetV30FilteringDataTopics
         self::STD_BASIC_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics,
         self::STD_BIDWORD_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics,
         self::STD_DMP_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics,
+        self::STD_DPA_VIDEO_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics,
         self::STD_MATERIAL_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics,
         self::STD_PRODUCT_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics,
         self::STD_QUERY_DATA_ReportCustomAsyncTaskGetV30FilteringDataTopics,

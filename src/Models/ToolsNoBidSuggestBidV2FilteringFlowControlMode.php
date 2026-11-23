@@ -6,18 +6,18 @@ namespace Oceanengine\Models;
 
 final class ToolsNoBidSuggestBidV2FilteringFlowControlMode
 {
+    public const FLOW_CONTROL_MODE_HOURLY_ToolsNoBidSuggestBidV2FilteringFlowControlMode = 'FLOW_CONTROL_MODE_HOURLY';
     public const FLOW_CONTROL_MODE_FAST_ToolsNoBidSuggestBidV2FilteringFlowControlMode = 'FLOW_CONTROL_MODE_FAST';
     public const FLOW_CONTROL_MODE_SMOOTH_ToolsNoBidSuggestBidV2FilteringFlowControlMode = 'FLOW_CONTROL_MODE_SMOOTH';
-    public const FLOW_CONTROL_MODE_BALANCE_ToolsNoBidSuggestBidV2FilteringFlowControlMode = 'FLOW_CONTROL_MODE_BALANCE';
     public const FLOW_CONTROL_MODE_TWO_PHASES_ToolsNoBidSuggestBidV2FilteringFlowControlMode = 'FLOW_CONTROL_MODE_TWO_PHASES';
-    public const FLOW_CONTROL_MODE_HOURLY_ToolsNoBidSuggestBidV2FilteringFlowControlMode = 'FLOW_CONTROL_MODE_HOURLY';
+    public const FLOW_CONTROL_MODE_BALANCE_ToolsNoBidSuggestBidV2FilteringFlowControlMode = 'FLOW_CONTROL_MODE_BALANCE';
 
     public const ALLOWED_VALUES = [
+        self::FLOW_CONTROL_MODE_HOURLY_ToolsNoBidSuggestBidV2FilteringFlowControlMode,
         self::FLOW_CONTROL_MODE_FAST_ToolsNoBidSuggestBidV2FilteringFlowControlMode,
         self::FLOW_CONTROL_MODE_SMOOTH_ToolsNoBidSuggestBidV2FilteringFlowControlMode,
-        self::FLOW_CONTROL_MODE_BALANCE_ToolsNoBidSuggestBidV2FilteringFlowControlMode,
         self::FLOW_CONTROL_MODE_TWO_PHASES_ToolsNoBidSuggestBidV2FilteringFlowControlMode,
-        self::FLOW_CONTROL_MODE_HOURLY_ToolsNoBidSuggestBidV2FilteringFlowControlMode,
+        self::FLOW_CONTROL_MODE_BALANCE_ToolsNoBidSuggestBidV2FilteringFlowControlMode,
     ];
 
     public static function isValid(string $value): bool

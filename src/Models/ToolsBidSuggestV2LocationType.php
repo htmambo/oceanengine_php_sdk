@@ -6,15 +6,15 @@ namespace Oceanengine\Models;
 
 final class ToolsBidSuggestV2LocationType
 {
-    public const CURRENT_ToolsBidSuggestV2LocationType = 'CURRENT';
     public const TRAVEL_ToolsBidSuggestV2LocationType = 'TRAVEL';
     public const ALL_ToolsBidSuggestV2LocationType = 'ALL';
+    public const CURRENT_ToolsBidSuggestV2LocationType = 'CURRENT';
     public const HOME_ToolsBidSuggestV2LocationType = 'HOME';
 
     public const ALLOWED_VALUES = [
-        self::CURRENT_ToolsBidSuggestV2LocationType,
         self::TRAVEL_ToolsBidSuggestV2LocationType,
         self::ALL_ToolsBidSuggestV2LocationType,
+        self::CURRENT_ToolsBidSuggestV2LocationType,
         self::HOME_ToolsBidSuggestV2LocationType,
     ];
 

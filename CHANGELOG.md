@@ -8,6 +8,25 @@
 格式参考 [Keep a Changelog](https://keepachangelog.com/zh-CN/1.1.0/)，
 版本号与上游 Go SDK 保持一致。
 
+## 上游 v1.1.98 (5511497)
+
+- 同步日期：2026-11-23
+- 上游提交：`5511497a45e0fee3bdd382838ce7d3e42681c86b`
+
+### 变更统计
+
+- `src/Models`：新增 37，修改 436，删除 1
+- `src/Api`：新增 16，修改 7，删除 0
+- `src/Client.php`：新增 0，修改 1，删除 0
+- `src/Version.php`：新增 0，修改 1，删除 0
+- `composer.json`：新增 0，修改 1，删除 0
+
+### 校验结果
+
+- parity：PASS
+- 语法检查（php -l）：PASS（13520 个文件，0 错误）
+- 冒烟测试：PASS（tests/smoke.php、tests/_core_smoke.php）
+
 ## [未发布]
 
 - **发布准备**：包名更名为 `htmambo/oceanengine_php_sdk`（与 GitHub 命名空间一致）；

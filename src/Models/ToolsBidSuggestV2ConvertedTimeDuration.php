@@ -6,22 +6,22 @@ namespace Oceanengine\Models;
 
 final class ToolsBidSuggestV2ConvertedTimeDuration
 {
-    public const TWELVE_MONTH_ToolsBidSuggestV2ConvertedTimeDuration = 'TWELVE_MONTH';
-    public const TODAY_ToolsBidSuggestV2ConvertedTimeDuration = 'TODAY';
-    public const THREE_MONTH_ToolsBidSuggestV2ConvertedTimeDuration = 'THREE_MONTH';
     public const ONE_MONTH_ToolsBidSuggestV2ConvertedTimeDuration = 'ONE_MONTH';
-    public const SEVEN_DAY_ToolsBidSuggestV2ConvertedTimeDuration = 'SEVEN_DAY';
+    public const TWELVE_MONTH_ToolsBidSuggestV2ConvertedTimeDuration = 'TWELVE_MONTH';
+    public const THREE_MONTH_ToolsBidSuggestV2ConvertedTimeDuration = 'THREE_MONTH';
     public const SIX_MONTH_ToolsBidSuggestV2ConvertedTimeDuration = 'SIX_MONTH';
+    public const SEVEN_DAY_ToolsBidSuggestV2ConvertedTimeDuration = 'SEVEN_DAY';
     public const NONE_ToolsBidSuggestV2ConvertedTimeDuration = 'NONE';
+    public const TODAY_ToolsBidSuggestV2ConvertedTimeDuration = 'TODAY';
 
     public const ALLOWED_VALUES = [
-        self::TWELVE_MONTH_ToolsBidSuggestV2ConvertedTimeDuration,
-        self::TODAY_ToolsBidSuggestV2ConvertedTimeDuration,
-        self::THREE_MONTH_ToolsBidSuggestV2ConvertedTimeDuration,
         self::ONE_MONTH_ToolsBidSuggestV2ConvertedTimeDuration,
-        self::SEVEN_DAY_ToolsBidSuggestV2ConvertedTimeDuration,
+        self::TWELVE_MONTH_ToolsBidSuggestV2ConvertedTimeDuration,
+        self::THREE_MONTH_ToolsBidSuggestV2ConvertedTimeDuration,
         self::SIX_MONTH_ToolsBidSuggestV2ConvertedTimeDuration,
+        self::SEVEN_DAY_ToolsBidSuggestV2ConvertedTimeDuration,
         self::NONE_ToolsBidSuggestV2ConvertedTimeDuration,
+        self::TODAY_ToolsBidSuggestV2ConvertedTimeDuration,
     ];
 
     public static function isValid(string $value): bool

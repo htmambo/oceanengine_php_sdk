@@ -25,10 +25,22 @@ class BrandMaWarningOrderListV30ResponseDataOrdersInner implements \JsonSerializ
     protected ?int $orderId = null;
 
     /**
+     * 预定单来源：1-ECP，2-AD，3-Poseidon
+     * @var int
+     */
+    protected ?int $orderSource = null;
+
+    /**
      * 产品类型
      * @var int
      */
     protected ?int $proType = null;
+
+    /**
+     * 自助来源：1-AD，3-Poseidon
+     * @var int
+     */
+    protected ?int $selfServiceSource = null;
 
     /**
      * 预警类别：1-创意未上传；2-审核原因；3-店铺&商品；4-直播
@@ -103,6 +115,26 @@ class BrandMaWarningOrderListV30ResponseDataOrdersInner implements \JsonSerializ
     }
 
     /**
+     * 预定单来源：1-ECP，2-AD，3-Poseidon
+     * @return int
+     */
+    public function getOrderSource(): ?int
+    {
+        return $this->orderSource;
+    }
+
+    /**
+     * 预定单来源：1-ECP，2-AD，3-Poseidon
+     * @param int $orderSource
+     * @return self
+     */
+    public function setOrderSource(?int $orderSource): self
+    {
+        $this->orderSource = $orderSource;
+        return $this;
+    }
+
+    /**
      * 产品类型
      * @return int
      */
@@ -119,6 +151,26 @@ class BrandMaWarningOrderListV30ResponseDataOrdersInner implements \JsonSerializ
     public function setProType(?int $proType): self
     {
         $this->proType = $proType;
+        return $this;
+    }
+
+    /**
+     * 自助来源：1-AD，3-Poseidon
+     * @return int
+     */
+    public function getSelfServiceSource(): ?int
+    {
+        return $this->selfServiceSource;
+    }
+
+    /**
+     * 自助来源：1-AD，3-Poseidon
+     * @param int $selfServiceSource
+     * @return self
+     */
+    public function setSelfServiceSource(?int $selfServiceSource): self
+    {
+        $this->selfServiceSource = $selfServiceSource;
         return $this;
     }
 
@@ -178,8 +230,14 @@ class BrandMaWarningOrderListV30ResponseDataOrdersInner implements \JsonSerializ
         if ($this->orderId !== null) {
             $result['order_id'] = $this->orderId;
         }
+        if ($this->orderSource !== null) {
+            $result['order_source'] = $this->orderSource;
+        }
         if ($this->proType !== null) {
             $result['pro_type'] = $this->proType;
+        }
+        if ($this->selfServiceSource !== null) {
+            $result['self_service_source'] = $this->selfServiceSource;
         }
         if ($this->warningOrderType !== null) {
             $result['warning_order_type'] = $this->warningOrderType;
@@ -202,8 +260,14 @@ class BrandMaWarningOrderListV30ResponseDataOrdersInner implements \JsonSerializ
         if (($v = $data['order_id'] ?? null) !== null) {
             $obj->orderId = (int) $v;
         }
+        if (($v = $data['order_source'] ?? null) !== null) {
+            $obj->orderSource = (int) $v;
+        }
         if (($v = $data['pro_type'] ?? null) !== null) {
             $obj->proType = (int) $v;
+        }
+        if (($v = $data['self_service_source'] ?? null) !== null) {
+            $obj->selfServiceSource = (int) $v;
         }
         if (($v = $data['warning_order_type'] ?? null) !== null) {
             $obj->warningOrderType = (int) $v;

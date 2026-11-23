@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ToolsPlayableCloudGameListV2DataListOrientation
 {
-    public const HORIZONTAL_ToolsPlayableCloudGameListV2DataListOrientation = 'HORIZONTAL';
     public const VERTICAL_ToolsPlayableCloudGameListV2DataListOrientation = 'VERTICAL';
+    public const HORIZONTAL_ToolsPlayableCloudGameListV2DataListOrientation = 'HORIZONTAL';
 
     public const ALLOWED_VALUES = [
-        self::HORIZONTAL_ToolsPlayableCloudGameListV2DataListOrientation,
         self::VERTICAL_ToolsPlayableCloudGameListV2DataListOrientation,
+        self::HORIZONTAL_ToolsPlayableCloudGameListV2DataListOrientation,
     ];
 
     public static function isValid(string $value): bool

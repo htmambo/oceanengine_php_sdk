@@ -6,20 +6,20 @@ namespace Oceanengine\Models;
 
 final class AudiencePackageCreateV2AutoExtendTargets
 {
-    public const INTEREST_TAG_AudiencePackageCreateV2AutoExtendTargets = 'INTEREST_TAG';
-    public const AD_TAG_AudiencePackageCreateV2AutoExtendTargets = 'AD_TAG';
-    public const AGE_AudiencePackageCreateV2AutoExtendTargets = 'AGE';
-    public const CUSTOM_AUDIENCE_AudiencePackageCreateV2AutoExtendTargets = 'CUSTOM_AUDIENCE';
     public const REGION_AudiencePackageCreateV2AutoExtendTargets = 'REGION';
     public const GENDER_AudiencePackageCreateV2AutoExtendTargets = 'GENDER';
+    public const AD_TAG_AudiencePackageCreateV2AutoExtendTargets = 'AD_TAG';
+    public const INTEREST_TAG_AudiencePackageCreateV2AutoExtendTargets = 'INTEREST_TAG';
+    public const CUSTOM_AUDIENCE_AudiencePackageCreateV2AutoExtendTargets = 'CUSTOM_AUDIENCE';
+    public const AGE_AudiencePackageCreateV2AutoExtendTargets = 'AGE';
 
     public const ALLOWED_VALUES = [
-        self::INTEREST_TAG_AudiencePackageCreateV2AutoExtendTargets,
-        self::AD_TAG_AudiencePackageCreateV2AutoExtendTargets,
-        self::AGE_AudiencePackageCreateV2AutoExtendTargets,
-        self::CUSTOM_AUDIENCE_AudiencePackageCreateV2AutoExtendTargets,
         self::REGION_AudiencePackageCreateV2AutoExtendTargets,
         self::GENDER_AudiencePackageCreateV2AutoExtendTargets,
+        self::AD_TAG_AudiencePackageCreateV2AutoExtendTargets,
+        self::INTEREST_TAG_AudiencePackageCreateV2AutoExtendTargets,
+        self::CUSTOM_AUDIENCE_AudiencePackageCreateV2AutoExtendTargets,
+        self::AGE_AudiencePackageCreateV2AutoExtendTargets,
     ];
 
     public static function isValid(string $value): bool

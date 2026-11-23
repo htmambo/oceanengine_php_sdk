@@ -172,6 +172,7 @@ final class EventManagerOptimizedGoalGetV2V30DataGoalsDeepGoalsDeepExternalActio
     public const AD_CONVERT_TYPE_WECHAT_REGISTER_EventManagerOptimizedGoalGetV2V30DataGoalsDeepGoalsDeepExternalAction = 'AD_CONVERT_TYPE_WECHAT_REGISTER';
     public const AD_CONVERT_TYPE_WECHAT_WECOM_ADD_EventManagerOptimizedGoalGetV2V30DataGoalsDeepGoalsDeepExternalAction = 'AD_CONVERT_TYPE_WECHAT_WECOM_ADD';
     public const AD_CONVERT_TYPE_XPATH_EventManagerOptimizedGoalGetV2V30DataGoalsDeepGoalsDeepExternalAction = 'AD_CONVERT_TYPE_XPATH';
+    public const AD_CONVERT_TYPE_INSURANCE_PAY_EventManagerOptimizedGoalGetV2V30DataGoalsDeepGoalsDeepExternalAction = 'AD_CONVERT_TYPE_INSURANCE_PAY';
 
     public const ALLOWED_VALUES = [
         self::AD_CONVERT_PAGE_VIEW_EventManagerOptimizedGoalGetV2V30DataGoalsDeepGoalsDeepExternalAction,
@@ -340,6 +341,7 @@ final class EventManagerOptimizedGoalGetV2V30DataGoalsDeepGoalsDeepExternalActio
         self::AD_CONVERT_TYPE_WECHAT_REGISTER_EventManagerOptimizedGoalGetV2V30DataGoalsDeepGoalsDeepExternalAction,
         self::AD_CONVERT_TYPE_WECHAT_WECOM_ADD_EventManagerOptimizedGoalGetV2V30DataGoalsDeepGoalsDeepExternalAction,
         self::AD_CONVERT_TYPE_XPATH_EventManagerOptimizedGoalGetV2V30DataGoalsDeepGoalsDeepExternalAction,
+        self::AD_CONVERT_TYPE_INSURANCE_PAY_EventManagerOptimizedGoalGetV2V30DataGoalsDeepGoalsDeepExternalAction,
     ];
 
     public static function isValid(string $value): bool

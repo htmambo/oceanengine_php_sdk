@@ -6,28 +6,28 @@ namespace Oceanengine\Models;
 
 final class ReportCampaignGetV2FilteringLandingType
 {
-    public const LIVE_ReportCampaignGetV2FilteringLandingType = 'LIVE';
-    public const APP_ReportCampaignGetV2FilteringLandingType = 'APP';
-    public const ARTICLE_ReportCampaignGetV2FilteringLandingType = 'ARTICLE';
     public const SHOP_ReportCampaignGetV2FilteringLandingType = 'SHOP';
-    public const QUICK_APP_ReportCampaignGetV2FilteringLandingType = 'QUICK_APP';
-    public const LINK_ReportCampaignGetV2FilteringLandingType = 'LINK';
-    public const DPA_ReportCampaignGetV2FilteringLandingType = 'DPA';
-    public const STORE_ReportCampaignGetV2FilteringLandingType = 'STORE';
+    public const LIVE_ReportCampaignGetV2FilteringLandingType = 'LIVE';
+    public const ARTICLE_ReportCampaignGetV2FilteringLandingType = 'ARTICLE';
     public const AWEME_ReportCampaignGetV2FilteringLandingType = 'AWEME';
+    public const DPA_ReportCampaignGetV2FilteringLandingType = 'DPA';
+    public const QUICK_APP_ReportCampaignGetV2FilteringLandingType = 'QUICK_APP';
+    public const APP_ReportCampaignGetV2FilteringLandingType = 'APP';
+    public const STORE_ReportCampaignGetV2FilteringLandingType = 'STORE';
     public const GOODS_ReportCampaignGetV2FilteringLandingType = 'GOODS';
+    public const LINK_ReportCampaignGetV2FilteringLandingType = 'LINK';
 
     public const ALLOWED_VALUES = [
-        self::LIVE_ReportCampaignGetV2FilteringLandingType,
-        self::APP_ReportCampaignGetV2FilteringLandingType,
-        self::ARTICLE_ReportCampaignGetV2FilteringLandingType,
         self::SHOP_ReportCampaignGetV2FilteringLandingType,
-        self::QUICK_APP_ReportCampaignGetV2FilteringLandingType,
-        self::LINK_ReportCampaignGetV2FilteringLandingType,
-        self::DPA_ReportCampaignGetV2FilteringLandingType,
-        self::STORE_ReportCampaignGetV2FilteringLandingType,
+        self::LIVE_ReportCampaignGetV2FilteringLandingType,
+        self::ARTICLE_ReportCampaignGetV2FilteringLandingType,
         self::AWEME_ReportCampaignGetV2FilteringLandingType,
+        self::DPA_ReportCampaignGetV2FilteringLandingType,
+        self::QUICK_APP_ReportCampaignGetV2FilteringLandingType,
+        self::APP_ReportCampaignGetV2FilteringLandingType,
+        self::STORE_ReportCampaignGetV2FilteringLandingType,
         self::GOODS_ReportCampaignGetV2FilteringLandingType,
+        self::LINK_ReportCampaignGetV2FilteringLandingType,
     ];
 
     public static function isValid(string $value): bool

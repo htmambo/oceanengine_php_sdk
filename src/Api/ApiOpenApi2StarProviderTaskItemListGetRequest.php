@@ -19,10 +19,6 @@ class ApiOpenApi2StarProviderTaskItemListGetRequest
     private ?int $starId = null;
     /** @var int 任务ID */
     private ?int $taskId = null;
-    /** @var int 投放统计周期开始时间，毫秒级时间戳 */
-    private ?int $statisticsStartTime = null;
-    /** @var int 投放统计周期结束时间，毫秒级时间戳 */
-    private ?int $statisticsEndTime = null;
     /** @var string 视频ID 或者 视频标题 */
     private ?string $itemSearchKey = null;
     /** @var int[] 视频投放状态 */
@@ -31,6 +27,10 @@ class ApiOpenApi2StarProviderTaskItemListGetRequest
     private ?int $page = null;
     /** @var int 每页条数 */
     private ?int $pageSize = null;
+    /** @var int 投放统计周期开始时间，毫秒级时间戳 */
+    private ?int $statisticsStartTime = null;
+    /** @var int 投放统计周期结束时间，毫秒级时间戳 */
+    private ?int $statisticsEndTime = null;
 
     /** @var string|null Access-Token */
     private ?string $accessToken = null;
@@ -57,24 +57,6 @@ class ApiOpenApi2StarProviderTaskItemListGetRequest
     public function taskId(int $taskId): self
     {
         $this->taskId = $taskId;
-        return $this;
-    }
-
-    /**
-     * 投放统计周期开始时间，毫秒级时间戳
-     */
-    public function statisticsStartTime(int $statisticsStartTime): self
-    {
-        $this->statisticsStartTime = $statisticsStartTime;
-        return $this;
-    }
-
-    /**
-     * 投放统计周期结束时间，毫秒级时间戳
-     */
-    public function statisticsEndTime(int $statisticsEndTime): self
-    {
-        $this->statisticsEndTime = $statisticsEndTime;
         return $this;
     }
 
@@ -114,6 +96,24 @@ class ApiOpenApi2StarProviderTaskItemListGetRequest
         return $this;
     }
 
+    /**
+     * 投放统计周期开始时间，毫秒级时间戳
+     */
+    public function statisticsStartTime(int $statisticsStartTime): self
+    {
+        $this->statisticsStartTime = $statisticsStartTime;
+        return $this;
+    }
+
+    /**
+     * 投放统计周期结束时间，毫秒级时间戳
+     */
+    public function statisticsEndTime(int $statisticsEndTime): self
+    {
+        $this->statisticsEndTime = $statisticsEndTime;
+        return $this;
+    }
+
     public function accessToken(string $accessToken): self
     {
         $this->accessToken = $accessToken;
@@ -138,12 +138,6 @@ class ApiOpenApi2StarProviderTaskItemListGetRequest
         if ($this->taskId === null) {
             throw new \InvalidArgumentException('taskId is required and must be specified');
         }
-        if ($this->statisticsStartTime === null) {
-            throw new \InvalidArgumentException('statisticsStartTime is required and must be specified');
-        }
-        if ($this->statisticsEndTime === null) {
-            throw new \InvalidArgumentException('statisticsEndTime is required and must be specified');
-        }
         $queryParams = [];
         $formParams = [];
         $files = [];
@@ -162,8 +156,12 @@ class ApiOpenApi2StarProviderTaskItemListGetRequest
         if ($this->pageSize !== null) {
             $queryParams['page_size'] = $this->pageSize;
         }
-        $queryParams['statistics_start_time'] = $this->statisticsStartTime;
-        $queryParams['statistics_end_time'] = $this->statisticsEndTime;
+        if ($this->statisticsStartTime !== null) {
+            $queryParams['statistics_start_time'] = $this->statisticsStartTime;
+        }
+        if ($this->statisticsEndTime !== null) {
+            $queryParams['statistics_end_time'] = $this->statisticsEndTime;
+        }
         $body = null;
 
         $queryString = $this->apiClient->buildQuery($queryParams);

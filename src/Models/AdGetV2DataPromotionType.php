@@ -6,16 +6,16 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataPromotionType
 {
-    public const LIVE_AdGetV2DataPromotionType = 'LIVE';
-    public const AWEME_HOME_PAGE_AdGetV2DataPromotionType = 'AWEME_HOME_PAGE';
     public const LANDING_PAGE_LINK_AdGetV2DataPromotionType = 'LANDING_PAGE_LINK';
     public const GOODS_AdGetV2DataPromotionType = 'GOODS';
+    public const LIVE_AdGetV2DataPromotionType = 'LIVE';
+    public const AWEME_HOME_PAGE_AdGetV2DataPromotionType = 'AWEME_HOME_PAGE';
 
     public const ALLOWED_VALUES = [
-        self::LIVE_AdGetV2DataPromotionType,
-        self::AWEME_HOME_PAGE_AdGetV2DataPromotionType,
         self::LANDING_PAGE_LINK_AdGetV2DataPromotionType,
         self::GOODS_AdGetV2DataPromotionType,
+        self::LIVE_AdGetV2DataPromotionType,
+        self::AWEME_HOME_PAGE_AdGetV2DataPromotionType,
     ];
 
     public static function isValid(string $value): bool

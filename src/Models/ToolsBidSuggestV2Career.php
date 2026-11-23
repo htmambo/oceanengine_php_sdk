@@ -6,20 +6,20 @@ namespace Oceanengine\Models;
 
 final class ToolsBidSuggestV2Career
 {
-    public const MEDICAL_STAFF_ToolsBidSuggestV2Career = 'MEDICAL_STAFF';
-    public const CIVIL_SERVANTS_ToolsBidSuggestV2Career = 'CIVIL_SERVANTS';
     public const COLLEGE_STUDENT_ToolsBidSuggestV2Career = 'COLLEGE_STUDENT';
-    public const FINANCIAL_ToolsBidSuggestV2Career = 'FINANCIAL';
     public const TEACHER_ToolsBidSuggestV2Career = 'TEACHER';
+    public const CIVIL_SERVANTS_ToolsBidSuggestV2Career = 'CIVIL_SERVANTS';
+    public const MEDICAL_STAFF_ToolsBidSuggestV2Career = 'MEDICAL_STAFF';
     public const IT_ToolsBidSuggestV2Career = 'IT';
+    public const FINANCIAL_ToolsBidSuggestV2Career = 'FINANCIAL';
 
     public const ALLOWED_VALUES = [
-        self::MEDICAL_STAFF_ToolsBidSuggestV2Career,
-        self::CIVIL_SERVANTS_ToolsBidSuggestV2Career,
         self::COLLEGE_STUDENT_ToolsBidSuggestV2Career,
-        self::FINANCIAL_ToolsBidSuggestV2Career,
         self::TEACHER_ToolsBidSuggestV2Career,
+        self::CIVIL_SERVANTS_ToolsBidSuggestV2Career,
+        self::MEDICAL_STAFF_ToolsBidSuggestV2Career,
         self::IT_ToolsBidSuggestV2Career,
+        self::FINANCIAL_ToolsBidSuggestV2Career,
     ];
 
     public static function isValid(string $value): bool

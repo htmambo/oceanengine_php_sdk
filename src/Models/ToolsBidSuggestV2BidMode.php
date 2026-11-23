@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class ToolsBidSuggestV2BidMode
 {
-    public const AUTO_BID_ToolsBidSuggestV2BidMode = 'AUTO_BID';
     public const SUGGEST_ToolsBidSuggestV2BidMode = 'SUGGEST';
+    public const AUTO_BID_ToolsBidSuggestV2BidMode = 'AUTO_BID';
 
     public const ALLOWED_VALUES = [
-        self::AUTO_BID_ToolsBidSuggestV2BidMode,
         self::SUGGEST_ToolsBidSuggestV2BidMode,
+        self::AUTO_BID_ToolsBidSuggestV2BidMode,
     ];
 
     public static function isValid(string $value): bool

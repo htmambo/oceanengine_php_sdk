@@ -8,15 +8,15 @@ final class ToolsPlayableCloudGameListV2DataListStatus
 {
     public const ON_SHELF_ToolsPlayableCloudGameListV2DataListStatus = 'ON_SHELF';
     public const AUDIT_SUCCESS_ToolsPlayableCloudGameListV2DataListStatus = 'AUDIT_SUCCESS';
-    public const OFF_SHELF_ToolsPlayableCloudGameListV2DataListStatus = 'OFF_SHELF';
     public const AUDIT_FAIL_ToolsPlayableCloudGameListV2DataListStatus = 'AUDIT_FAIL';
+    public const OFF_SHELF_ToolsPlayableCloudGameListV2DataListStatus = 'OFF_SHELF';
     public const UPLOAD_STATUS_ToolsPlayableCloudGameListV2DataListStatus = 'UPLOAD_STATUS';
 
     public const ALLOWED_VALUES = [
         self::ON_SHELF_ToolsPlayableCloudGameListV2DataListStatus,
         self::AUDIT_SUCCESS_ToolsPlayableCloudGameListV2DataListStatus,
-        self::OFF_SHELF_ToolsPlayableCloudGameListV2DataListStatus,
         self::AUDIT_FAIL_ToolsPlayableCloudGameListV2DataListStatus,
+        self::OFF_SHELF_ToolsPlayableCloudGameListV2DataListStatus,
         self::UPLOAD_STATUS_ToolsPlayableCloudGameListV2DataListStatus,
     ];
 

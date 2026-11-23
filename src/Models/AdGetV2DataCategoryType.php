@@ -6,14 +6,14 @@ namespace Oceanengine\Models;
 
 final class AdGetV2DataCategoryType
 {
+    public const NONE_AdGetV2DataCategoryType = 'NONE';
     public const PRODUCT_AdGetV2DataCategoryType = 'PRODUCT';
     public const CATEGORY_AdGetV2DataCategoryType = 'CATEGORY';
-    public const NONE_AdGetV2DataCategoryType = 'NONE';
 
     public const ALLOWED_VALUES = [
+        self::NONE_AdGetV2DataCategoryType,
         self::PRODUCT_AdGetV2DataCategoryType,
         self::CATEGORY_AdGetV2DataCategoryType,
-        self::NONE_AdGetV2DataCategoryType,
     ];
 
     public static function isValid(string $value): bool

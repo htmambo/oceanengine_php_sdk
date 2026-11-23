@@ -6,12 +6,12 @@ namespace Oceanengine\Models;
 
 final class DpaAssetsDetailReadV2DataListStatus
 {
-    public const ENABLE_DpaAssetsDetailReadV2DataListStatus = 'ENABLE';
     public const DISABLE_DpaAssetsDetailReadV2DataListStatus = 'DISABLE';
+    public const ENABLE_DpaAssetsDetailReadV2DataListStatus = 'ENABLE';
 
     public const ALLOWED_VALUES = [
-        self::ENABLE_DpaAssetsDetailReadV2DataListStatus,
         self::DISABLE_DpaAssetsDetailReadV2DataListStatus,
+        self::ENABLE_DpaAssetsDetailReadV2DataListStatus,
     ];
 
     public static function isValid(string $value): bool
